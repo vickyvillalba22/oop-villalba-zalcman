@@ -1,3 +1,62 @@
+class Evento {
+    nombre;
+    fecha;
+    horario;
+    duracion;
+    precio;
+    capacidad;
+
+    constructor(nombre, fecha, horario, duracion, precio, capacidad){
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.horario = duracion;
+        this.duracion = duracion;
+        this.precio = precio;
+        this.capacidad = capacidad;
+    }
+
+    reservarEvento(){};
+    cancelarEvento(){};
+    verInfoEvento(){};
+}
+
+class Cine extends Evento {
+    genero;
+    directorCine;
+    dondeCine;
+    asiento;
+
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, genero, directorCine, dondeCine, asiento){
+        super(nombre, fecha, horario, duracion, precio, capacidad)
+    }
+
+}
+
+class Teatro extends Evento {
+    elenco;
+    directorTeatro;
+    tipoObra;
+    sectorTeatro;
+    butaca;
+
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, elenco, directorTeatro, tipoObra, sectorTeatro, butaca){
+        super(nombre, fecha, horario, duracion, precio, capacidad)
+    }
+
+}
+
+class Recital extends Evento {
+    artista;
+    generoMusical;
+    nombreAlbum;
+    sectorRecital;
+
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, artista, generoMusical,nombreAlbum, sectorRecital){
+        super(nombre, fecha, horario, duracion, precio, capacidad)
+    }
+
+}
+
 class Comida {
 
     //props

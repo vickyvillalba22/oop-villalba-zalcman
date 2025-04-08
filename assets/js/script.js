@@ -1,4 +1,7 @@
+import { eventos, reservas } from "./data-base.js"
+
 class Evento {
+
     nombre;
     fecha;
     horario;
@@ -15,8 +18,21 @@ class Evento {
         this.capacidad = capacidad;
     }
 
-    reservarEvento(){};
+    //agrega un objeto class Evento al array reservas
+    reservarEvento(){
+
+        //cuando el usuario elige el evento, se crea el objeto
+        //reservas.push({});
+
+        let titulo = prompt ("ingrese el nombre del evento");
+        reservas.push(titulo);
+        console.log(reservas);
+        
+
+    };
+    //elimina un objeto del array reservas
     cancelarEvento(){};
+    //muestra la info de un objeto del array reservas
     verInfoEvento(){};
 }
 
@@ -121,7 +137,7 @@ class Candy_cine extends Comida {
     }
 
     cambiar_tamano(){
-
+        //pregunta al usuario que tamaño quiere
     }
 
 }
@@ -165,3 +181,8 @@ class Hamburguesas extends Comida {
     }
 
 }
+
+
+//prueba
+const reserva1 = new Evento();
+reserva1.reservarEvento();

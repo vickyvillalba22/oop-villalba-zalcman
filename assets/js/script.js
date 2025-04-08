@@ -9,7 +9,7 @@ class Evento {
     constructor(nombre, fecha, horario, duracion, precio, capacidad){
         this.nombre = nombre;
         this.fecha = fecha;
-        this.horario = duracion;
+        this.horario = horario;
         this.duracion = duracion;
         this.precio = precio;
         this.capacidad = capacidad;
@@ -27,7 +27,12 @@ class Cine extends Evento {
     asiento;
 
     constructor(nombre, fecha, horario, duracion, precio, capacidad, genero, directorCine, dondeCine, asiento){
-        super(nombre, fecha, horario, duracion, precio, capacidad)
+        super(nombre, fecha, horario, duracion, precio, capacidad);
+
+        this.genero = genero;
+        this.directorCine = directorCine;
+        this.dondeCine = dondeCine;
+        this.asiento = asiento;
     }
 
 }
@@ -40,7 +45,13 @@ class Teatro extends Evento {
     butaca;
 
     constructor(nombre, fecha, horario, duracion, precio, capacidad, elenco, directorTeatro, tipoObra, sectorTeatro, butaca){
-        super(nombre, fecha, horario, duracion, precio, capacidad)
+        super(nombre, fecha, horario, duracion, precio, capacidad);
+
+        this.elenco = elenco;
+        this.directorTeatro = directorTeatro;
+        this.tipoObra = tipoObra;
+        this.sectorTeatro = sectorTeatro;
+        this.butaca = butaca;
     }
 
 }
@@ -52,7 +63,12 @@ class Recital extends Evento {
     sectorRecital;
 
     constructor(nombre, fecha, horario, duracion, precio, capacidad, artista, generoMusical,nombreAlbum, sectorRecital){
-        super(nombre, fecha, horario, duracion, precio, capacidad)
+        super(nombre, fecha, horario, duracion, precio, capacidad);
+
+        this.artista = artista;
+        this.generoMusical = generoMusical;
+        this.nombreAlbum = nombreAlbum;
+        this.sectorRecital = sectorRecital;
     }
 
 }

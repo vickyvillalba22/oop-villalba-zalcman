@@ -1,4 +1,4 @@
-import { eventos, reservas } from "./data-base.js"
+import { eventos, reservas, peliculasData } from "./data-base.js"
 
 class Evento {
 
@@ -33,7 +33,9 @@ class Evento {
     //elimina un objeto del array reservas
     cancelarEvento(){};
     //muestra la info de un objeto del array reservas
-    verInfoEvento(){};
+    verInfoEvento(){
+        console.log("desde evento!!!!!!!")
+    };
 }
 
 class Cine extends Evento {
@@ -51,7 +53,32 @@ class Cine extends Evento {
         this.asiento = asiento;
     }
 
+    verInfoEvento(){
+        console.log("HOLA")
+    }
+
 }
+
+
+
+for (let pelicula of peliculasData){
+
+    let nuevaPelicula = new Cine (
+        pelicula.nombre,
+        pelicula.fecha,
+        pelicula.horario,
+        pelicula.duracion,
+        pelicula.precio,
+        pelicula.capacidad,
+        pelicula.genero,
+        pelicula.directorCine,
+        pelicula.dondeCine,
+        pelicula.asiento
+    ) 
+    console.log(nuevaPelicula)
+}
+
+
 
 class Teatro extends Evento {
     elenco;
@@ -88,6 +115,9 @@ class Recital extends Evento {
     }
 
 }
+
+
+
 
 class Comida {
 
@@ -184,5 +214,5 @@ class Hamburguesas extends Comida {
 
 
 //prueba
-const reserva1 = new Evento();
-reserva1.reservarEvento();
+/*const reserva1 = new Evento();
+reserva1.reservarEvento();*/

@@ -1,0 +1,56 @@
+/*generales*/
+section{
+    margin-top: 2em;
+}
+
+/*colores*/
+.azulFondo{
+    background-color: #1f2937;
+}
+.grisClaro{
+    color: #D1D5DB;
+}
+
+/*botones*/
+.ajuste-boton{
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.botonCeleste{
+    background-color: #008FD6;
+}
+
+/*banner section*/
+.banner{
+    background-image: url("../imgs/banner-home.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.385);
+    background-blend-mode: darken;
+
+}
+
+/*textos*/
+.h1,h2,h3,h4,p,a,button{
+    font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+h3{
+    font-weight: 300;
+}
+h1{
+    font-size: clamp(1em, 2.5em, 3em);
+}
+p{
+    font-size: clamp(15px, 16px, 24px);
+    font-weight: 400;
+}
+
+/*categorias*/
+#filter-movies{
+    background-image: url("../imgs/cine-categoria.png");
+    background-position: center;
+    background-color: #991B1B;
+    border-radius: 8px;
+    background-blend-mode: darken;
+}

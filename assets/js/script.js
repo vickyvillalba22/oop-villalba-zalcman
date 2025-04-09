@@ -54,7 +54,7 @@ class Cine extends Evento {
     }
 
     verInfoEvento(){
-        console.log("HOLA")
+        console.log("HOLA");
     }
 
 }

@@ -61,13 +61,97 @@ class Cine extends Evento {
     }
 
     verInfoEvento(){
-        return `Título: ${this.titulo} \n Descripción: ${this.descripcion} \n Fecha: ${this.fecha} \n Lugar ${this.lugar} \n Costo: ($${this.precio}) \n Capacidad: (${this.capacidad}) \n Genero: (${this.genero}) \n Director: (${this.directorCine}) \n Cine: (${this.dondeCine}) \n Asiento: (${this.asiento})`;
+
+        console.log("entro");
+
+        return {
+            nombre: this.nombre, 
+            fecha: this.fecha,
+            horario: this.horario,
+            duracion: this.duracion,
+            precio: this.precio,
+            capacidad: this.capacidad,
+            genero: this.genero,
+            directorCine: this.directorCine,
+            dondeCine: this.dondeCine,
+            asiento: this.asiento
+        };
+
     }
 
 }
 
+/*prueba ver info*/
 
-//creamos diferentes instancias con la informacion del array de peliculas
+//generar galeria
+
+let cajaPelis = document.getElementById("container");
+
+for (let i=0; i<peliculasData.length; i++){
+    let cajita = document.createElement("div");
+
+    cajita.innerHTML = `
+
+            <div id="card" class="w30 mr2 bordeRojo">
+
+                    <img class="vh30 objCover" src="assets/imgs/cine-categoria.png" alt="">
+                    <h3 class="blanco">${peliculasData[i].nombre}</h3>   
+                    <button pos="${i}" class="boton-mostrar sinBorde botonCeleste blanco ajuste-boton">Mas información</button>
+   
+            </div>
+    ` 
+    cajaPelis.appendChild(cajita);
+}
+
+const botones = document.querySelectorAll(".boton-mostrar");
+
+botones.forEach(boton1 => {
+    
+    boton1.addEventListener('click', ()=>{
+
+        let posicion = boton1.getAttribute("pos");
+        console.log(posicion);
+    
+        let peli = instanciasPeliculas[posicion].verInfoEvento();
+
+        mostrarModal(peli);
+    
+    });
+
+});
+
+function mostrarModal (pelicula){
+
+    console.log(pelicula);
+
+    let modal = document.getElementById("muestra-info");
+    modal.addEventListener('click', ()=>{
+        modal.close();
+    })
+
+    modal.innerHTML = `
+    
+        <h3>${pelicula.nombre}</h3>
+        <img src="" alt="">
+        <p>Fecha: ${pelicula.fecha}</p>
+        <p>Horario: ${pelicula.horario}</p>
+        <p>Duración: ${pelicula.duracion}</p>
+        <p>Precio: ${pelicula.precio}</p>
+        <p>${pelicula.capacidad}</p>
+        <p>Género: ${pelicula.genero}</p>
+        <p>Director: ${pelicula.directorCine}</p>
+        <p>Cine: ${pelicula.dondeCine}</p>
+        <p>Asiento: ${pelicula.asiento}</p>
+
+    `
+
+    modal.showModal();
+
+}
+
+const instanciasPeliculas = [];
+
+//creamos diferentes instancias con la informacion del array de peliculas. Y llenamos un array de instancias para utilizarlo despues
 for (let pelicula of peliculasData){
 
     let nuevaPelicula = new Cine (
@@ -81,8 +165,9 @@ for (let pelicula of peliculasData){
         pelicula.directorCine,
         pelicula.dondeCine,
         pelicula.asiento
-    ) 
-    console.log(nuevaPelicula)
+    );
+
+    instanciasPeliculas.push(nuevaPelicula);
 }
 
 
@@ -122,8 +207,6 @@ class Recital extends Evento {
     }
 
 }
-
-
 
 
 class Comida {

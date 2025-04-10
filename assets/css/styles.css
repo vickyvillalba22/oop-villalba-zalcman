@@ -3,6 +3,11 @@ section{
     margin-top: 2em;
 }*/
 
+/*sacar*/
+#container{
+    flex-wrap: wrap;
+}
+
 /*colores*/
 .azulFondo{
     background-color: #1f2937;

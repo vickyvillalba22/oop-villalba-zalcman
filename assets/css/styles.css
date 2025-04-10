@@ -1,7 +1,7 @@
-/*generales*/
+/*generales
 section{
     margin-top: 2em;
-}
+}*/
 
 /*colores*/
 .azulFondo{
@@ -9,6 +9,10 @@ section{
 }
 .grisClaro{
     color: #D1D5DB;
+}
+
+.bgGrisOscuro{
+    background-color: #48494d;
 }
 
 /*botones*/
@@ -28,7 +32,6 @@ section{
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.385);
     background-blend-mode: darken;
-
 }
 
 /*textos*/
@@ -53,4 +56,15 @@ p{
     background-color: #991B1B;
     border-radius: 8px;
     background-blend-mode: darken;
+}
+
+header{
+    z-index: 10;
+    top: 0;
+}
+
+aside{
+    margin-left: 2em;
+    margin-right: 2em;
+    border-radius: 1em;
 }

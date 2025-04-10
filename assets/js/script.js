@@ -24,17 +24,24 @@ class Evento {
         //cuando el usuario elige el evento, se crea el objeto
         //reservas.push({});
 
-        let titulo = prompt ("ingrese el nombre del evento");
+        let titulo = prompt ("ingrese el nombre del evento"); //yo haria que sea un boton desde el evento elegido en lugar de ingresar nombre
         reservas.push(titulo);
         console.log(reservas);
-        
 
+        //le aviso al usuario que la reserva fue realizada
+        return `Reserva realizada para el evento: ${this.titulo}`;
+        
     };
+
     //elimina un objeto del array reservas
     cancelarEvento(){};
     //muestra la info de un objeto del array reservas
+    
+    //muestro toda la informacion del evento
     verInfoEvento(){
-        console.log("desde evento!!!!!!!")
+
+        return `Título: ${this.titulo} \n Descripción: ${this.descripcion} \n Fecha: ${this.fecha} \n Lugar ${this.lugar} \n Costo: ($${this.precio})`;
+ 
     };
 }
 
@@ -54,13 +61,13 @@ class Cine extends Evento {
     }
 
     verInfoEvento(){
-        console.log("HOLA");
+        return `Título: ${this.titulo} \n Descripción: ${this.descripcion} \n Fecha: ${this.fecha} \n Lugar ${this.lugar} \n Costo: ($${this.precio}) \n Capacidad: (${this.capacidad}) \n Genero: (${this.genero}) \n Director: (${this.directorCine}) \n Cine: (${this.dondeCine}) \n Asiento: (${this.asiento})`;
     }
 
 }
 
 
-
+//creamos diferentes instancias con la informacion del array de peliculas
 for (let pelicula of peliculasData){
 
     let nuevaPelicula = new Cine (

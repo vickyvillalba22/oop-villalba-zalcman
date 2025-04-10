@@ -45,6 +45,7 @@ class Evento {
     };
 }
 
+
 class Cine extends Evento {
     genero;
     directorCine;
@@ -64,6 +65,7 @@ class Cine extends Evento {
 
         console.log("entro");
 
+        //devuelve un objeto con todos los datos
         return {
             nombre: this.nombre, 
             fecha: this.fecha,
@@ -81,15 +83,16 @@ class Cine extends Evento {
 
 }
 
-/*prueba ver info*/
+
 
 //generar galeria
-
 let cajaPelis = document.getElementById("container");
 
 for (let i=0; i<peliculasData.length; i++){
     let cajita = document.createElement("div");
 
+    //mostramos la imagen y el titulo
+    //le asignamos al boton la posicion para usar despues
     cajita.innerHTML = `
 
             <div id="card" class="w30 mr2 bordeRojo">
@@ -103,23 +106,29 @@ for (let i=0; i<peliculasData.length; i++){
     cajaPelis.appendChild(cajita);
 }
 
+
+//traemos los botones mostrar
 const botones = document.querySelectorAll(".boton-mostrar");
 
 botones.forEach(boton1 => {
     
     boton1.addEventListener('click', ()=>{
 
+        //tomamos la posicion asignada al boton correspondiente
         let posicion = boton1.getAttribute("pos");
         console.log(posicion);
     
+        //asignamos el metodo a la instancia correspondiente a esa posicion
         let peli = instanciasPeliculas[posicion].verInfoEvento();
 
+        //se la paso como parametro
         mostrarModal(peli);
     
     });
 
 });
 
+//para mostrar la informacion de la pelicula
 function mostrarModal (pelicula){
 
     console.log(pelicula);
@@ -129,6 +138,7 @@ function mostrarModal (pelicula){
         modal.close();
     })
 
+    //le agrego los datos
     modal.innerHTML = `
     
         <h3>${pelicula.nombre}</h3>

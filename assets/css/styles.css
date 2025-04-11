@@ -22,8 +22,8 @@ section{
 
 /*botones*/
 .ajuste-boton{
-    padding: 5px 15px;
-    border-radius: 5px;
+    padding: 8px 15px;
+    border-radius: 6px;
 }
 
 .botonCeleste{
@@ -73,3 +73,14 @@ aside{
     margin-right: 2em;
     border-radius: 1em;
 }
+
+#card{
+    overflow: hidden;
+}
+
+.modalInfo{
+    border-radius: 1em;
+    border:none;
+    padding: 2em;
+}
+

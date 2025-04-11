@@ -90,16 +90,17 @@ let cajaPelis = document.getElementById("container");
 
 for (let i=0; i<peliculasData.length; i++){
     let cajita = document.createElement("div");
+    cajita.classList.add("w30", "mb3")
 
     //mostramos la imagen y el titulo
     //le asignamos al boton la posicion para usar despues
     cajita.innerHTML = `
 
-            <div id="card" class="w30 mr2 bordeRojo">
+            <div id="card" class="w100">
 
                     <img class="vh30 objCover" src="assets/imgs/cine-categoria.png" alt="">
-                    <h3 class="blanco">${peliculasData[i].nombre}</h3>   
-                    <button pos="${i}" class="boton-mostrar sinBorde botonCeleste blanco ajuste-boton">Mas información</button>
+                    <h3 class="blanco mt1">${peliculasData[i].nombre}</h3>   
+                    <button pos="${i}" class="mt1 boton-mostrar sinBorde botonCeleste blanco ajuste-boton w100">Mas información</button>
    
             </div>
     ` 
@@ -134,6 +135,7 @@ function mostrarModal (pelicula){
     console.log(pelicula);
 
     let modal = document.getElementById("muestra-info");
+    modal.classList.add("modalInfo")
     modal.addEventListener('click', ()=>{
         modal.close();
     })

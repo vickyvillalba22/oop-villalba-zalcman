@@ -63,5 +63,17 @@ export const peliculasData = [
         directorCine: "Wes Anderson",
         dondeCine: "Multiplex Belgrano",
         asiento: "Fila 6, Asiento 6"
+    },
+    {
+        nombre: "The Social Network",
+        fecha: "2025-05-14",
+        horario: "20:00",
+        duracion: 2.00,
+        precio: 1500,
+        capacidad: 85,
+        genero: "Biografía",
+        directorCine: "David Fincher",
+        dondeCine: "Atlas Nordelta",
+        asiento: "Fila 5, Asiento 3"
     }
 ];

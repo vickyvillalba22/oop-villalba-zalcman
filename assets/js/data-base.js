@@ -77,3 +77,85 @@ export const peliculasData = [
         asiento: "Fila 5, Asiento 3"
     }
 ];
+
+export const obrasData = [
+    {
+      nombre: "La Casa de Bernarda Alba",
+      fecha: "2025-05-10",
+      horario: "20:30",
+      duracion: 120,
+      precio: 3500,
+      capacidad: 150,
+      elenco: ["Ana López", "María González", "Carla Suárez"],
+      directorTeatro: "Lucía Fernández",
+      tipoObra: "Drama",
+      sectorTeatro: "Sala Principal",
+      butaca: "Platea"
+    },
+    {
+      nombre: "Sueño de una noche de verano",
+      fecha: "2025-05-15",
+      horario: "21:00",
+      duracion: 100,
+      precio: 3000,
+      capacidad: 200,
+      elenco: ["Julián Rivas", "Camila Blanco", "Fernando Torres"],
+      directorTeatro: "Marcelo Gómez",
+      tipoObra: "Comedia",
+      sectorTeatro: "Sala 2",
+      butaca: "General"
+    },
+    {
+      nombre: "Esperando la carroza",
+      fecha: "2025-06-01",
+      horario: "19:00",
+      duracion: 90,
+      precio: 2800,
+      capacidad: 120,
+      elenco: ["Laura Medina", "Carlos Pinto", "Nora Vega"],
+      directorTeatro: "Federico Ledesma",
+      tipoObra: "Comedia negra",
+      sectorTeatro: "Sala Principal",
+      butaca: "Palco"
+    },
+    {
+      nombre: "El zoo de cristal",
+      fecha: "2025-06-10",
+      horario: "20:00",
+      duracion: 110,
+      precio: 3200,
+      capacidad: 100,
+      elenco: ["Luciana Castro", "Pedro Almada", "Juana Rojas"],
+      directorTeatro: "Silvia Barreto",
+      tipoObra: "Drama psicológico",
+      sectorTeatro: "Sala 3",
+      butaca: "Platea"
+    },
+    {
+      nombre: "Hamlet",
+      fecha: "2025-06-20",
+      horario: "21:00",
+      duracion: 150,
+      precio: 4000,
+      capacidad: 250,
+      elenco: ["Iván Herrera", "Claudia Ramos", "Esteban Salinas"],
+      directorTeatro: "Ramiro Escudero",
+      tipoObra: "Tragedia",
+      sectorTeatro: "Auditorio Principal",
+      butaca: "Preferencial"
+    },
+    {
+        nombre: "Toc Toc",
+        fecha: "2025-06-25",
+        horario: "20:30",
+        duracion: 105,
+        precio: 3100,
+        capacidad: 180,
+        elenco: ["Martín Pérez", "Agustina Díaz", "Sofía Herrera", "Diego Romero"],
+        directorTeatro: "Gabriela Sosa",
+        tipoObra: "Comedia",
+        sectorTeatro: "Sala 1",
+        butaca: "General"
+      }
+];
+  

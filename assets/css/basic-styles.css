@@ -54,6 +54,9 @@
 .df{
     display: flex;
 }
+.wrap{
+    flex-wrap: wrap;
+}
 .fEnd{
     justify-content: end;
 }

@@ -1,13 +1,13 @@
 import { Cine } from "./script.js";
 import { instanciasPeliculas } from "./script.js";
-import { peliculasData } from "./data-base.js";
+import { peliculasData, obrasData } from "./data-base.js";
 
 //generar galeria
 let cajaPelis = document.getElementById("container");
 
-function cartelera (){
+export function cartelera (container, datos){
 
-    for (let i=0; i<peliculasData.length; i++){
+    for (let i=0; i<datos.length; i++){
 
         let cajita = document.createElement("div");
         cajita.classList.add("w30", "mb3");
@@ -19,22 +19,27 @@ function cartelera (){
                 <div id="card" class="w100">
     
                         <img class="vh30 objCover" src="assets/imgs/cine-categoria.png" alt="">
-                        <h3 class="blanco mt1">${peliculasData[i].nombre}</h3>   
+                        <h3 class="blanco mt1">${datos[i].nombre}</h3>   
                         <button pos="${i}" class="mt1 boton-mostrar sinBorde botonCeleste blanco ajuste-boton w100">Mas información</button>
        
                 </div>
         ` 
-        cajaPelis.appendChild(cajita);
+        container.appendChild(cajita);
     }
 
 }
 
-cartelera();
+if (cajaPelis){
+    cartelera(cajaPelis, peliculasData);
+    botones_mostrar(instanciasPeliculas)
+} else {
+    console.warn("no esta la caja de cine");
+}
 
 //para mostrar la informacion de la pelicula
-function mostrarModal (pelicula){
+export function mostrarModal (evento){
 
-    console.log(pelicula);
+    console.log(evento);
 
     let modal = document.getElementById("muestra-info");
     modal.classList.add("modalInfo")
@@ -45,17 +50,17 @@ function mostrarModal (pelicula){
     //le agrego los datos
     modal.innerHTML = `
     
-        <h3>${pelicula.nombre}</h3>
+        <h3>${evento.nombre}</h3>
         <img src="" alt="">
-        <p>Fecha: ${pelicula.fecha}</p>
-        <p>Horario: ${pelicula.horario}</p>
-        <p>Duración: ${pelicula.duracion}</p>
-        <p>Precio: ${pelicula.precio}</p>
-        <p>${pelicula.capacidad}</p>
-        <p>Género: ${pelicula.genero}</p>
-        <p>Director: ${pelicula.directorCine}</p>
-        <p>Cine: ${pelicula.dondeCine}</p>
-        <p>Asiento: ${pelicula.asiento}</p>
+        <p>Fecha: ${evento.fecha}</p>
+        <p>Horario: ${evento.horario}</p>
+        <p>Duración: ${evento.duracion}</p>
+        <p>Precio: ${evento.precio}</p>
+        <p>${evento.capacidad}</p>
+        <p>Género: ${evento.genero}</p>
+        <p>Director: ${evento.directorCine}</p>
+        <p>Cine: ${evento.dondeCine}</p>
+        <p>Asiento: ${evento.asiento}</p>
 
     `
 
@@ -64,22 +69,29 @@ function mostrarModal (pelicula){
 }
 
 //traemos los botones mostrar
-const botones = document.querySelectorAll(".boton-mostrar");
+export function botones_mostrar (datos){
 
-botones.forEach(boton1 => {
+    const botones = document.querySelectorAll(".boton-mostrar");
+
+    botones.forEach(boton1 => {
     
-    boton1.addEventListener('click', ()=>{
-
-        //tomamos la posicion asignada al boton correspondiente
-        let posicion = boton1.getAttribute("pos");
-        console.log(posicion);
+        boton1.addEventListener('click', ()=>{
     
-        //asignamos el metodo a la instancia correspondiente a esa posicion
-        let peli = instanciasPeliculas[posicion].verInfoEvento();
+            //tomamos la posicion asignada al boton correspondiente
+            let posicion = boton1.getAttribute("pos");
+            console.log(posicion);
 
-        //se la paso como parametro
-        mostrarModal(peli);
+            console.log(datos);
+        
+            //asignamos el metodo a la instancia correspondiente a esa posicion
+            let evento = datos[posicion].verInfoEvento();
+    
+            //se la paso como parametro
+            mostrarModal(evento);
+        
+        });
     
     });
 
-});
+}
+

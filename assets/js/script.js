@@ -1,4 +1,4 @@
-import { eventos, reservas, peliculasData } from "./data-base.js"
+import { eventos, reservas, peliculasData, obrasData } from "./data-base.js"
 
 class Evento {
 
@@ -158,6 +158,47 @@ class Teatro extends Evento {
         this.butaca = butaca;
     }
 
+    verInfoEvento() {
+        
+        console.log("entro");
+    
+        return {
+            nombre: this.nombre,
+            fecha: this.fecha,
+            horario: this.horario,
+            duracion: this.duracion,
+            precio: this.precio,
+            capacidad: this.capacidad,
+            elenco: this.elenco,
+            directorTeatro: this.directorTeatro,
+            tipoObra: this.tipoObra,
+            sectorTeatro: this.sectorTeatro,
+            butaca: this.butaca
+        };
+    }
+
+}
+
+export const instanciasObras = [];
+
+for (let obra of obrasData){
+
+    let nuevaObra = new Teatro (
+        obra.nombre,
+        obra.precio,
+        obra.tipoObra,
+        obra.butaca,
+        obra.capacidad,
+        obra.directorTeatro,
+        obra.duracion,
+        obra.elenco,
+        obra.fecha,
+        obra.horario,
+        obra.sectorTeatro
+    )
+
+    instanciasObras.push(nuevaObra);
+
 }
 
 class Recital extends Evento {
@@ -182,34 +223,65 @@ class Comida {
 
     //props
     nombre;
-    precio;
-    cant_disp;
+    #precio;
+    #cant_disp;
     tipo;
 
     constructor (nombre, precio, cant_disp, tipo){
 
         this.nombre = nombre;
-        this.precio = precio;
-        this.cant_disp = cant_disp;
+        this.#precio = precio;
+        this.#cant_disp = cant_disp;
         this.tipo = tipo;
 
     }
 
+    get cant_disp (){
+        return this.#cant_disp
+    }
+
+    get precio(){
+        return this.#precio
+    }
+
     //methods
-    vender(){
+    agregar_a_reserva(comidaElegida){
+
+        //verifico que haya stock
+        if (this.#cant_disp>0){
+            //agrego la comida elegida a las reservas del usuario. Esto es medio general, pero es para acumular todo lo que quiera comprar el usuario
+            reservas.push(comidaElegida);
+            //le resto uno a la cantidad disponible de ese producto
+            this.#cant_disp = this.#cant_disp-1;
+            return `Reserva confirmada`;
+        } else{
+            return `No hay stock disponible`;
+        }
 
     }
-    reponer_stock(){
+
+    mostrar_info_comida(){
+
+        return {
+            nombre: this.nombre,
+            precio: this.precio,
+            cant_disp: this.#cant_disp,
+            tipo: this.tipo
+        }
 
     }
-    mostrar_info(){
 
-    }
-    descuento(){
+    set ponerDescuento (porcentaje){
+
+        if (porcentaje > 0 && porcentaje < 100) {
+            this.#precio = this.#precio - (this.#precio * porcentaje / 100);
+        }
 
     }
 
 }
+
+const comida1 = new Comida ()
 
 class Candy_cine extends Comida {
 

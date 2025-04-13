@@ -31,12 +31,26 @@ section{
 }
 
 /*banner section*/
+.ajusteBanner{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.527);
+    background-blend-mode: darken;
+}
+
 .banner{
     background-image: url("../imgs/banner-home.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: rgba(0, 0, 0, 0.385);
-    background-blend-mode: darken;
+}
+
+.banner-cine{
+    background-image: url("../imgs/banner-cine.jpg");
+}
+.banner-teatro{
+    background-image: url("../imgs/banner-teatro.jpg");
+}
+.banner-concierto{
+    background-image: url("../imgs/banner-recital.jpg");
 }
 
 /*textos*/
@@ -55,12 +69,26 @@ p{
 }
 
 /*categorias*/
+.ajusteCategoria{
+    border-radius: 8px;
+    background-size: cover;
+    background-blend-mode: darken;
+    background-position: center;
+}
+
 #filter-movies{
     background-image: url("../imgs/cine-categoria.png");
-    background-position: center;
     background-color: #991B1B;
-    border-radius: 8px;
-    background-blend-mode: darken;
+}
+
+#filter-theatre{
+    background-image: url("../imgs/category-theatre.png");
+    background-color: #9409ff;
+}
+
+#filter-concert{
+    background-image: url("../imgs/concert-category.png");
+    background-color: #09adff;
 }
 
 header{

@@ -1,4 +1,4 @@
-//aca se pueden agregar eventos
+//aca se pueden agregar eventos. Este en realidad es general pero si el admin agrega, se deberian agregar a los data de cada tipo de evento. 
 export const eventos = [];
 //aca se van agregando reservas y compras de comida
 export const reservas = [];
@@ -157,5 +157,74 @@ export const obrasData = [
         sectorTeatro: "Sala 1",
         butaca: "General"
       }
+];
+
+export const recitalesData = [
+  {
+    nombre: "Noches de Rock",
+    fecha: "2025-06-15",
+    horario: "21:00",
+    duracion: 120,
+    precio: 9500,
+    capacidad: 5000,
+    artista: "Los Infiltrados",
+    generoMusical: "Rock",
+    nombreAlbum: "Caos Perfecto"
+  },
+  {
+    nombre: "Vibraciones Urbanas",
+    fecha: "2025-05-22",
+    horario: "20:30",
+    duracion: 90,
+    precio: 8200,
+    capacidad: 3000,
+    artista: "La Rima Salvaje",
+    generoMusical: "Hip-Hop",
+    nombreAlbum: "Ritmo Real"
+  },
+  {
+    nombre: "Electro Night",
+    fecha: "2025-07-08",
+    horario: "23:00",
+    duracion: 180,
+    precio: 12000,
+    capacidad: 7000,
+    artista: "DJ Nova",
+    generoMusical: "Electrónica",
+    nombreAlbum: "Galaxia"
+  },
+  {
+    nombre: "Cuerdas del Alma",
+    fecha: "2025-04-28",
+    horario: "19:00",
+    duracion: 75,
+    precio: 6000,
+    capacidad: 1500,
+    artista: "Lucía Pérez",
+    generoMusical: "Folk",
+    nombreAlbum: "Raíz"
+  },
+  {
+    nombre: "Latido Tropical",
+    fecha: "2025-08-12",
+    horario: "22:00",
+    duracion: 100,
+    precio: 7800,
+    capacidad: 3500,
+    artista: "Grupo Caribe",
+    generoMusical: "Salsa",
+    nombreAlbum: "Sabor y Ritmo"
+  },
+  {
+    nombre: "Metal del Sur",
+    fecha: "2025-09-03",
+    horario: "20:00",
+    duracion: 110,
+    precio: 9900,
+    capacidad: 4000,
+    artista: "Hierro Austral",
+    generoMusical: "Metal",
+    nombreAlbum: "Aullido"
+  }
 ];
   

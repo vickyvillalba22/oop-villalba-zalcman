@@ -1,4 +1,4 @@
-import { eventos, reservas, peliculasData, obrasData } from "./data-base.js"
+import { eventos, reservas, peliculasData, obrasData, recitalesData } from "./data-base.js"
 
 class Evento {
 
@@ -202,19 +202,40 @@ for (let obra of obrasData){
 }
 
 class Recital extends Evento {
+
     artista;
     generoMusical;
     nombreAlbum;
-    sectorRecital;
 
-    constructor(nombre, fecha, horario, duracion, precio, capacidad, artista, generoMusical,nombreAlbum, sectorRecital){
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, artista, generoMusical, nombreAlbum){
+
         super(nombre, fecha, horario, duracion, precio, capacidad);
 
         this.artista = artista;
         this.generoMusical = generoMusical;
         this.nombreAlbum = nombreAlbum;
-        this.sectorRecital = sectorRecital;
     }
+
+}
+
+//cree las instancias de recitales a partir del array de data, quedaría conectarlo al dom y generar la cartelera.
+export const instanciasRecitales = [];
+
+for (let recital of recitalesData){
+
+    let nuevoRecital = new Recital (
+        recital.nombre,
+        recital.fecha,
+        recital.horario,
+        recital.duracion,
+        recital.precio,
+        recital.capacidad,
+        recital.artista,
+        recital.generoMusical,
+        recital.nombreAlbum
+    )
+
+    instanciasRecitales.push(recital);
 
 }
 

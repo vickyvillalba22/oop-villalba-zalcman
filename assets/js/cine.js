@@ -36,7 +36,8 @@ if (cajaPelis){
     console.warn("no esta la caja de cine");
 }
 
-//para mostrar la informacion de la pelicula
+
+//para mostrar la informacion de la pelicula en un modal
 export function mostrarModal (evento){
 
     console.log(evento);
@@ -56,7 +57,7 @@ export function mostrarModal (evento){
         <p>Horario: ${evento.horario}</p>
         <p>Duración: ${evento.duracion}</p>
         <p>Precio: ${evento.precio}</p>
-        <p>${evento.capacidad}</p>
+        <p>Capacidad:${evento.capacidad}</p>
         <p>Género: ${evento.genero}</p>
         <p>Director: ${evento.directorCine}</p>
         <p>Cine: ${evento.dondeCine}</p>
@@ -79,9 +80,9 @@ export function botones_mostrar (datos){
     
             //tomamos la posicion asignada al boton correspondiente
             let posicion = boton1.getAttribute("pos");
-            console.log(posicion);
+            console.log("Posicion:" + posicion);
 
-            console.log(datos);
+            console.log("Datos:" + datos);
         
             //asignamos el metodo a la instancia correspondiente a esa posicion
             let evento = datos[posicion].verInfoEvento();

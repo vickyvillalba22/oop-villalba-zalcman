@@ -29,38 +29,58 @@
 
         </section>
 
-        <section>
+        <section class="w100 df columna centerY">
 
-            <form action="">
+            <form action="" class="w50 vh70 df columna spacea">
 
                 <!--EVENTO-->
-                <label class="blanco" for="name">Nombre del evento</label>
-                <input type="text" for="name">
+                <label class="w100 grisClaro" for="name">Nombre del evento</label>
+                <input class="w100" type="text" name="name" id="name">
 
-                <label class="blanco" for="fecha">Fecha</label>
-                <input type="datetime-local" for="fecha">
+                <div class="df spaceb">
 
-                <label class="blanco" for="duracion">Duración (en minutos)</label>
-                <input type="number" for="duracion">
+                    <div class="df columna w45">
+                        <label class="grisClaro" for="fecha">Fecha</label>
+                        <input type="datetime-local" name="fecha" id="fecha">
+                    </div>
 
-                <label class="blanco" for="precio">Precio ($ARS)</label>
-                <input type="number" for="precio">
+                    <div class="df columna w45">
+                        <label class="grisClaro" for="duracion">Duración (en minutos)</label>
+                        <input type="number" name="duracion" id="duracion">
+                    </div>
+                     
+                    
+                </div>
 
-                <label class="blanco" for="capacidad">Capacidad del lugar</label>
-                <input type="number" for="capacidad">
+                
+
+                <label class="grisClaro" for="precio">Precio ($ARS)</label>
+                <input type="number" name="precio" id="precio">
+
+                <label class="grisClaro" for="capacidad">Capacidad del lugar</label>
+                <input type="number" name="capacidad" id="capacidad">
 
                 <div>
 
-                    <p class="blanco">Seleccione el tipo de evento</p>
+                    <div class="vh10 df columna spacea">
 
-                    <button id="botonPelicula">Película</button>
-                    <button id="botonTeatro">Obra de teatro</button>
-                    <button id="botonRecital">Recital</button>
+                        <p class="blanco">Seleccione el tipo de evento</p>
 
-                    <div id="formElegido"></div>
+                        <div class="df w40 spaceb">
+                            <button id="botonPelicula" class="sinBorde fondoRojo blanco ajuste-boton">Película</button>
+                            <button id="botonTeatro" class="sinBorde fondoVioleta blanco ajuste-boton">Obra de teatro</button>
+                            <button id="botonRecital" class="sinBorde fondoCeleste blanco ajuste-boton">Recital</button>
+                        </div>
+                        
+                    </div>
 
-                    
-                    
+                    <div id="formElegido" class="df columna"></div>
+
+                    <button id="carga-pelicula" class="invisible fondoRojo blanco sinBorde ajuste-boton mt1">Cargar Película</button>
+
+                    <button id="carga-teatro" class="invisible fondoVioleta blanco sinBorde ajuste-boton mt1">Cargar Obra</button>
+
+                    <button id="carga-recital" class="invisible fondoCeleste blanco sinBorde ajuste-boton mt1">Cargar Recital</button>
                     
 
                 </div>
@@ -69,7 +89,10 @@
         </section>
 
         <!--section para que aparezcan los eventos que agregamos-->
-        <section></section>
+        <section>
+            <h3 class="blanco">Eventos agregados</h3>
+            <div id="eventos-agregados"></div>
+        </section>
 
     </main>
 

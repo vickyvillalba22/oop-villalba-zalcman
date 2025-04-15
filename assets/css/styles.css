@@ -19,6 +19,17 @@ section{
 .bgGrisOscuro{
     background-color: #48494d;
 }
+.fondoRojo{
+    background-color: #991B1B;
+}
+
+.fondoVioleta{
+    background-color: #9409ff;
+}
+
+.fondoCeleste{
+    background-color: #09adff;
+}
 
 /*botones*/
 .ajuste-boton{
@@ -54,7 +65,7 @@ section{
 }
 
 /*textos*/
-.h1,h2,h3,h4,p,a,button{
+h1,h2,h3,h4,p,a,button,label,input{
     font-family: Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 h3{
@@ -78,17 +89,14 @@ p{
 
 #filter-movies{
     background-image: url("../imgs/cine-categoria.png");
-    background-color: #991B1B;
 }
 
 #filter-theatre{
     background-image: url("../imgs/category-theatre.png");
-    background-color: #9409ff;
 }
 
 #filter-concert{
     background-image: url("../imgs/concert-category.png");
-    background-color: #09adff;
 }
 
 header{
@@ -110,5 +118,21 @@ aside{
     border-radius: 1em;
     border:none;
     padding: 2em;
+}
+
+/*form*/
+
+input{
+    height: 45px;
+    border: none;
+    border-radius: 16px;
+    background-color: #9cc7fb6f;
+    color: #ffffff;
+    padding: 12px;
+}
+
+label{
+    font-size: 15px;
+    margin-top: 20px;
 }
 

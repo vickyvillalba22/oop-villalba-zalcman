@@ -1,9 +1,13 @@
-import { Cine } from "./script.js";
+import { Cine, instanciasRecitales, instanciasObras } from "./script.js";
 import { instanciasPeliculas } from "./script.js";
-import { peliculasData, obrasData } from "./data-base.js";
+import { peliculasData, obrasData, recitalesData } from "./data-base.js";
 
 //generar galeria
 let cajaPelis = document.getElementById("container");
+
+let cajaRecitales = document.getElementById("caja-concert");
+
+let cajaObras = document.getElementById("contObras");
 
 export function cartelera (container, datos){
 
@@ -31,15 +35,22 @@ export function cartelera (container, datos){
 
 if (cajaPelis){
     cartelera(cajaPelis, peliculasData);
-    botones_mostrar(instanciasPeliculas)
-} else {
-    console.warn("no esta la caja de cine");
+    botones_mostrar(instanciasPeliculas);
 }
+if (cajaRecitales){
+    cartelera(cajaRecitales, recitalesData);
+    botones_mostrar(instanciasRecitales);
+} 
+
+if (cajaObras){
+    cartelera(cajaObras, obrasData);
+    botones_mostrar(instanciasObras);
+} 
 
 //para mostrar la informacion de la pelicula
 export function mostrarModal (evento){
 
-    console.log(evento);
+    //console.log(evento);
 
     let modal = document.getElementById("muestra-info");
     modal.classList.add("modalInfo")
@@ -48,21 +59,7 @@ export function mostrarModal (evento){
     })
 
     //le agrego los datos
-    modal.innerHTML = `
-    
-        <h3>${evento.nombre}</h3>
-        <img src="" alt="">
-        <p>Fecha: ${evento.fecha}</p>
-        <p>Horario: ${evento.horario}</p>
-        <p>Duración: ${evento.duracion}</p>
-        <p>Precio: ${evento.precio}</p>
-        <p>${evento.capacidad}</p>
-        <p>Género: ${evento.genero}</p>
-        <p>Director: ${evento.directorCine}</p>
-        <p>Cine: ${evento.dondeCine}</p>
-        <p>Asiento: ${evento.asiento}</p>
-
-    `
+    modal.innerHTML = evento.verInfoEvento();
 
     modal.showModal();
 
@@ -79,12 +76,12 @@ export function botones_mostrar (datos){
     
             //tomamos la posicion asignada al boton correspondiente
             let posicion = boton1.getAttribute("pos");
-            console.log(posicion);
+            //console.log(posicion);
 
-            console.log(datos);
+            //console.log(datos);
         
             //asignamos el metodo a la instancia correspondiente a esa posicion
-            let evento = datos[posicion].verInfoEvento();
+            let evento = datos[posicion];
     
             //se la paso como parametro
             mostrarModal(evento);

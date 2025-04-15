@@ -29,12 +29,53 @@
 
         </section>
 
+        <section>
+
+            <form action="">
+
+                <!--EVENTO-->
+                <label class="blanco" for="name">Nombre del evento</label>
+                <input type="text" for="name">
+
+                <label class="blanco" for="fecha">Fecha</label>
+                <input type="datetime-local" for="fecha">
+
+                <label class="blanco" for="duracion">Duración (en minutos)</label>
+                <input type="number" for="duracion">
+
+                <label class="blanco" for="precio">Precio ($ARS)</label>
+                <input type="number" for="precio">
+
+                <label class="blanco" for="capacidad">Capacidad del lugar</label>
+                <input type="number" for="capacidad">
+
+                <div>
+
+                    <p class="blanco">Seleccione el tipo de evento</p>
+
+                    <button id="botonPelicula">Película</button>
+                    <button id="botonTeatro">Obra de teatro</button>
+                    <button id="botonRecital">Recital</button>
+
+                    <div id="formElegido"></div>
+
+                    
+                    
+                    
+
+                </div>
+
+            </form>
+        </section>
+
         <!--section para que aparezcan los eventos que agregamos-->
         <section></section>
 
     </main>
 
     <footer></footer>
+
+    <script type="module" src="assets/js/admin.js"></script>
 
 </body>
 </html>

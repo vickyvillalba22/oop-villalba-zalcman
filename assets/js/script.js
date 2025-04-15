@@ -76,7 +76,13 @@ class Evento {
     //devuelvo toda la info del evento
     verInfoEvento(){
 
-        return `Título: ${this.titulo} \n Descripción: ${this.descripcion} \n Fecha: ${this.fecha} \n Lugar ${this.lugar} \n Costo: ($${this.precio})`;
+        return `<h3>${this.nombre}</h3>
+        <img src="" alt="">
+        <p>Fecha: ${this.fecha}</p>
+        <p>Horario: ${this.horario}</p>
+        <p>Duración: ${this.duracion}</p>
+        <p>Precio: ${this.precio}</p>
+        <p>Capacidad: ${this.capacidad}</p>`;
  
     };
 }
@@ -86,23 +92,26 @@ export class Cine extends Evento {
     genero;
     directorCine;
     dondeCine;
-    asiento;
 
-    constructor(nombre, fecha, horario, duracion, precio, capacidad, genero, directorCine, dondeCine, asiento){
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, genero, directorCine, dondeCine){
         super(nombre, fecha, horario, duracion, precio, capacidad);
 
         this.genero = genero;
         this.directorCine = directorCine;
         this.dondeCine = dondeCine;
-        this.asiento = asiento;
     }
 
     verInfoEvento(){
 
-        console.log("entro");
+        //console.log("entro");
+
+        return super.verInfoEvento() + `
+        <p>Género: ${this.genero}</p>
+        <p>Director: ${this.directorCine}</p>
+        <p>Cine: ${this.dondeCine}</p>`
 
         //devuelve un objeto con todos los datos
-        return {
+        /*return {
             nombre: this.nombre, 
             fecha: this.fecha,
             horario: this.horario,
@@ -113,7 +122,7 @@ export class Cine extends Evento {
             directorCine: this.directorCine,
             dondeCine: this.dondeCine,
             asiento: this.asiento
-        };
+        };*/
 
     }
 
@@ -142,27 +151,33 @@ for (let pelicula of peliculasData){
 
 
 class Teatro extends Evento {
+
     elenco;
     directorTeatro;
     tipoObra;
     sectorTeatro;
-    butaca;
 
-    constructor(nombre, fecha, horario, duracion, precio, capacidad, elenco, directorTeatro, tipoObra, sectorTeatro, butaca){
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, elenco, directorTeatro, tipoObra, sectorTeatro){
+
         super(nombre, fecha, horario, duracion, precio, capacidad);
 
         this.elenco = elenco;
         this.directorTeatro = directorTeatro;
         this.tipoObra = tipoObra;
         this.sectorTeatro = sectorTeatro;
-        this.butaca = butaca;
     }
 
     verInfoEvento() {
         
-        console.log("entro");
+        //console.log("entro");
+
+        return super.verInfoEvento() + `
+        <p>Director: ${this.directorTeatro}</p>
+        <p>Elenco: ${this.elenco}</p>
+        <p>Género: ${this.tipoObra}</p>
+        <p>Sector teatro: ${this.sectorTeatro}</p>`
     
-        return {
+        /*return {
             nombre: this.nombre,
             fecha: this.fecha,
             horario: this.horario,
@@ -174,7 +189,7 @@ class Teatro extends Evento {
             tipoObra: this.tipoObra,
             sectorTeatro: this.sectorTeatro,
             butaca: this.butaca
-        };
+        };*/
     }
 
 }
@@ -185,15 +200,14 @@ for (let obra of obrasData){
 
     let nuevaObra = new Teatro (
         obra.nombre,
-        obra.precio,
-        obra.tipoObra,
-        obra.butaca,
-        obra.capacidad,
-        obra.directorTeatro,
-        obra.duracion,
-        obra.elenco,
         obra.fecha,
         obra.horario,
+        obra.duracion,
+        obra.precio,
+        obra.capacidad,
+        obra.elenco,
+        obra.directorTeatro,
+        obra.tipoObra,
         obra.sectorTeatro
     )
 
@@ -216,6 +230,16 @@ class Recital extends Evento {
         this.nombreAlbum = nombreAlbum;
     }
 
+    verInfoEvento(){
+
+        return super.verInfoEvento() + `
+        <p>Artista: ${this.artista}</p>
+        <p>Género: ${this.generoMusical}</p>
+        <p>Álbum: ${this.nombreAlbum}</p>
+        `
+
+    }
+
 }
 
 //cree las instancias de recitales a partir del array de data, quedaría conectarlo al dom y generar la cartelera.
@@ -235,10 +259,9 @@ for (let recital of recitalesData){
         recital.nombreAlbum
     )
 
-    instanciasRecitales.push(recital);
+    instanciasRecitales.push(nuevoRecital);
 
 }
-
 
 class Comida {
 
@@ -302,8 +325,6 @@ class Comida {
 
 }
 
-const comida1 = new Comida ()
-
 class Candy_cine extends Comida {
 
     dulce; //boolean
@@ -363,3 +384,4 @@ class Hamburguesas extends Comida {
     }
 
 }
+

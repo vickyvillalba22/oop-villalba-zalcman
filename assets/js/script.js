@@ -89,18 +89,32 @@ class Evento {
 
 export class Cine extends Evento {
 
-    genero;
-    directorCine;
-    dondeCine;
+    #genero;
+    #directorCine;
+    #dondeCine;
 
     constructor(nombre, fecha, horario, duracion, precio, capacidad, genero, directorCine, dondeCine){
         super(nombre, fecha, horario, duracion, precio, capacidad);
 
-        this.genero = genero;
-        this.directorCine = directorCine;
-        this.dondeCine = dondeCine;
+        this.#genero = genero;
+        this.#directorCine = directorCine;
+        this.#dondeCine = dondeCine;
     }
 
+    //getters para las propiedades particulares de Cine
+    get genero() {
+        return this.#genero;
+    }
+
+    get directorCine() {
+        return this.#directorCine;
+    }
+
+    get dondeCine() {
+        return this.#dondeCine;
+    }
+
+    //metodos
     verInfoEvento(){
 
         //console.log("entro");
@@ -152,19 +166,36 @@ for (let pelicula of peliculasData){
 
 class Teatro extends Evento {
 
-    elenco;
-    directorTeatro;
-    tipoObra;
-    sectorTeatro;
+    #elenco;
+    #directorTeatro;
+    #tipoObra;
+    #sectorTeatro;
 
     constructor(nombre, fecha, horario, duracion, precio, capacidad, elenco, directorTeatro, tipoObra, sectorTeatro){
 
         super(nombre, fecha, horario, duracion, precio, capacidad);
 
-        this.elenco = elenco;
-        this.directorTeatro = directorTeatro;
-        this.tipoObra = tipoObra;
-        this.sectorTeatro = sectorTeatro;
+        this.#elenco = elenco;
+        this.#directorTeatro = directorTeatro;
+        this.#tipoObra = tipoObra;
+        this.#sectorTeatro = sectorTeatro;
+    }
+
+    //getters para propiedades particulares de teatro
+    get elenco() {
+        return this.#elenco;
+    }
+
+    get directorTeatro() {
+        return this.#directorTeatro;
+    }
+
+    get tipoObra() {
+        return this.#tipoObra;
+    }
+
+    get sectorTeatro() {
+        return this.#sectorTeatro;
     }
 
     verInfoEvento() {
@@ -217,17 +248,47 @@ for (let obra of obrasData){
 
 class Recital extends Evento {
 
-    artista;
-    generoMusical;
-    nombreAlbum;
+    #artista;
+    #generoMusical;
+    #nombreAlbum;
 
     constructor(nombre, fecha, horario, duracion, precio, capacidad, artista, generoMusical, nombreAlbum){
 
         super(nombre, fecha, horario, duracion, precio, capacidad);
 
-        this.artista = artista;
-        this.generoMusical = generoMusical;
-        this.nombreAlbum = nombreAlbum;
+        this.#artista = artista;
+        this.#generoMusical = generoMusical;
+        this.#nombreAlbum = nombreAlbum;
+    }
+
+    //getters para las propiedades particulares de Recital
+    get artista() {
+        return this.#artista;
+    }
+
+    get generoMusical() {
+        return this.#generoMusical;
+    }
+
+    get nombreAlbum() {
+        return this.#nombreAlbum;
+    }
+
+    verInfoEvento() {
+        
+        console.log("entro a verInfoEvento de Recital");
+    
+        return {
+            nombre: this.nombre,
+            fecha: this.fecha,
+            horario: this.horario,
+            duracion: this.duracion,
+            precio: this.precio,
+            capacidad: this.capacidad,
+            artista: this.artista,
+            generoMusical: this.generoMusical,
+            nombreAlbum: this.nombreAlbum,
+        };
     }
 
     verInfoEvento(){

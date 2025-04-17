@@ -1,5 +1,6 @@
 import { Cine, instanciasRecitales, instanciasObras } from "./script.js";
 import { instanciasPeliculas } from "./script.js";
+import { Evento } from "./script.js";
 import { peliculasData, obrasData, recitalesData, reservas } from "./data-base.js";
 
 //generar galeria
@@ -12,6 +13,9 @@ let cajaObras = document.getElementById("contObras");
 let mostrarReservas = document.getElementById("mostrarReservas")
 
 export function cartelera (container, datos){
+    
+    console.log(datos);
+    
 
     for (let i=0; i<datos.length; i++){
 
@@ -43,23 +47,40 @@ if (cajaRecitales){
     cartelera(cajaRecitales, recitalesData);
     botones_mostrar(instanciasRecitales);
 } 
-
 if (cajaObras){
     cartelera(cajaObras, obrasData);
     botones_mostrar(instanciasObras);
 } 
 
-if(mostrarReservas){
-    cartelera(mostrarReservas, reservas);
-    botones_mostrar(reservas)
+let reservasGuardadas = [];
+
+if (mostrarReservas){
+
+
+        reservasGuardadas = JSON.parse(localStorage.getItem('misReservas')) || [];
+        
+        if (reservasGuardadas.length === 0) {
+            console.log("No se encontraron reservas en el localStorage.");
+        } else {
+            cartelera(mostrarReservas, reservasGuardadas);
+        }
+        
+        //cartelera(mostrarReservas, reservasGuardadas);
+        //botones_mostrar(reservasGuardadas);
+
 }
 
+
+
 let dialogInfo = document.getElementById("modalInfo");
+
+let eventoSeleccionado;
 
 //para mostrar la informacion de la pelicula
 export function mostrarModal (evento){
 
     //console.log(evento);
+    eventoSeleccionado = evento;
 
     let modal = document.getElementById("muestra-info");
 
@@ -75,10 +96,19 @@ export function mostrarModal (evento){
 
 }
 
-let botonReservarEvento = documen.getElementById("botonReservar");
-botonReservarEvento.addEventListener("click", ()=>{
-    
+let botonReservarEvento = document.getElementById("botonReservar");
+
+if (botonReservarEvento){
+
+        botonReservarEvento.addEventListener("click", ()=>{
+
+        eventoSeleccionado.reservarEvento(); 
+        console.log("reserva guardada");
+
 })
+
+}
+
 
 
 //traemos los botones mostrar

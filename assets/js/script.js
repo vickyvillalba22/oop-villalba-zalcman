@@ -1,6 +1,6 @@
 import { eventos, reservas, peliculasData, obrasData, recitalesData } from "./data-base.js"
 
-class Evento {
+export class Evento {
 
     #nombre;
     #fecha;
@@ -54,13 +54,17 @@ class Evento {
     }
 
     //agrega un objeto class Evento al array reservas
-    reservarEvento(reserva){
+    reservarEvento(){
+        
+        //reservas.push(this); //this es la instancia actual
 
-        reservas.push(reserva);
-        //console.log(reservas);
+        console.log(this);
+
+        //usamos localStorage para poder usarlo en otra página (mis reservas), y con json.stringify lo pasamos a string ya que local storage solo acepta strings
+        localStorage.setItem('misReservas', JSON.stringify(this));
 
         //le aviso al usuario que la reserva fue realizada
-        return `Reserva realizada para el evento: ${this.titulo}`;
+        //console.log(reservas);
         
     };
 

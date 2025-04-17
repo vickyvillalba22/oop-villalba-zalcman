@@ -1,6 +1,6 @@
 import { Cine, instanciasRecitales, instanciasObras } from "./script.js";
 import { instanciasPeliculas } from "./script.js";
-import { peliculasData, obrasData, recitalesData } from "./data-base.js";
+import { peliculasData, obrasData, recitalesData, reservas } from "./data-base.js";
 
 //generar galeria
 let cajaPelis = document.getElementById("container");
@@ -8,6 +8,8 @@ let cajaPelis = document.getElementById("container");
 let cajaRecitales = document.getElementById("caja-concert");
 
 let cajaObras = document.getElementById("contObras");
+
+let mostrarReservas = document.getElementById("mostrarReservas")
 
 export function cartelera (container, datos){
 
@@ -47,23 +49,37 @@ if (cajaObras){
     botones_mostrar(instanciasObras);
 } 
 
+if(mostrarReservas){
+    cartelera(mostrarReservas, reservas);
+    botones_mostrar(reservas)
+}
+
+let dialogInfo = document.getElementById("modalInfo");
+
 //para mostrar la informacion de la pelicula
 export function mostrarModal (evento){
 
     //console.log(evento);
 
     let modal = document.getElementById("muestra-info");
+
     modal.classList.add("modalInfo")
-    modal.addEventListener('click', ()=>{
-        modal.close();
+    dialogInfo.addEventListener('click', ()=>{
+        dialogInfo.close();
     })
 
     //le agrego los datos
     modal.innerHTML = evento.verInfoEvento();
-
-    modal.showModal();
+    dialogInfo.appendChild(modal);
+    dialogInfo.showModal();
 
 }
+
+let botonReservarEvento = documen.getElementById("botonReservar");
+botonReservarEvento.addEventListener("click", ()=>{
+    
+})
+
 
 //traemos los botones mostrar
 export function botones_mostrar (datos){

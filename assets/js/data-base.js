@@ -228,3 +228,94 @@ export const recitalesData = [
   }
 ];
   
+
+export const candies = [
+  {
+      nombre: "Combo Gominolas",
+      precio: 1500,
+      cant_disp: 20,
+      tipo: "snack dulce",
+      dulce: true,
+      bebida: false,
+      tamano: "mediano"
+  },
+  {
+      nombre: "Combo Popcorn + Gaseosa",
+      precio: 2500,
+      cant_disp: 15,
+      tipo: "combo cine",
+      dulce: true,
+      bebida: true,
+      tamano: "grande"
+  },
+  {
+      nombre: "Nachos con queso",
+      precio: 1800,
+      cant_disp: 10,
+      tipo: "snack salado",
+      dulce: false,
+      bebida: false,
+      tamano: "chico"
+  }
+];
+
+export const tragos = [
+  {
+      nombre: "Fernet con Coca",
+      precio: 2200,
+      cant_disp: 30,
+      tipo: "bebida alcohólica",
+      alcoholico: true,
+      graduacion: "40%",
+      tipo_vaso: "vaso largo"
+  },
+  {
+      nombre: "Mojito",
+      precio: 2500,
+      cant_disp: 20,
+      tipo: "cocktail",
+      alcoholico: true,
+      graduacion: "25%",
+      tipo_vaso: "vaso corto"
+  },
+  {
+      nombre: "Limonada",
+      precio: 1200,
+      cant_disp: 25,
+      tipo: "sin alcohol",
+      alcoholico: false,
+      graduacion: "0%",
+      tipo_vaso: "vaso largo"
+  }
+];
+
+export const hamburguesas = [
+  {
+      nombre: "Hamburguesa Clásica",
+      precio: 2800,
+      cant_disp: 18,
+      tipo: "comida rápida",
+      tipo_carne: "vacuna",
+      acompanamiento: "papas",
+      tamano: "doble"
+  },
+  {
+      nombre: "Hamburguesa Veggie",
+      precio: 2600,
+      cant_disp: 12,
+      tipo: "comida vegetariana",
+      tipo_carne: "veggie",
+      acompanamiento: "nachos",
+      tamano: "simple"
+  },
+  {
+      nombre: "Hamburguesa Crispy",
+      precio: 2900,
+      cant_disp: 20,
+      tipo: "comida rápida",
+      tipo_carne: "pollo",
+      acompanamiento: "papas",
+      tamano: "doble"
+  }
+];
+

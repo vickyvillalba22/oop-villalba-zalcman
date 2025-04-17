@@ -1,4 +1,4 @@
-import { eventos, reservas, peliculasData, obrasData, recitalesData } from "./data-base.js"
+import { eventos, reservas, peliculasData, obrasData, recitalesData, candies, tragos, hamburguesas } from "./data-base.js"
 
 export class Evento {
 
@@ -330,28 +330,35 @@ for (let recital of recitalesData){
 
 class Comida {
 
-    //props
-    nombre;
+    #nombre;
     #precio;
     #cant_disp;
-    tipo;
+    #tipo;
 
-    constructor (nombre, precio, cant_disp, tipo){
-
-        this.nombre = nombre;
+    constructor(nombre, precio, cant_disp, tipo) {
+        this.#nombre = nombre;
         this.#precio = precio;
         this.#cant_disp = cant_disp;
-        this.tipo = tipo;
-
+        this.#tipo = tipo;
     }
 
-    get cant_disp (){
-        return this.#cant_disp
+    // Getters
+    get nombre() {
+        return this.#nombre;
     }
 
-    get precio(){
-        return this.#precio
+    get precio() {
+        return this.#precio;
     }
+
+    get cant_disp() {
+        return this.#cant_disp;
+    }
+
+    get tipo() {
+        return this.#tipo;
+    }
+
 
     //methods
     agregar_a_reserva(comidaElegida){
@@ -390,19 +397,33 @@ class Comida {
 
 }
 
+
+
 class Candy_cine extends Comida {
 
-    dulce; //boolean
-    bebida; //boolean
-    tamano;
+    #dulce;
+    #bebida;
+    #tamano;
 
-    constructor(dulce, bebida, tamano){
+    constructor(nombre, precio, cant_disp, tipo, dulce, bebida, tamano) {
         super(nombre, precio, cant_disp, tipo);
-
-        this.dulce = dulce;
-        this.bebida = bebida;
-        this.tamano = tamano;
+        this.#dulce = dulce;
+        this.#bebida = bebida;
+        this.#tamano = tamano;
     }
+
+    get dulce() {
+        return this.#dulce;
+    }
+
+    get bebida() {
+        return this.#bebida;
+    }
+
+    get tamano() {
+        return this.#tamano;
+    }
+
 
     cambiar_tamano(){
         //pregunta al usuario que tamaño quiere
@@ -410,38 +431,87 @@ class Candy_cine extends Comida {
 
 }
 
+let instanciasCandy = [];
+for (let candy of candies){
+    let nuevoCandy = new Candy_cine (
+        candy.nombre,
+        candy.precio,
+        candy.cant_disp,
+        candy.tipo,
+        candy.dulce,
+        candy.bebida,
+        candy.tamano
+    )
+
+    instanciasCandy.push(nuevoCandy);
+}
+
 class Tragos extends Comida {
 
-    alcoholico; //boolean
-    graduacion; 
-    tipo_vaso;
+    #alcoholico;
+    #graduacion;
+    #tipo_vaso;
 
-    constructor(alcoholico, graduacion, tipo_vaso){
+    constructor(nombre, precio, cant_disp, tipo, alcoholico, graduacion, tipo_vaso) {
         super(nombre, precio, cant_disp, tipo);
-
-        this.alcoholico = alcoholico;
-        this.graduacion = graduacion;
-        this.tipo_vaso = tipo_vaso;
+        this.#alcoholico = alcoholico;
+        this.#graduacion = graduacion;
+        this.#tipo_vaso = tipo_vaso;
     }
 
-    cambiar_tamano(){
-        
+    get alcoholico() {
+        return this.#alcoholico;
     }
 
+    get graduacion() {
+        return this.#graduacion;
+    }
+
+    get tipo_vaso() {
+        return this.#tipo_vaso;
+    }
+
+
+}
+
+let instanciasTragos = [];
+for (let trago of tragos){
+    let nuevoTrago = new Tragos (
+        trago.nombre,
+        trago.precio,
+        trago.cant_disp,
+        trago.tipo,
+        trago.alcoholico,
+        trago.graduacion,
+        trago.tipo_vaso
+    )
+
+    instanciasTragos.push(nuevoTrago);
 }
 
 class Hamburguesas extends Comida {
 
-    tipo_carne; //vacuna, pollo, veggie
-    acompanamiento; //papas o nachos
-    tamano; // simple o doble 
+    #tipo_carne;
+    #acompanamiento;
+    #tamano;
 
-    constructor(tipo_carne, acompanamiento, tamano){
+    constructor(nombre, precio, cant_disp, tipo, tipo_carne, acompanamiento, tamano) {
         super(nombre, precio, cant_disp, tipo);
+        this.#tipo_carne = tipo_carne;
+        this.#acompanamiento = acompanamiento;
+        this.#tamano = tamano;
+    }
 
-        this.tipo_carne = tipo_carne;
-        this.acompanamiento = acompanamiento;
-        this.tamano = tamano;
+    get tipo_carne() {
+        return this.#tipo_carne;
+    }
+
+    get acompanamiento() {
+        return this.#acompanamiento;
+    }
+
+    get tamano() {
+        return this.#tamano;
     }
 
     cambiar_tamano(){
@@ -450,3 +520,18 @@ class Hamburguesas extends Comida {
 
 }
 
+let instanciasHamburguesa = [];
+
+for (let hamburguesa of hamburguesas) {
+    let nuevaHamburguesa = new Hamburguesas(
+        hamburguesa.nombre,
+        hamburguesa.precio,
+        hamburguesa.cant_disp,
+        hamburguesa.tipo,
+        hamburguesa.tipo_carne,
+        hamburguesa.acompanamiento,
+        hamburguesa.tamano
+    );
+
+    instanciasHamburguesa.push(nuevaHamburguesa);
+}

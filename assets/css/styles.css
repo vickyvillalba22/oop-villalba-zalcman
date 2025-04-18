@@ -104,7 +104,7 @@ header{
     top: 0;
 }
 
-aside{
+.lateral{
     margin-left: 2em;
     margin-right: 2em;
     border-radius: 1em;
@@ -136,3 +136,40 @@ label{
     margin-top: 20px;
 }
 
+footer {
+    background-color: #0d1523; /* Azul oscuro */
+    color: white;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  
+  footer h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  footer p {
+    margin: 0.5rem 0 1rem;
+    color: #cbd5e1;
+  }
+  
+  .footer-links {
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #38bdf8;
+  }
+  
+  footer .copyright {
+    font-size: 0.9rem;
+    color: #94a3b8;
+  }

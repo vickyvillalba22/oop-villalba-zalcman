@@ -30,21 +30,44 @@
     
         </section>
 
-        <section class="df vh60 mt4">
+        <section class="df mt4">
 
-            <aside class="w20 bgGrisOscuro">
-    
-            </aside>
+            <div class="w20 bgGrisOscuro vh60 lateral">
+                <!--Aca estaria bueno poner filtros y link de: cartelera / mis reservas (para que deslizar a esa seccion)-->
+            </div>
 
-            <div id="caja-concert" class="w80 df wrap spaceb mr2"></div>
+            <div id="caja-concert" class="w80 df wrap spaceb mr2">
+                
+                <dialog id="modalInfo">
+                    <div id="muestra-info">
+                        
+                    </div>
+                    <button id="botonReservarRecital">Reservar</button>
+                </dialog>
+
+            </div>
             
-            <dialog id="muestra-info"></dialog>
+        </section>
+
+        <section id="containerReservasRecital" class="df wrap">
 
         </section>
 
         </main>
 
-        <footer></footer>
+        <footer class="w100 mt4">
+            <h2>Tu portal de eventos audiovisuales</h2>
+            <p>Descubrí lo mejor del cine, teatro y música en vivo.</p>
+        
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="cine.html">Cine</a>
+                <a href="teatro.html">Teatro</a>
+                <a href="concierto.html">Recitales</a>
+            </div>
+        
+            <p class="copyright mt4">&copy; 2025 EventosAV. Todos los derechos reservados.</p>
+        </footer>
 
         <script type="module" src="assets/js/app.js"></script>
 

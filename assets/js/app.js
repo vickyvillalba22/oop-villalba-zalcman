@@ -10,10 +10,9 @@ let cajaRecitales = document.getElementById("caja-concert");
 
 let cajaObras = document.getElementById("contObras");
 
-let mostrarReservas = document.getElementById("mostrarReservas")
 
 export function cartelera (container, datos){
-    
+
     console.log(datos);
     
 
@@ -52,25 +51,6 @@ if (cajaObras){
     botones_mostrar(instanciasObras);
 } 
 
-let reservasGuardadas = [];
-
-if (mostrarReservas){
-
-
-        reservasGuardadas = JSON.parse(localStorage.getItem('misReservas')) || [];
-        
-        if (reservasGuardadas.length === 0) {
-            console.log("No se encontraron reservas en el localStorage.");
-        } else {
-            cartelera(mostrarReservas, reservasGuardadas);
-        }
-        
-        //cartelera(mostrarReservas, reservasGuardadas);
-        //botones_mostrar(reservasGuardadas);
-
-}
-
-
 
 let dialogInfo = document.getElementById("modalInfo");
 
@@ -78,7 +58,7 @@ let eventoSeleccionado;
 
 //para mostrar la informacion de la pelicula
 export function mostrarModal (evento){
-
+    
     //console.log(evento);
     eventoSeleccionado = evento;
 
@@ -96,18 +76,123 @@ export function mostrarModal (evento){
 
 }
 
-let botonReservarEvento = document.getElementById("botonReservar");
 
-if (botonReservarEvento){
+//RESERVAS
 
-        botonReservarEvento.addEventListener("click", ()=>{
+//creo un array vacio para cada tipo de evento
+let reservasCine = [];
+let reservasTeatro = [];
+let reservasRecital = [];
 
-        eventoSeleccionado.reservarEvento(); 
+//me traigo los botones de cada tipo de evento
+let botonCine = document.getElementById("botonReservarCine");
+let botonTeatro = document.getElementById("botonReservarTeatro");
+let botonRecital = document.getElementById("botonReservarRecital");
+
+//me traigo los contenedores de cada tipo de evento, en el que se mostrarán las reservas
+let cajaReservasCine = document.getElementById("containerReservasCine");
+let cajaReservasTeatro = document.getElementById("containerReservasTeatro");
+let cajaReservasRecital = document.getElementById("containerReservasRecital");
+
+//llamo a la funcion solo si existe su contenedor y su boton
+if (cajaReservasCine) {
+    mostrarReservas(cajaReservasCine, reservasCine);  
+}
+if (cajaReservasTeatro) {
+    mostrarReservas(cajaReservasTeatro, reservasTeatro);  
+}
+if (cajaReservasRecital) {
+    mostrarReservas(cajaReservasRecital, reservasRecital);  
+}
+
+
+if (botonCine){
+
+    botonCine.addEventListener("click", ()=>{
+
+        eventoSeleccionado.reservarEvento(reservasCine); 
         console.log("reserva guardada");
+        console.log(reservasCine)
+    
+        mostrarReservas(cajaReservasCine, reservasCine)
 
 })
-
 }
+
+if (botonTeatro){
+
+    botonTeatro.addEventListener("click", ()=>{
+
+        eventoSeleccionado.reservarEvento(reservasTeatro); 
+        console.log("reserva guardada");
+        console.log(reservasTeatro)
+    
+        mostrarReservas(cajaReservasTeatro, reservasTeatro)
+
+})
+}
+
+if (botonRecital){
+
+    botonRecital.addEventListener("click", ()=>{
+
+        eventoSeleccionado.reservarEvento(reservasRecital); 
+        console.log("reserva guardada");
+        console.log(reservasRecital)
+    
+        mostrarReservas(cajaReservasRecital, reservasRecital)
+
+})
+}
+
+export function mostrarReservas(container, datos) {
+    //limpio el contenedor de reservas antes de agregar nuevas
+    container.innerHTML = '';
+
+    let titulo = document.createElement("h2");
+    titulo.innerHTML = "Mis reservas";
+    titulo.classList.add("blanco");
+    container.appendChild(titulo)
+
+    //recorro el array de reservas y muestro cada una
+    for (let i = 0; i < datos.length; i++) {
+        let cajita = document.createElement("div");
+        cajita.classList.add("w30", "mb3");
+
+        
+        cajita.innerHTML = `
+            <div id="card" class="w100">
+                <img class="vh30 objCover w100" src="assets/imgs/cine-categoria.png" alt="">
+                <h3 class="blanco mt1">${datos[i].nombre}</h3>   
+                <button pos="${i}" class="mt1 boton-mostrar sinBorde botonCeleste blanco ajuste-boton w100">Agregar comida</button>
+            </div>
+        `;
+
+        container.appendChild(cajita);
+    }
+}
+
+
+/*CODIGO ANTERIOR
+
+let reservasGuardadas = [];
+
+if (mostrarReservas){
+
+
+        reservasGuardadas = JSON.parse(localStorage.getItem('misReservas')) || [];
+        
+        if (reservasGuardadas.length === 0) {
+            console.log("No se encontraron reservas en el localStorage.");
+        } else {
+            cartelera(mostrarReservas, reservasGuardadas);
+        }
+        
+        //cartelera(mostrarReservas, reservasGuardadas);
+        //botones_mostrar(reservasGuardadas);
+
+}*/
+
 
 
 
@@ -141,7 +226,7 @@ export function botones_mostrar (datos){
 let cajaComida = document.getElementById("contenedorComida")
 
 //funcion para mostrar las opciones de comida
-export function mostrarMenu (container, datos){
+/*export function mostrarMenu (container, datos){
     
     for (let i=0; i<datos.length; i++){
 
@@ -163,10 +248,10 @@ export function mostrarMenu (container, datos){
         container.appendChild(cajita);
     }
 
-}
+}*/
 
 //esto luego se lo asignamos a un evento (se va a ver cuando tocas el boton agregar comida desde el evento reservado)
-mostrarMenu(cajaComida, candies);
+/*mostrarMenu(cajaComida, candies);
 mostrarMenu(cajaComida, tragos);
-mostrarMenu(cajaComida, hamburguesas)
+mostrarMenu(cajaComida, hamburguesas)*/
 

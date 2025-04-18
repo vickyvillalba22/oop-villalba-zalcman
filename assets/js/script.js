@@ -54,8 +54,12 @@ export class Evento {
     }
 
     //agrega un objeto class Evento al array reservas
-    reservarEvento(){
+    reservarEvento(arrayDestino){
         
+        arrayDestino.push(this); // agrega esta instancia al array correspondiente
+        console.log(`Reserva realizada para: ${this.#nombre}`);
+
+        /*CODIGO ANTERIOR
         //reservas.push(this); //this es la instancia actual
 
         console.log(this);
@@ -64,7 +68,7 @@ export class Evento {
         localStorage.setItem('misReservas', JSON.stringify(this));
 
         //le aviso al usuario que la reserva fue realizada
-        //console.log(reservas);
+        //console.log(reservas);*/
         
     };
 

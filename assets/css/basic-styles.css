@@ -60,6 +60,9 @@
 .fEnd{
     justify-content: end;
 }
+.fStart{
+    justify-content: start;
+}
 .columna{
     flex-direction: column;
 }

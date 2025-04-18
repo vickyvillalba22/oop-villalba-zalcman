@@ -1,4 +1,4 @@
-import { eventos, reservas, peliculasData, obrasData, recitalesData, candies, tragos, hamburguesas } from "./data-base.js"
+import { eventos, peliculasData, obrasData, recitalesData, candies, tragos, hamburguesas } from "./data-base.js"
 
 export class Evento {
 

@@ -1,7 +1,7 @@
 import { Cine, instanciasRecitales, instanciasObras } from "./script.js";
 import { instanciasPeliculas } from "./script.js";
 import { Evento } from "./script.js";
-import { peliculasData, obrasData, recitalesData, reservas, candies, tragos, hamburguesas } from "./data-base.js";
+import { peliculasData, obrasData, recitalesData,candies, tragos, hamburguesas } from "./data-base.js";
 
 //generar galeria
 let cajaPelis = document.getElementById("container");
@@ -76,126 +76,6 @@ export function mostrarModal (evento){
 
 }
 
-
-//RESERVAS
-
-//creo un array vacio para cada tipo de evento
-let reservasCine = [];
-let reservasTeatro = [];
-let reservasRecital = [];
-
-//me traigo los botones de cada tipo de evento
-let botonCine = document.getElementById("botonReservarCine");
-let botonTeatro = document.getElementById("botonReservarTeatro");
-let botonRecital = document.getElementById("botonReservarRecital");
-
-//me traigo los contenedores de cada tipo de evento, en el que se mostrarán las reservas
-let cajaReservasCine = document.getElementById("containerReservasCine");
-let cajaReservasTeatro = document.getElementById("containerReservasTeatro");
-let cajaReservasRecital = document.getElementById("containerReservasRecital");
-
-//llamo a la funcion solo si existe su contenedor y su boton
-if (cajaReservasCine) {
-    mostrarReservas(cajaReservasCine, reservasCine);  
-}
-if (cajaReservasTeatro) {
-    mostrarReservas(cajaReservasTeatro, reservasTeatro);  
-}
-if (cajaReservasRecital) {
-    mostrarReservas(cajaReservasRecital, reservasRecital);  
-}
-
-
-if (botonCine){
-
-    botonCine.addEventListener("click", ()=>{
-
-        eventoSeleccionado.reservarEvento(reservasCine); 
-        console.log("reserva guardada");
-        console.log(reservasCine)
-    
-        mostrarReservas(cajaReservasCine, reservasCine)
-
-})
-}
-
-if (botonTeatro){
-
-    botonTeatro.addEventListener("click", ()=>{
-
-        eventoSeleccionado.reservarEvento(reservasTeatro); 
-        console.log("reserva guardada");
-        console.log(reservasTeatro)
-    
-        mostrarReservas(cajaReservasTeatro, reservasTeatro)
-
-})
-}
-
-if (botonRecital){
-
-    botonRecital.addEventListener("click", ()=>{
-
-        eventoSeleccionado.reservarEvento(reservasRecital); 
-        console.log("reserva guardada");
-        console.log(reservasRecital)
-    
-        mostrarReservas(cajaReservasRecital, reservasRecital)
-
-})
-}
-
-export function mostrarReservas(container, datos) {
-    //limpio el contenedor de reservas antes de agregar nuevas
-    container.innerHTML = '';
-
-    let titulo = document.createElement("h2");
-    titulo.innerHTML = "Mis reservas";
-    titulo.classList.add("blanco");
-    container.appendChild(titulo)
-
-    //recorro el array de reservas y muestro cada una
-    for (let i = 0; i < datos.length; i++) {
-        let cajita = document.createElement("div");
-        cajita.classList.add("w30", "mb3");
-
-        
-        cajita.innerHTML = `
-            <div id="card" class="w100">
-                <img class="vh30 objCover w100" src="assets/imgs/cine-categoria.png" alt="">
-                <h3 class="blanco mt1">${datos[i].nombre}</h3>   
-                <button pos="${i}" class="mt1 boton-mostrar sinBorde botonCeleste blanco ajuste-boton w100">Agregar comida</button>
-            </div>
-        `;
-
-        container.appendChild(cajita);
-    }
-}
-
-
-/*CODIGO ANTERIOR
-
-let reservasGuardadas = [];
-
-if (mostrarReservas){
-
-
-        reservasGuardadas = JSON.parse(localStorage.getItem('misReservas')) || [];
-        
-        if (reservasGuardadas.length === 0) {
-            console.log("No se encontraron reservas en el localStorage.");
-        } else {
-            cartelera(mostrarReservas, reservasGuardadas);
-        }
-        
-        //cartelera(mostrarReservas, reservasGuardadas);
-        //botones_mostrar(reservasGuardadas);
-
-}*/
-
-
-
-
 //traemos los botones mostrar
 export function botones_mostrar (datos){
 
@@ -223,10 +103,94 @@ export function botones_mostrar (datos){
 
 }
 
-let cajaComida = document.getElementById("contenedorComida")
 
-//funcion para mostrar las opciones de comida
-/*export function mostrarMenu (container, datos){
+//RESERVAS: lo armé de nuevo de manera más general, que el mismo boton con el mismo id (lo mismo para los div contenedores), sirvan para las diferentes paginas segun que categoria sea. y asi ahorramos mucho código repetido.
+
+//creo un array vacio para las reservas
+let reservasNuevas = [];
+
+//traigo el boton para reservar
+let botonReservar = document.getElementById("boton-reservar");
+
+//traigo el contenedor donde van las reservas nuevas
+let cajaReservas = document.getElementById("caja-reservas");
+
+//le asigno al boton el event listener solo si existe en el archivo
+if (botonReservar){
+
+    botonReservar.addEventListener('click', ()=>{
+
+        eventoSeleccionado.reservarEvento(reservasNuevas);
+
+        console.log("reserva guardada");
+        console.log(reservasNuevas);
+
+        mostrarReservas(cajaReservas, reservasNuevas);
+
+    });
+
+}
+
+let cajaComida = document.getElementById("contenedorComida");
+
+export function mostrarReservas(container, datos) {
+    //limpio el contenedor de reservas antes de agregar nuevas
+    container.innerHTML = '';
+
+    let titulo = document.createElement("h2");
+    titulo.innerHTML = "Mis reservas";
+    titulo.classList.add("blanco");
+    container.appendChild(titulo)
+
+    //recorro el array de reservas y muestro cada una
+    for (let i = 0; i < datos.length; i++) {
+        let cajita = document.createElement("div");
+        cajita.classList.add("w30", "mb3");
+
+        
+        cajita.innerHTML = `
+            <div id="card" class="w100">
+                <img class="vh30 objCover w100" src="assets/imgs/cine-categoria.png" alt="">
+                <h3 class="blanco mt1">${datos[i].nombre}</h3>   
+                <button pos="${i}" class="mostrar-comida mt1 sinBorde botonCeleste blanco ajuste-boton w100">Agregar comida</button>
+            </div>
+        `;
+
+        container.appendChild(cajita);
+    }
+
+    //esto va acá para que cada vez que se ejecute la funcion se agarren los botones
+    const botonesComida = document.querySelectorAll(".mostrar-comida");
+
+    console.log(botonesComida);
+
+    botonesComida.forEach((boton)=>{
+    boton.addEventListener('click', ()=>{
+        
+        //al container le puse un atribute que se llama categoria y dependiendo de que cateogria sea, es el array que va a aagarrar para mostrar los combos disponibles
+        let categoria = cajaComida.getAttribute("categoria");
+
+        if (categoria === "cine"){
+            cajaComida.innerHTML = "";
+            mostrarMenu(cajaComida, candies);
+        }
+
+        if (categoria === "teatro"){
+            cajaComida.innerHTML = "";
+            mostrarMenu(cajaComida, tragos);
+        }
+
+        if (categoria === "recital"){
+            cajaComida.innerHTML="";
+            mostrarMenu(cajaComida, hamburguesas);
+        }
+
+    })
+})
+}
+
+//funcion para MOSTRAR LAS OPCIONES DE COMIDA, aca también se le asignan los listeners que agregan la comida a mis reservas, habria que ver como hacer para que se agreguen sin el boton agregar comida o si hacemos otra caja para las reservas de comida, pero por lo pronto se agregan a reservas que es lo básico.
+export function mostrarMenu (container, datos){
     
     for (let i=0; i<datos.length; i++){
 
@@ -241,17 +205,26 @@ let cajaComida = document.getElementById("contenedorComida")
     
                         <img class="vh30 objCover" src="assets/imgs/cine-categoria.png" alt="">
                         <h3 class="blanco mt1">${datos[i].nombre}</h3>   
-                        <button pos="${i}" class="mt1 sinBorde botonCeleste blanco ajuste-boton w100">Agregar a mi reserva</button>
+                        <button pos="${i}" class="reservar-comida mt1 sinBorde botonCeleste blanco ajuste-boton w100">Agregar a mi reserva</button>
        
                 </div>
         ` 
         container.appendChild(cajita);
     }
 
-}*/
+    const reservanComida = document.querySelectorAll(".reservar-comida");
 
-//esto luego se lo asignamos a un evento (se va a ver cuando tocas el boton agregar comida desde el evento reservado)
-/*mostrarMenu(cajaComida, candies);
-mostrarMenu(cajaComida, tragos);
-mostrarMenu(cajaComida, hamburguesas)*/
+    reservanComida.forEach((reservador)=>{
+        reservador.addEventListener('click', ()=>{
+
+            let index = reservador.getAttribute("pos");
+            reservasNuevas.push(datos[index]);
+            mostrarReservas(cajaReservas, reservasNuevas);
+
+        })
+        
+        
+    });
+
+}
 

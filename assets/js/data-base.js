@@ -1,7 +1,5 @@
 //aca se pueden agregar eventos. Este en realidad es general pero si el admin agrega, se deberian agregar a los data de cada tipo de evento. 
 export const eventos = [];
-//aca se van agregando reservas y compras de comida
-export const reservas = [];
 
 export const peliculasData = [
     {

@@ -145,14 +145,21 @@ export function mostrarReservas(container, datos) {
     //recorro el array de reservas y muestro cada una
     for (let i = 0; i < datos.length; i++) {
         let cajita = document.createElement("div");
-        cajita.classList.add("w30", "mb3");
+        cajita.classList.add("w100", "mb3", "mt1");
 
         
         cajita.innerHTML = `
-            <div id="card" class="w100">
-                <img class="vh30 objCover w100" src="assets/imgs/cine-categoria.png" alt="">
-                <h3 class="blanco mt1">${datos[i].nombre}</h3>   
-                <button pos="${i}" class="mostrar-comida mt1 sinBorde botonCeleste blanco ajuste-boton w100">Agregar comida</button>
+            <div class="w100 df">
+                <div class="w20">
+                    <img class="vh30 objCover w100" src="assets/imgs/cine-categoria.png" alt="">
+                    <h3 class="blanco mt1">${datos[i].nombre}</h3>
+                    <button pos="${i}" class="mostrar-comida mt1 sinBorde botonCeleste blanco ajuste-boton w100">Agregar comida</button>
+                </div>
+                <div class="ml2">
+                    <h3 class="blanco mt1">Informacion</h3>
+                    <p class="blanco mt1">Fecha: ${datos[i].fecha}</p>
+                    <p class="blanco mt1">Horario: ${datos[i].horario}</p>  
+                </div>
             </div>
         `;
 

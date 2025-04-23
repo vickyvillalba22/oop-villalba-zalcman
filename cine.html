@@ -47,7 +47,7 @@
             
         </section>
 
-        <section id="caja-reservas" class="df columna posAb vh100 fondoBlanco w40 invisible">
+        <section id="caja-reservas" class="df columna fondoBlanco w40 invisible">
 
             <button id="close-lateral" class="fitContent">Close</button>
 
@@ -55,27 +55,14 @@
 
             <div id="cont-reservas" class="df columna"></div>
 
-            <!--card de evento: la pongo aca para acomodarla mas rapido despues la reemplazo en el js-->
-            <!--<div class="w100 df centerX centerY spaceb bordeRojo vh25">
-              
-                    <img class="w20 objCover w100" src="assets/imgs/cine-categoria.png" alt="">
-
-                    <div class="df columna spacee">
-                        <h3>${datos[i].nombre}</h3>
-                        <p>Fecha: ${datos[i].fecha}</p>
-                        <p>Horario: ${datos[i].horario}</p> 
-                    </div>
-
-                    <button pos="${i}" class="mostrar-comida sinBorde botonCeleste blanco ajuste-boton">Agregar comida</button>
-
-                    <p>${datos[i].precio}</p>
-         
-            </div>-->
 
         </section>
 
-        <!--div que estoy usando para mostrar las opciones de comida, esto despues debería se un modal-->
-        <dialog id="contenedorComida" categoria="cine" class="df wrap">
+        <dialog id="dialog-comida" categoria="cine" class="w50">
+
+            <button id="cerrar-comida">Close</button>
+
+            <div id="contenedorComida" class="df wrap"></div>
 
         </dialog>
 

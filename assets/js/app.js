@@ -87,9 +87,6 @@ export function botones_mostrar (datos){
     
             //tomamos la posicion asignada al boton correspondiente
             let posicion = boton1.getAttribute("pos");
-            //console.log(posicion);
-
-            //console.log(datos);
         
             //asignamos el metodo a la instancia correspondiente a esa posicion
             let evento = datos[posicion];
@@ -122,13 +119,20 @@ if (botonReservar){
         console.log("reserva guardada");
         console.log(reservasNuevas);
 
+        menuLateral.classList.remove("invisible");
         mostrarReservas(cajaReservas, reservasNuevas);
 
     });
 
 }
 
-let cajaComida = document.getElementById("contenedorComida");
+let cajaComida = document.getElementById("dialog-comida");
+let divComida = document.getElementById("contenedorComida");
+
+let cerrarComida = document.getElementById("cerrar-comida");
+cerrarComida.addEventListener('click', ()=>{
+    cajaComida.close();
+});
 
 /* RESERVAS NUEVAS */
 
@@ -137,6 +141,7 @@ let menuLateral = document.getElementById("caja-reservas");
 //agregarle la funcion de cerrar al boton, y asignarle al boton "mis reservas que abra el lateral"
 let abrirLateral = document.querySelector("header button");
 let cerrarLateral = document.getElementById("close-lateral");
+
 cerrarLateral.addEventListener('click', ()=>{
     menuLateral.classList.add("invisible");
 });
@@ -193,19 +198,21 @@ export function mostrarReservas(container, datos) {
         let categoria = cajaComida.getAttribute("categoria");
 
         if (categoria === "cine"){
-            cajaComida.innerHTML = "";
-            mostrarMenu(cajaComida, candies);
+            divComida.innerHTML = "";
+            mostrarMenu(divComida, candies);
         }
 
         if (categoria === "teatro"){
-            cajaComida.innerHTML = "";
-            mostrarMenu(cajaComida, tragos);
+            divComida.innerHTML = "";
+            mostrarMenu(divComida, tragos);
         }
 
         if (categoria === "recital"){
-            cajaComida.innerHTML="";
-            mostrarMenu(cajaComida, hamburguesas);
+            divComida.innerHTML="";
+            mostrarMenu(divComida, hamburguesas);
         }
+
+        cajaComida.showModal();
 
     })
 })

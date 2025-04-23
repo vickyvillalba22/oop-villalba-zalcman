@@ -132,7 +132,18 @@ let cajaComida = document.getElementById("contenedorComida");
 
 /* RESERVAS NUEVAS */
 
+let menuLateral = document.getElementById("caja-reservas");
+
 //agregarle la funcion de cerrar al boton, y asignarle al boton "mis reservas que abra el lateral"
+let abrirLateral = document.querySelector("header button");
+let cerrarLateral = document.getElementById("close-lateral");
+cerrarLateral.addEventListener('click', ()=>{
+    menuLateral.classList.add("invisible");
+});
+
+abrirLateral.addEventListener("click", ()=>{
+    menuLateral.classList.remove("invisible");
+})
 
 //traigo el contenedor donde van las reservas nuevas
 let cajaReservas = document.getElementById("cont-reservas");
@@ -215,8 +226,8 @@ export function mostrarMenu (container, datos){
                 <div id="card" class="w100">
     
                         <img class="vh30 objCover" src="assets/imgs/cine-categoria.png" alt="">
-                        <h3 class="blanco mt1">${datos[i].nombre}</h3>   
-                        <button pos="${i}" class="reservar-comida mt1 sinBorde botonCeleste blanco ajuste-boton w100">Agregar a mi reserva</button>
+                        <h3 class="mt1">${datos[i].nombre}</h3>   
+                        <button pos="${i}" class="reservar-comida mt1 sinBorde botonCeleste ajuste-boton w100">Agregar a mi reserva</button>
        
                 </div>
         ` 

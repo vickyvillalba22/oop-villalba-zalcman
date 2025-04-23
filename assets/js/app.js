@@ -112,9 +112,6 @@ let reservasNuevas = [];
 //traigo el boton para reservar
 let botonReservar = document.getElementById("boton-reservar");
 
-//traigo el contenedor donde van las reservas nuevas
-let cajaReservas = document.getElementById("caja-reservas");
-
 //le asigno al boton el event listener solo si existe en el archivo
 if (botonReservar){
 
@@ -133,33 +130,40 @@ if (botonReservar){
 
 let cajaComida = document.getElementById("contenedorComida");
 
+/* RESERVAS NUEVAS */
+
+//agregarle la funcion de cerrar al boton, y asignarle al boton "mis reservas que abra el lateral"
+
+//traigo el contenedor donde van las reservas nuevas
+let cajaReservas = document.getElementById("cont-reservas");
+
+//esta funcion será la que muestra el menu lateral con las reservas
 export function mostrarReservas(container, datos) {
     //limpio el contenedor de reservas antes de agregar nuevas
     container.innerHTML = '';
 
-    let titulo = document.createElement("h2");
-    titulo.innerHTML = "Mis reservas";
-    titulo.classList.add("blanco");
-    container.appendChild(titulo)
-
     //recorro el array de reservas y muestro cada una
     for (let i = 0; i < datos.length; i++) {
+
         let cajita = document.createElement("div");
         cajita.classList.add("w100", "mb3", "mt1");
 
         
         cajita.innerHTML = `
-            <div class="w100 df">
-                <div class="w20">
-                    <img class="vh30 objCover w100" src="assets/imgs/cine-categoria.png" alt="">
-                    <h3 class="blanco mt1">${datos[i].nombre}</h3>
-                    <button pos="${i}" class="mostrar-comida mt1 sinBorde botonCeleste blanco ajuste-boton w100">Agregar comida</button>
-                </div>
-                <div class="ml2">
-                    <h3 class="blanco mt1">Informacion</h3>
-                    <p class="blanco mt1">Fecha: ${datos[i].fecha}</p>
-                    <p class="blanco mt1">Horario: ${datos[i].horario}</p>  
-                </div>
+            <div class="w100 df centerX centerY spaceb bordeRojo vh25">
+              
+                    <img class="w20 objCover w100" src="assets/imgs/cine-categoria.png" alt="">
+
+                    <div class="df columna spacee">
+                        <h3>${datos[i].nombre}</h3>
+                        <p>Fecha: ${datos[i].fecha}</p>
+                        <p>Horario: ${datos[i].horario}</p> 
+                    </div>
+
+                    <button pos="${i}" class="mostrar-comida sinBorde botonCeleste blanco ajuste-boton">Agregar comida</button>
+
+                    <p>${datos[i].precio}</p>
+         
             </div>
         `;
 

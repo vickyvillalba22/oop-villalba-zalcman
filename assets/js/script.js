@@ -55,7 +55,7 @@ export class Evento {
 
     //agrega un objeto class Evento al array reservas
     reservarEvento(arrayDestino){
-        
+         
         arrayDestino.push(this); // agrega esta instancia al array correspondiente
         console.log(`Reserva realizada para: ${this.#nombre}`);
         

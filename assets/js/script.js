@@ -58,17 +58,6 @@ export class Evento {
         
         arrayDestino.push(this); // agrega esta instancia al array correspondiente
         console.log(`Reserva realizada para: ${this.#nombre}`);
-
-        /*CODIGO ANTERIOR
-        //reservas.push(this); //this es la instancia actual
-
-        console.log(this);
-
-        //usamos localStorage para poder usarlo en otra página (mis reservas), y con json.stringify lo pasamos a string ya que local storage solo acepta strings
-        localStorage.setItem('misReservas', JSON.stringify(this));
-
-        //le aviso al usuario que la reserva fue realizada
-        //console.log(reservas);*/
         
     };
 
@@ -93,6 +82,15 @@ export class Evento {
         <p>Capacidad: ${this.capacidad}</p>`;
  
     };
+
+    //metodo estático para calcular precio total
+    static calcularPrecioTotal(reservas) {
+        let total = 0;
+        for (let reserva of reservas) {
+            total += reserva.precio;
+        }
+        return total;
+    }
 }
 
 export class Cine extends Evento {

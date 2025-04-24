@@ -184,6 +184,24 @@ export function mostrarReservas(container, datos) {
         `;
 
         container.appendChild(cajita);
+
+        //Calculo del precio total
+        let totalPrecio = Evento.calcularPrecioTotal(reservasNuevas); 
+        
+        //verifico si existe el div con la clase totalPrecio para que no se vaya duplicando
+        let totalDiv = container.querySelector('.totalPrecio');
+
+        if (!totalDiv) {
+            totalDiv = document.createElement("div");
+            totalDiv.classList.add("w100", "mt3", "totalPrecio"); // Agrego la clase totalPrecio
+            container.appendChild(totalDiv);
+        }
+
+        //Actualizo su contenido
+        totalDiv.innerHTML = `<h3>Total: $${totalPrecio}</h3>`;
+
+        container.appendChild(totalDiv);
+
     }
 
     //esto va acá para que cada vez que se ejecute la funcion se agarren los botones

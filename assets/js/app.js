@@ -12,10 +12,7 @@ let cajaObras = document.getElementById("contObras");
 
 
 export function cartelera (container, datos){
-
-    console.log(datos);
     
-
     for (let i=0; i<datos.length; i++){
 
         let cajita = document.createElement("div");
@@ -104,7 +101,7 @@ export function botones_mostrar (datos){
 //RESERVAS: lo armé de nuevo de manera más general, que el mismo boton con el mismo id (lo mismo para los div contenedores), sirvan para las diferentes paginas segun que categoria sea. y asi ahorramos mucho código repetido.
 
 //creo un array vacio para las reservas
-let reservasNuevas = [];
+let reservasNuevas = []; //array de instancias
 
 //traigo el boton para reservar
 let botonReservar = document.getElementById("boton-reservar");
@@ -127,12 +124,16 @@ if (botonReservar){
 }
 
 let cajaComida = document.getElementById("dialog-comida");
-let divComida = document.getElementById("contenedorComida");
+let divComida = document.getElementById("contenedorComida"); //este trae la posicion del array reservasNuevas
 
 let cerrarComida = document.getElementById("cerrar-comida");
-cerrarComida.addEventListener('click', ()=>{
-    cajaComida.close();
-});
+
+if (cerrarComida){
+    cerrarComida.addEventListener('click', ()=>{
+        cajaComida.close();
+    });
+}
+
 
 /* RESERVAS NUEVAS */
 
@@ -142,13 +143,17 @@ let menuLateral = document.getElementById("caja-reservas");
 let abrirLateral = document.querySelector("header button");
 let cerrarLateral = document.getElementById("close-lateral");
 
-cerrarLateral.addEventListener('click', ()=>{
-    menuLateral.classList.add("invisible");
-});
+if (cerrarLateral){
+    cerrarLateral.addEventListener('click', ()=>{
+        menuLateral.classList.add("invisible");
+    });
+    
+    abrirLateral.addEventListener("click", ()=>{
+        menuLateral.classList.remove("invisible");
+    });
+}
 
-abrirLateral.addEventListener("click", ()=>{
-    menuLateral.classList.remove("invisible");
-})
+
 
 //traigo el contenedor donde van las reservas nuevas
 let cajaReservas = document.getElementById("cont-reservas");
@@ -166,7 +171,7 @@ export function mostrarReservas(container, datos) {
 
         
         cajita.innerHTML = `
-            <div class="w100 df centerX centerY spaceb bordeRojo vh25">
+            <div id="evento-reservado" class="w100 df centerX centerY spaceb bordeRojo vh25">
               
                     <img class="w20 objCover w100" src="assets/imgs/cine-categoria.png" alt="">
 
@@ -179,6 +184,13 @@ export function mostrarReservas(container, datos) {
                     <button pos="${i}" class="mostrar-comida sinBorde botonCeleste blanco ajuste-boton">Agregar comida</button>
 
                     <p>${datos[i].precio}</p>
+
+                    <ul>
+                        ${datos[i].comida.length > 0 
+                            ? datos[i].comida.map(comida => `<li>${comida.nombre}</li>`)
+                            : '<li>No hay comidas asignadas.</li>'
+                        }
+                    </ul>
          
             </div>
         `;
@@ -207,13 +219,14 @@ export function mostrarReservas(container, datos) {
     //esto va acá para que cada vez que se ejecute la funcion se agarren los botones
     const botonesComida = document.querySelectorAll(".mostrar-comida");
 
-    console.log(botonesComida);
-
-    botonesComida.forEach((boton)=>{
+    botonesComida.forEach((boton, index)=>{
     boton.addEventListener('click', ()=>{
         
         //al container le puse un atribute que se llama categoria y dependiendo de que cateogria sea, es el array que va a aagarrar para mostrar los combos disponibles
         let categoria = cajaComida.getAttribute("categoria");
+
+        divComida.setAttribute("evento-posicion", index);
+
 
         if (categoria === "cine"){
             divComida.innerHTML = "";
@@ -234,6 +247,8 @@ export function mostrarReservas(container, datos) {
 
     })
 })
+
+
 }
 
 //funcion para MOSTRAR LAS OPCIONES DE COMIDA, aca también se le asignan los listeners que agregan la comida a mis reservas, habria que ver como hacer para que se agreguen sin el boton agregar comida o si hacemos otra caja para las reservas de comida, pero por lo pronto se agregan a reservas que es lo básico.
@@ -262,10 +277,26 @@ export function mostrarMenu (container, datos){
     const reservanComida = document.querySelectorAll(".reservar-comida");
 
     reservanComida.forEach((reservador)=>{
+
         reservador.addEventListener('click', ()=>{
 
-            let index = reservador.getAttribute("pos");
-            reservasNuevas.push(datos[index]);
+            let indexComida = reservador.getAttribute("pos");
+            let indexEvento = divComida.getAttribute("evento-posicion"); //console.log(reservasNuevas);
+
+            //accedemos al objeto de la comida elegida
+            let comidaElegida = datos[indexComida];
+            //console.log(comidaElegida);
+            
+
+            //accedemos a la instancia del evento reservado
+            let eventoReservado = reservasNuevas[indexEvento];
+            //console.log(eventoReservado);
+            
+
+            //esta linea no sabemos como se escribe
+            eventoReservado.comidasAsignadas = comidaElegida;
+            
+            //aca hay que poner una funcion que agrege al evento las comidas elegidas
             mostrarReservas(cajaReservas, reservasNuevas);
 
         })
@@ -274,6 +305,19 @@ export function mostrarMenu (container, datos){
     });
 
 }
+
+//let cajaEventoReservado = document.getElementById("evento-reservado");
+//console.log(cajaEventoReservado);
+
+/*function mostrarComidas (container, arrayNuevo, datos, index){
+
+    
+    let comidaReservada = `<span>${datos[index].nombre}</span>`
+    console.log(comidaReservada);
+    cajaEventoReservado.innerHTML += comidaReservada;
+
+}*/
+
 
 
 //Descuento (comentario: funciona :) pero tira error la consola por otro tema)
@@ -300,17 +344,23 @@ const codigosDescuento = {
       //vuelvo a calcular el precio total
       const totalConDescuento = Evento.calcularPrecioTotal(reservasNuevas);
       console.log(`Precio con descuento: $${totalConDescuento}`);
+      
     } else {
       console.log("Código inválido. No se aplicó ningún descuento.");
     }
   }
 
 
-  document.getElementById("aplicarDescuento").addEventListener('click', () => {
-    const codigo = document.getElementById("codigoDescuento").value.trim(); //trim elimina espacios
-  
-    if (codigo !== "") {
-      aplicarDescuentoPorCodigo(codigo, reservasNuevas); 
-      mostrarReservas(document.getElementById("menuLateral"), reservasNuevas); 
-    }
-  });
+  let botonDescuento = document.getElementById("aplicarDescuento");
+
+  if (botonDescuento){
+    botonDescuento.addEventListener('click', () => {
+        const codigo = document.getElementById("codigoDescuento").value.trim(); //trim elimina espacios
+      
+        if (codigo !== "") {
+          aplicarDescuentoPorCodigo(codigo, reservasNuevas); 
+          mostrarReservas(document.getElementById("cont-reservas"), reservasNuevas); 
+        }
+      });
+  }
+

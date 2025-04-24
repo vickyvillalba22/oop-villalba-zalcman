@@ -8,14 +8,16 @@ export class Evento {
     #duracion;
     #precio;
     #capacidad;
+    #comida;
 
-    constructor(nombre, fecha, horario, duracion, precio, capacidad){
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, comida = []){
         this.#nombre = nombre;
         this.#fecha = fecha;
         this.#horario = horario;
         this.#duracion = duracion;
         this.#precio = precio;
         this.#capacidad = capacidad;
+        this.#comida = comida;
     }
 
     //set
@@ -44,12 +46,25 @@ export class Evento {
         return this.#capacidad;
       }
 
+    get comida(){
+        return this.#comida;
+    }
+
     //setters: cuando la persona toca el boton descuento
     set ponerDescuento (porcentaje){
 
         if (porcentaje > 0 && porcentaje < 100) {
             this.#precio = this.#precio - (this.#precio * porcentaje / 100);
         }
+
+    }
+
+    set comidasAsignadas (comidaNueva){
+
+        console.log(comidaNueva); //devuelve un objeto
+        console.log(this.#comida);
+
+        this.#comida.push(comidaNueva);
 
     }
 
@@ -99,8 +114,8 @@ export class Cine extends Evento {
     #directorCine;
     #dondeCine;
 
-    constructor(nombre, fecha, horario, duracion, precio, capacidad, genero, directorCine, dondeCine){
-        super(nombre, fecha, horario, duracion, precio, capacidad);
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, comida, genero, directorCine, dondeCine){
+        super(nombre, fecha, horario, duracion, precio, capacidad, comida);
 
         this.#genero = genero;
         this.#directorCine = directorCine;
@@ -160,6 +175,7 @@ for (let pelicula of peliculasData){
         pelicula.duracion,
         pelicula.precio,
         pelicula.capacidad,
+        pelicula.comida,
         pelicula.genero,
         pelicula.directorCine,
         pelicula.dondeCine,

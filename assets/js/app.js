@@ -186,14 +186,14 @@ export function mostrarReservas(container, datos) {
         container.appendChild(cajita);
 
         //Calculo del precio total
-        let totalPrecio = Evento.calcularPrecioTotal(reservasNuevas); 
+        let totalPrecio = Evento.calcularPrecioTotal(datos); 
         
         //verifico si existe el div con la clase totalPrecio para que no se vaya duplicando
         let totalDiv = container.querySelector('.totalPrecio');
 
         if (!totalDiv) {
             totalDiv = document.createElement("div");
-            totalDiv.classList.add("w100", "mt3", "totalPrecio"); // Agrego la clase totalPrecio
+            totalDiv.classList.add("w100", "totalPrecio"); // Agrego la clase totalPrecio
             container.appendChild(totalDiv);
         }
 
@@ -275,3 +275,42 @@ export function mostrarMenu (container, datos){
 
 }
 
+
+//Descuento (comentario: funciona :) pero tira error la consola por otro tema)
+//creo un objeto con códigos de descuento
+const codigosDescuento = {
+    '1234': 20,
+    '5678': 30,
+  };
+  
+
+  //creo la funcion
+  export function aplicarDescuentoPorCodigo(codigo, reservasNuevas) {
+    //verifico que el codigo sea válido
+    if (codigo in codigosDescuento) {
+      const porcentaje = codigosDescuento[codigo];
+  
+      //recorro el array de reservas para aplicar el descuento (comentario: podría aplicarle el descuento directamente al precio total, pero lo hice de esta forma para poder usar el set)
+      for (let evento of reservasNuevas) {
+        evento.ponerDescuento = porcentaje; //uso el set para aplicarle el porcentaje de descuento a cada reserva
+      }
+  
+      console.log(`Se aplicó un ${porcentaje}% de descuento`);
+  
+      //vuelvo a calcular el precio total
+      const totalConDescuento = Evento.calcularPrecioTotal(reservasNuevas);
+      console.log(`Precio con descuento: $${totalConDescuento}`);
+    } else {
+      console.log("Código inválido. No se aplicó ningún descuento.");
+    }
+  }
+
+
+  document.getElementById("aplicarDescuento").addEventListener('click', () => {
+    const codigo = document.getElementById("codigoDescuento").value.trim(); //trim elimina espacios
+  
+    if (codigo !== "") {
+      aplicarDescuentoPorCodigo(codigo, reservasNuevas); 
+      mostrarReservas(document.getElementById("menuLateral"), reservasNuevas); 
+    }
+  });

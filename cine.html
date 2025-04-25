@@ -28,19 +28,23 @@
 
         </section>
 
-        <section class="df mt4">
+        <section class="df mt4 columna centerY">
             
-            <div class="w20 bgGrisOscuro vh60 lateral">
-                <!--Aca estaria bueno poner filtros y link de: cartelera / mis reservas (para que deslizar a esa seccion)-->
-            </div>
+            <!--<div class="w20 bgGrisOscuro vh60 lateral">
+                Aca estaria bueno poner filtros y link de: cartelera / mis reservas (para que deslizar a esa seccion)
+            </div>-->
+
 
             <div id="container" class="w80 df spaceb mr2">
 
-                <dialog id="modalInfo">
+                <dialog id="modalInfo" class="w40 vh60 sinBorde bordeRedondo">
+
+                    <button id="boton-reservar" class="ajuste-boton sinBorde fondoCeleste blanco">Reservar</button>
+
                     <div id="muestra-info">
                         
                     </div>
-                    <button id="boton-reservar">Reservar</button>
+                    
                 </dialog>
 
             </div>
@@ -60,6 +64,7 @@
                 <label for="codigoDescuento">Código de descuento:</label>
                 <input type="text" id="codigoDescuento" placeholder="Ingresá tu código" class="mt1">
                 <button id="aplicarDescuento">Aplicar descuento</button>
+                <button id="pagar">Pagar</button>
             </div>
 
         </section>

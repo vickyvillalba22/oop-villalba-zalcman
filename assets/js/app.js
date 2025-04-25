@@ -11,7 +11,7 @@ let cajaRecitales = document.getElementById("caja-concert");
 let cajaObras = document.getElementById("contObras");
 
 
-export function cartelera (container, datos){
+export function cartelera (container, datos, colorBoton){
     
     for (let i=0; i<datos.length; i++){
 
@@ -22,13 +22,16 @@ export function cartelera (container, datos){
         //le asignamos al boton la posicion para usar despues
         cajita.innerHTML = `
     
-                <div id="card" class="w100">
-    
-                        <img class="vh30 objCover" src="assets/imgs/cine-categoria.png" alt="">
-                        <h3 class="blanco mt1">${datos[i].nombre}</h3>   
-                        <button pos="${i}" class="mt1 boton-mostrar sinBorde botonCeleste blanco ajuste-boton w100">Mas información</button>
-       
+            <div id="card-evento" class="bordeRedondo df centerX centerY">
+                <div id="info-evento" class="h100 w100 bordeRedondo df centerX">
+                    <div class="df columna fEnd h90 w80">
+                        <h2>${datos[i].nombre}</h2>
+                        <span class="mt1">${datos[i].fecha} · ${datos[i].directorCine}</span>
+                        <span class="mt1">Duracion: ${datos[i].duracion} hs</span>
+                        <button class="ajuste-boton fitContent sinBorde ${colorBoton} blanco mt1 boton-mostrar" pos="${i}">Mas informacion</button>
+                    </div>
                 </div>
+            </div>
         ` 
         container.appendChild(cajita);
     }
@@ -36,20 +39,21 @@ export function cartelera (container, datos){
 }
 
 if (cajaPelis){
-    cartelera(cajaPelis, peliculasData);
+    cartelera(cajaPelis, peliculasData, "fondoRojo");
     botones_mostrar(instanciasPeliculas);
 }
 if (cajaRecitales){
-    cartelera(cajaRecitales, recitalesData);
+    cartelera(cajaRecitales, recitalesData, "fondoCeleste");
     botones_mostrar(instanciasRecitales);
 } 
 if (cajaObras){
-    cartelera(cajaObras, obrasData);
+    cartelera(cajaObras, obrasData, "fondoVioleta");
     botones_mostrar(instanciasObras);
 } 
 
 
 let dialogInfo = document.getElementById("modalInfo");
+
 
 let eventoSeleccionado;
 
@@ -68,7 +72,7 @@ export function mostrarModal (evento){
 
     //le agrego los datos
     modal.innerHTML = evento.verInfoEvento();
-    dialogInfo.appendChild(modal);
+    dialogInfo.append(modal, botonReservar);
     dialogInfo.showModal();
 
 }
@@ -363,4 +367,45 @@ const codigosDescuento = {
         }
       });
   }
+
+/*EVENTOS DESTACADOS*/
+let contDestacados = document.getElementById("contDestacados");
+
+function tres_eventos_random() {
+
+    //saco las posiciones random. cada uno devuelve instancias
+    let evento1 = instanciasPeliculas[Math.floor(Math.random() * instanciasPeliculas.length)];
+
+    let evento2 = instanciasObras[Math.floor(Math.random() * instanciasPeliculas.length)];
+
+    let evento3 = instanciasRecitales[Math.floor(Math.random() * instanciasPeliculas.length)];
+
+    //armo un array con esas posiciones
+    let destacados = [evento1, evento2, evento3];
+
+    //genero las cards para el dom
+    for (let i=0; i<destacados.length; i++){
+
+        let destacado = document.createElement("a");
+        destacado.classList.add("w30");
+
+        destacado.innerHTML = `
+
+                    <img src="assets/imgs/banner-home.png" alt="" class="w100">
+                    <h3 class="blanco">${destacados[i].nombre}</h3>
+                    <span class="blanco">${destacados[i].fecha}</span>
+
+        ` 
+        contDestacados.appendChild(destacado);
+
+    }
+    
+
+}
+
+if (contDestacados){
+    tres_eventos_random();
+}
+
+
 

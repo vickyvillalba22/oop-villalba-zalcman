@@ -368,6 +368,8 @@ const codigosDescuento = {
       });
   }
 
+
+  
 /*EVENTOS DESTACADOS*/
 let contDestacados = document.getElementById("contDestacados");
 

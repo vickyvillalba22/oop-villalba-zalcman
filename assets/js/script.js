@@ -100,9 +100,16 @@ export class Evento {
 
     //metodo estático para calcular precio total
     static calcularPrecioTotal(reservas) {
-        let total = 0;
-        for (let reserva of reservas) {
-            total += reserva.precio;
+        let total = 0; //inicializo en 0 la variable
+
+        for (let reserva of reservas) {  //recorre las reservas y suma el precio
+            total += reserva.precio; 
+
+            if (reserva.comida && Array.isArray(reserva.comida)) {  //verifica si se encuentra con un array y lo recorre en busca del precio
+                for (let item of reserva.comida) {
+                    total += item.precio; 
+                }
+            }
         }
         return total;
     }

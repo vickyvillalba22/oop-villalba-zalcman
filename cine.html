@@ -7,6 +7,9 @@
 
     <link rel="stylesheet" href="assets/css/basic-styles.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
 </head>
 
 <body class="azulFondo df columna centerY">
@@ -53,18 +56,26 @@
 
         <section id="caja-reservas" class="df columna fondoBlanco w40 invisible">
 
-            <button id="close-lateral" class="fitContent">Close</button>
+            <button id="close-lateral" class="fitContent fondoTransparente sinBorde">
+                <i class="fi fi-rr-circle-xmark closei"></i>
+            </button>
 
-            <h2>Mis reservas</h2>
+            <h2 class="mt1">Mis reservas</h2>
+
+            <p class="mt1" id="sinReservas">Aún no tienes reservas!</p>
 
             <div id="cont-reservas" class="df columna"></div>
 
+            <div id="descuentoBox" class="w100 mt3 df spaceb centerY vh20 columna invisible">
 
-            <div id="descuentoBox" class="w100 mt3">
-                <label for="codigoDescuento">Código de descuento:</label>
-                <input type="text" id="codigoDescuento" placeholder="Ingresá tu código" class="mt1">
-                <button id="aplicarDescuento">Aplicar descuento</button>
-                <button id="pagar">Pagar</button>
+                <div class="df centerY spaceb h100 w100">
+                    <label for="codigoDescuento">Código de descuento:</label>
+                    <input type="text" id="codigoDescuento" placeholder="xxxx">
+                    <button id="aplicarDescuento" class="ajuste-boton sinBorde">Aplicar descuento</button>
+                </div>
+
+                <a href="pantalla-final.html"><button class="ajuste-boton sinBorde">Pagar</button></a>
+
             </div>
 
         </section>

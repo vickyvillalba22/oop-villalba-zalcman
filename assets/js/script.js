@@ -76,15 +76,6 @@ export class Evento {
         
     };
 
-    //elimina un objeto del array reservas
-    cancelarEvento(posCancelado){
-
-        reservas.splice(posCancelado, 1);
-
-        return `Tu reserva fue cancelada` 
-
-    };
-    
     //devuelvo toda la info del evento
     verInfoEvento(){
 

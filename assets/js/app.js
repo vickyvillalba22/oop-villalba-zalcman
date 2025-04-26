@@ -117,8 +117,8 @@ if (botonReservar){
 
         eventoSeleccionado.reservarEvento(reservasNuevas);
 
-        console.log("reserva guardada");
-        console.log(reservasNuevas);
+        //console.log("reserva guardada");
+        //console.log(reservasNuevas);
 
         menuLateral.classList.remove("invisible");
         mostrarReservas(cajaReservas, reservasNuevas);
@@ -161,9 +161,12 @@ if (cerrarLateral){
 
 //traigo el contenedor donde van las reservas nuevas
 let cajaReservas = document.getElementById("cont-reservas");
+let descuentoBox = document.getElementById("descuentoBox");
+let sinReservas = document.getElementById("sinReservas");
 
 //esta funcion será la que muestra el menu lateral con las reservas
 export function mostrarReservas(container, datos) {
+
     //limpio el contenedor de reservas antes de agregar nuevas
     container.innerHTML = '';
 
@@ -173,33 +176,62 @@ export function mostrarReservas(container, datos) {
         let cajita = document.createElement("div");
         cajita.classList.add("w100", "mb3", "mt1");
 
-        
-        cajita.innerHTML = `
-            <div id="evento-reservado" class="w100 df centerX centerY spaceb bordeRojo vh25">
-              
-                    <img class="w20 objCover w100" src="assets/imgs/cine-categoria.png" alt="">
+        if (reservasNuevas.length==0){
 
-                    <div class="df columna spacee">
-                        <h3>${datos[i].nombre}</h3>
-                        <p>Fecha: ${datos[i].fecha}</p>
-                        <p>Horario: ${datos[i].horario}</p> 
+            sinReservas.classList.remove("invisible");
+
+        } else {
+
+            sinReservas.classList.add("invisible");
+
+            cajita.innerHTML = `
+            <div id="evento-reservado" class="df columna spaceb centerY spaceb mt1">
+
+                    <div class="df centerY spaceb">
+                        <div class="df w45 spaceb">
+
+                            <img src="assets/imgs/poster-peli-generic.webp" alt="" class="w50 bordeRedondo">
+    
+                            <div class="df columna spacee w40">
+                                <h3>${datos[i].nombre}</h3>
+                                <span>${datos[i].fecha}</span>
+                                <span>${datos[i].horario}</span>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="df columna centerX centerY spacee h100">
+    
+                            <button class="fondoRojo sinBorde ajuste-boton boton-eliminar" pos="${i}"><i class="fi fi-rr-trash blanco"></i></button>
+    
+                            <button pos="${i}" class="ajuste-boton sinBorde mostrar-comida mt1">Agregar comida</button>
+    
+                        </div>
+    
+                        <p class="df fEnd">${datos[i].precio}</p>
                     </div>
 
-                    <button pos="${i}" class="mostrar-comida sinBorde botonCeleste blanco ajuste-boton">Agregar comida</button>
+                    
 
-                    <p>${datos[i].precio}</p>
-
-                    <ul>
+                    <ul class="mt1 w100">
                         ${datos[i].comida.length > 0 
-                            ? datos[i].comida.map(comida => `<li>${comida.nombre}</li>`)
+                            ? datos[i].comida.map(comida => `
+                                <div class="w100 df spaceb">
+                                    <li>${comida.nombre}</li>
+                                    <span>${comida.precio}</span>
+                                </div>
+                                `)
                             : '<li>No hay comidas asignadas.</li>'
                         }
                     </ul>
-         
-            </div>
+
+                </div>
         `;
 
         container.appendChild(cajita);
+        descuentoBox.classList.remove("invisible");
+
+        }
 
         //Calculo del precio total
         let totalPrecio = Evento.calcularPrecioTotal(datos); 
@@ -214,7 +246,7 @@ export function mostrarReservas(container, datos) {
         }
 
         //Actualizo su contenido
-        totalDiv.innerHTML = `<h3>Total: $${totalPrecio}</h3>`;
+        totalDiv.innerHTML = `<p>Total: $${totalPrecio}</p>`;
 
         container.appendChild(totalDiv);
 
@@ -252,6 +284,16 @@ export function mostrarReservas(container, datos) {
     })
 })
 
+    /*ELIMINAR EVENTO DE RESERVAS*/
+    const eliminadores = document.querySelectorAll(".boton-eliminar");
+
+    eliminadores.forEach((eliminador)=>{
+        eliminador.addEventListener('click', ()=>{
+            let posReserva = eliminador.getAttribute("pos");
+            reservasNuevas.splice(posReserva, 1);
+            mostrarReservas(cajaReservas, reservasNuevas);
+        })
+    })
 
 }
 
@@ -310,27 +352,15 @@ export function mostrarMenu (container, datos){
 
 }
 
-//let cajaEventoReservado = document.getElementById("evento-reservado");
-//console.log(cajaEventoReservado);
-
-/*function mostrarComidas (container, arrayNuevo, datos, index){
-
-    
-    let comidaReservada = `<span>${datos[index].nombre}</span>`
-    console.log(comidaReservada);
-    cajaEventoReservado.innerHTML += comidaReservada;
-
-}*/
-
-
-
 //Descuento (comentario: funciona :) pero tira error la consola por otro tema)
 //creo un objeto con códigos de descuento
 const codigosDescuento = {
     '1234': 20,
     '5678': 30,
   };
-  
+
+
+  let avisoDescuento = document.createElement("span");
 
   //creo la funcion
   export function aplicarDescuentoPorCodigo(codigo, reservasNuevas) {
@@ -348,9 +378,15 @@ const codigosDescuento = {
       //vuelvo a calcular el precio total
       const totalConDescuento = Evento.calcularPrecioTotal(reservasNuevas);
       console.log(`Precio con descuento: $${totalConDescuento}`);
+
+      avisoDescuento.innerHTML = `Se aplicó un ${porcentaje}% de descuento`;
+      descuentoBox.appendChild(avisoDescuento);
       
     } else {
-      console.log("Código inválido. No se aplicó ningún descuento.");
+
+      avisoDescuento.innerHTML = "Código inválido. No se aplicó ningún descuento.";
+      descuentoBox.appendChild(avisoDescuento);
+      
     }
   }
 
@@ -367,7 +403,6 @@ const codigosDescuento = {
         }
       });
   }
-
 
   
 /*EVENTOS DESTACADOS*/

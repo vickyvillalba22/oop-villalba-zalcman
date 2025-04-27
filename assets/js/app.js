@@ -174,7 +174,7 @@ export function mostrarReservas(container, datos) {
     for (let i = 0; i < datos.length; i++) {
 
         let cajita = document.createElement("div");
-        cajita.classList.add("w100", "mb3", "mt1");
+        cajita.classList.add("w100", "mb3", "mt1", "cajita");
 
         if (reservasNuevas.length==0){
 
@@ -204,7 +204,7 @@ export function mostrarReservas(container, datos) {
     
                             <button class="fondoRojo sinBorde ajuste-boton boton-eliminar" pos="${i}"><i class="fi fi-rr-trash blanco"></i></button>
     
-                            <button pos="${i}" class="ajuste-boton sinBorde mostrar-comida mt1">Agregar comida</button>
+                            <button pos="${i}" class="ajuste-boton sinBorde mostrar-comida mt1 fondoCeleste blanco">Agregar comida</button>
     
                         </div>
     
@@ -215,12 +215,15 @@ export function mostrarReservas(container, datos) {
 
                     <ul class="mt1 w100">
                         ${datos[i].comida.length > 0 
-                            ? datos[i].comida.map(comida => `
-                                <div class="w100 df spaceb">
+                            ? datos[i].comida.map((comida, indexComida) =>`
+                                <div class="w100 df spaceb mt1">
                                     <li>${comida.nombre}</li>
+                                    <button class="eliminar-comida fondoRojo sinBorde ajuste-boton" data-evento="${i}" data-comida="${indexComida}">
+                                        <i class="fi fi-rr-trash blanco"></i>
+                                    </button>
                                     <span>$${comida.precio}</span>
                                 </div>
-                                `)
+                                `).join('') //evita que se vean las comas
                             : '<li>No hay comidas asignadas.</li>'
                         }
                     </ul>
@@ -295,9 +298,28 @@ export function mostrarReservas(container, datos) {
         })
     })
 
+
+    /*ELIMINAR COMIDA DE RESERVAS*/
+    const botonesEliminarComida = document.querySelectorAll(".eliminar-comida");
+
+    botonesEliminarComida.forEach((boton) => {
+            boton.addEventListener("click", () => {
+                let indexEvento = boton.getAttribute("data-evento");
+                let indexComida = boton.getAttribute("data-comida");
+
+                //elimina la comida del array del evento
+                reservasNuevas[indexEvento].comida.splice(indexComida, 1);
+
+                //vuelve a mostrar las reservas actualizadas
+                mostrarReservas(cajaReservas, reservasNuevas);
+            });
+        });
+
 }
 
-//funcion para MOSTRAR LAS OPCIONES DE COMIDA, aca también se le asignan los listeners que agregan la comida a mis reservas, habria que ver como hacer para que se agreguen sin el boton agregar comida o si hacemos otra caja para las reservas de comida, pero por lo pronto se agregan a reservas que es lo básico.
+ 
+
+//funcion para MOSTRAR LAS OPCIONES DE COMIDA, aca también se le asignan los listeners que agregan la comida a mis reservas
 export function mostrarMenu (container, datos){
     
     for (let i=0; i<datos.length; i++){
@@ -312,8 +334,8 @@ export function mostrarMenu (container, datos){
                 <div id="card" class="w100">
     
                         <img class="vh30 objCover" src="assets/imgs/cine-categoria.png" alt="">
-                        <h3 class="mt1">${datos[i].nombre}</h3>   
-                        <button pos="${i}" class="reservar-comida mt1 sinBorde botonCeleste ajuste-boton w100">Agregar a mi reserva</button>
+                        <h4 class="mt1">${datos[i].nombre}</h3>   
+                        <button pos="${i}" class="reservar-comida mt1 sinBorde botonCeleste blanco ajuste-boton w100">Agregar a mi reserva</button>
        
                 </div>
         ` 
@@ -339,7 +361,6 @@ export function mostrarMenu (container, datos){
             //console.log(eventoReservado);
             
 
-            //esta linea no sabemos como se escribe
             eventoReservado.comidasAsignadas = comidaElegida;
             
             //aca hay que poner una funcion que agrege al evento las comidas elegidas

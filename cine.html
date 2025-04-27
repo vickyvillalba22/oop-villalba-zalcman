@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="assets/css/basic-styles.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/imgs/logo.png" type="image/x-icon">
 
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 
@@ -56,11 +57,13 @@
 
         <section id="caja-reservas" class="df columna fondoBlanco w40 invisible">
 
-            <button id="close-lateral" class="fitContent fondoTransparente sinBorde">
-                <i class="fi fi-rr-circle-xmark closei"></i>
-            </button>
+            <div class="df spaceb">
+                <h2 class="mt1">Mis reservas</h2>
 
-            <h2 class="mt1">Mis reservas</h2>
+                <button id="close-lateral" class="fitContent fondoTransparente sinBorde">
+                    <i class="fi fi-rr-circle-xmark closei"></i>
+                </button>
+            </div>
 
             <p class="mt1" id="sinReservas">Aún no tienes reservas!</p>
 
@@ -71,20 +74,21 @@
                 <div class="df centerY spaceb h100 w100">
                     <label for="codigoDescuento">Código de descuento:</label>
                     <input type="text" id="codigoDescuento" placeholder="xxxx">
-                    <button id="aplicarDescuento" class="ajuste-boton sinBorde">Aplicar descuento</button>
+                    <button id="aplicarDescuento" class="ajuste-boton sinBorde fondoCeleste blanco">Aplicar descuento</button>
                 </div>
 
-                <a href="pantalla-final.html"><button class="ajuste-boton sinBorde">Pagar</button></a>
+                <a href="pantalla-final.html"><button class="ajuste-boton sinBorde fondoVioleta blanco mt1">Pagar</button></a>
 
             </div>
 
         </section>
 
-        <dialog id="dialog-comida" categoria="cine" class="w50">
+        
+        <dialog id="dialog-comida" categoria="cine" class="w50 sinBorde bordeRedondo p1">
 
-            <button id="cerrar-comida">Close</button>
+            <button id="cerrar-comida" class="mt4"><i class="fi fi-rr-circle-xmark closei cerrar-comida"></i></button>
 
-            <div id="contenedorComida" class="df wrap"></div>
+            <div id="contenedorComida" class="df wrap mt4 spaceb"></div>
 
         </dialog>
 

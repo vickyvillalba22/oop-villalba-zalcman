@@ -223,4 +223,30 @@ footer {
     text-align: right;
   }
 
- 
+  .cajita{
+    border: 1px solid rgb(164, 164, 164);
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.4em;
+  }
+
+ #cerrar-comida{
+    all: unset;
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+ }
+
+ #dialog-comida{
+    position: fixed;
+    top: 50%;
+    left: 32%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+ }
+
+ #codigoDescuento {
+    color: black; 
+ }

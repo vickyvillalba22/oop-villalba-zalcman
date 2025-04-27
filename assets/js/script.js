@@ -440,11 +440,6 @@ class Candy_cine extends Comida {
         return this.#tamano;
     }
 
-
-    cambiar_tamano(){
-        //pregunta al usuario que tamaño quiere
-    }
-
 }
 
 let instanciasCandy = [];
@@ -528,10 +523,6 @@ class Hamburguesas extends Comida {
 
     get tamano() {
         return this.#tamano;
-    }
-
-    cambiar_tamano(){
-        
     }
 
 }

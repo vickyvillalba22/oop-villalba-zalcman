@@ -208,7 +208,7 @@ export function mostrarReservas(container, datos) {
     
                         </div>
     
-                        <p class="df fEnd">${datos[i].precio}</p>
+                        <p class="df fEnd">$${datos[i].precio}</p>
                     </div>
 
                     
@@ -218,7 +218,7 @@ export function mostrarReservas(container, datos) {
                             ? datos[i].comida.map(comida => `
                                 <div class="w100 df spaceb">
                                     <li>${comida.nombre}</li>
-                                    <span>${comida.precio}</span>
+                                    <span>$${comida.precio}</span>
                                 </div>
                                 `)
                             : '<li>No hay comidas asignadas.</li>'
@@ -352,7 +352,7 @@ export function mostrarMenu (container, datos){
 
 }
 
-//Descuento (comentario: funciona :) pero tira error la consola por otro tema)
+
 //creo un objeto con códigos de descuento
 const codigosDescuento = {
     '1234': 20,
@@ -364,20 +364,28 @@ const codigosDescuento = {
 
   //creo la funcion
   export function aplicarDescuentoPorCodigo(codigo, reservasNuevas) {
+  
     //verifico que el codigo sea válido
     if (codigo in codigosDescuento) {
-      const porcentaje = codigosDescuento[codigo];
-  
-      //recorro el array de reservas para aplicar el descuento (comentario: podría aplicarle el descuento directamente al precio total, pero lo hice de esta forma para poder usar el set)
-      for (let evento of reservasNuevas) {
-        evento.ponerDescuento = porcentaje; //uso el set para aplicarle el porcentaje de descuento a cada reserva
-      }
-  
+        const porcentaje = codigosDescuento[codigo];
+        //recorro el array de reservas para aplicar el descuento (comentario: podría aplicarle el descuento directamente al precio total, pero lo hice de esta forma para poder usar el set)
+        for (let evento of reservasNuevas) {
+          evento.ponerDescuento = porcentaje; //uso el set para aplicarle el porcentaje de descuento a cada reserva
+          
+          //recorro el array de comidas
+          if (evento.comida && Array.isArray(evento.comida)) {
+            for (let comida of evento.comida) {
+              comida.precio = comida.precio - (comida.precio * porcentaje / 100);
+            }
+          }
+        }
+
+
       console.log(`Se aplicó un ${porcentaje}% de descuento`);
   
       //vuelvo a calcular el precio total
       const totalConDescuento = Evento.calcularPrecioTotal(reservasNuevas);
-      console.log(`Precio con descuento: $${totalConDescuento}`);
+        console.log(`Precio con descuento: $${totalConDescuento}`);
 
       avisoDescuento.innerHTML = `Se aplicó un ${porcentaje}% de descuento`;
       descuentoBox.appendChild(avisoDescuento);

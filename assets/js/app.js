@@ -364,7 +364,7 @@ export function mostrarMenu (container, datos){
             
 
             //accedemos a la instancia del evento reservado
-            let eventoReservado = reservasNuevas[indexEvento];
+             let eventoReservado = reservasNuevas[indexEvento];
             //console.log(eventoReservado);
             
 
@@ -390,10 +390,17 @@ const codigosDescuento = {
 
   let avisoDescuento = document.createElement("span");
   avisoDescuento.classList.add("mt1");
+  let descuento = false
 
   //creo la funcion
   export function aplicarDescuentoPorCodigo(codigo, reservasNuevas) {
   
+    if(descuento === true){
+        avisoDescuento.innerHTML = "Ya se aplicó un descuento";
+        descuentoBox.appendChild(avisoDescuento);
+        return; //salgo de la funcion
+    }
+
     //verifico que el codigo sea válido
     if (codigo in codigosDescuento) {
         const porcentaje = codigosDescuento[codigo];
@@ -407,6 +414,8 @@ const codigosDescuento = {
               comida.precio = comida.precio - (comida.precio * porcentaje / 100);
             }
           }
+
+
         }
 
 
@@ -418,6 +427,9 @@ const codigosDescuento = {
 
       avisoDescuento.innerHTML = `Se aplicó un ${porcentaje}% de descuento`;
       descuentoBox.appendChild(avisoDescuento);
+
+      descuento = true
+      
       
     } else {
 

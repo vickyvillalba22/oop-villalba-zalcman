@@ -236,31 +236,34 @@ export const recitalesData = [
 
 export const candies = [
   {
-      nombre: "Combo Gominolas",
-      precio: 1500,
-      cant_disp: 20,
-      tipo: "snack dulce",
-      dulce: true,
-      bebida: false,
-      tamano: "mediano"
+    nombre: "Combo Gominolas",
+    precio: 1500,
+    cant_disp: 20,
+    tipo: "snack dulce",
+    dulce: true,
+    bebida: false,
+    tamano: "mediano",
+    imagen: "https://png.pngtree.com/png-vector/20240613/ourmid/pngtree-a-colorful-jelly-beans-png-image_12735990.png"
   },
   {
-      nombre: "Combo Popcorn + Gaseosa",
-      precio: 2500,
-      cant_disp: 15,
-      tipo: "combo cine",
-      dulce: true,
-      bebida: true,
-      tamano: "grande"
+    nombre: "Combo Popcorn + Gaseosa",
+    precio: 2500,
+    cant_disp: 15,
+    tipo: "combo cine",
+    dulce: true,
+    bebida: true,
+    tamano: "grande",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTIutcf_XpMs2iK2yeuWd25lE8HkQwemDbRA&s"
   },
   {
-      nombre: "Nachos con queso",
-      precio: 1800,
-      cant_disp: 10,
-      tipo: "snack salado",
-      dulce: false,
-      bebida: false,
-      tamano: "chico"
+    nombre: "Nachos con queso",
+    precio: 1800,
+    cant_disp: 10,
+    tipo: "snack salado",
+    dulce: false,
+    bebida: false,
+    tamano: "chico",
+    imagen: "https://png.pngtree.com/png-clipart/20231124/original/pngtree-nachos-with-cheese-sauce-and-jalapeno-on-white-background-png-image_13700394.png"
   }
 ];
 

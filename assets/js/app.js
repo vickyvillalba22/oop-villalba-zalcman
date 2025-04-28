@@ -61,11 +61,13 @@ if (cajaObras){
 
 let dialogInfo = document.getElementById("modalInfo");
 
+let imagenModal = document.createElement("img");
+let cajaTextoImg = document.createElement("div");
 
 let eventoSeleccionado;
 
 //para mostrar la informacion de la pelicula
-export function mostrarModal (evento){
+export function mostrarModal (evento, datos, posicion){
     
     //console.log(evento);
     eventoSeleccionado = evento;
@@ -77,9 +79,17 @@ export function mostrarModal (evento){
         dialogInfo.close();
     })
 
+    //console.log(datos[posicion].imagen);
+    imagenModal.setAttribute("src", datos[posicion].imagen);
+    imagenModal.classList.add("w40", "objCover", "bordeRedondo");
+
     //le agrego los datos
     modal.innerHTML = evento.verInfoEvento();
-    dialogInfo.append(modal, botonReservar);
+
+    cajaTextoImg.classList.add("df", "vh40", "w100", "spaceb");
+    cajaTextoImg.append(modal, imagenModal);
+
+    dialogInfo.append(cajaTextoImg, botonReservar);
     dialogInfo.showModal();
 
 }
@@ -100,7 +110,7 @@ export function botones_mostrar (datos){
             let evento = datos[posicion];
     
             //se la paso como parametro
-            mostrarModal(evento);
+            mostrarModal(evento, datos, posicion);
         
         });
     
@@ -340,7 +350,7 @@ export function mostrarMenu (container, datos){
     
                 <div id="card" class="w100">
     
-                        <img class="vh30 objCover" src="assets/imgs/cine-categoria.png" alt="">
+                        <img class="vh30 objCover w100" src="${datos[i].imagen}" alt="">
                         <h4 class="mt1">${datos[i].nombre}</h3>   
                         <button pos="${i}" class="reservar-comida mt1 sinBorde botonCeleste blanco ajuste-boton w100">Agregar a mi reserva</button>
        
@@ -468,6 +478,7 @@ function tres_eventos_random() {
 
     //armo un array con esas posiciones
     let destacados = [evento1, evento2, evento3];
+    let categorias = ["cine", "teatro", "concierto"];
 
     //genero las cards para el dom
     for (let i=0; i<destacados.length; i++){
@@ -478,8 +489,9 @@ function tres_eventos_random() {
         destacado.innerHTML = `
 
                     <img src="${destacados[i].imagen}" alt="" class="w100 vh40 bordeRedondo objCover">
-                    <h3 class="blanco mt1">${destacados[i].nombre}</h3>
+                    <h3 class="blanco mt1 textCenter w100">${destacados[i].nombre}</h3>
                     <span class="blanco">${destacados[i].fecha}</span>
+                    <a href="${categorias[i]}.html"><button class="ajuste-boton sinBorde fondoCeleste blanco mt1">Ver más</button></a>
 
         ` 
         contDestacados.appendChild(destacado);

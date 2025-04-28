@@ -357,12 +357,14 @@ class Comida {
     #precio;
     #cant_disp;
     #tipo;
+    #imagen;
 
-    constructor(nombre, precio, cant_disp, tipo) {
+    constructor(nombre, precio, cant_disp, tipo, imagen) {
         this.#nombre = nombre;
         this.#precio = precio;
         this.#cant_disp = cant_disp;
         this.#tipo = tipo;
+        this.#imagen = imagen;
     }
 
     // Getters
@@ -380,6 +382,10 @@ class Comida {
 
     get tipo() {
         return this.#tipo;
+    }
+
+    get imagen(){
+        return this.#imagen;
     }
 
 
@@ -428,8 +434,8 @@ class Candy_cine extends Comida {
     #bebida;
     #tamano;
 
-    constructor(nombre, precio, cant_disp, tipo, dulce, bebida, tamano) {
-        super(nombre, precio, cant_disp, tipo);
+    constructor(nombre, precio, cant_disp, tipo, imagen, dulce, bebida, tamano) {
+        super(nombre, precio, cant_disp, tipo, imagen);
         this.#dulce = dulce;
         this.#bebida = bebida;
         this.#tamano = tamano;
@@ -456,6 +462,7 @@ for (let candy of candies){
         candy.precio,
         candy.cant_disp,
         candy.tipo,
+        candy.imagen,
         candy.dulce,
         candy.bebida,
         candy.tamano

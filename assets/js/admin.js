@@ -3,6 +3,10 @@ import { cartelera } from "./app.js";
 
 //la lógica está, solo quedaria mostrarlo con el dom. 
 
+let contNuevos = document.getElementById("eventos-agregados");
+
+const eventosNuevos = [];
+
 function cargarEvento (arrayData){
 
     const objetoNuevo = {};
@@ -19,10 +23,14 @@ function cargarEvento (arrayData){
 
     //log del array antes, tiene 6 
     console.log(arrayData);
-    //agrego el objeto creado
+    //agrego el objeto creado a la data original
     arrayData.push(objetoNuevo);
+    //agrego el evento nuevo a un array de eventos nuevos
+    eventosNuevos.push(objetoNuevo);
+    contNuevos.innerHTML = "";
+    cartelera(contNuevos, eventosNuevos, "fondoVioleta");
     //log del array despues, tiene 7
-    console.log(arrayData);
+    console.log(eventosNuevos);
 }
 
 //este es el container del form específico con los botones que muestran sus respectivos forms
@@ -59,13 +67,13 @@ botonTeatro.addEventListener('click', (event)=>{
 
     cajaElegido.innerHTML = `
         <label class="blanco" for="elenco">Elenco</label>
-        <input type="text" for="elenco">
+        <input type="text" for="elenco" name="elenco">
         <label class="blanco" for="directorTeatro">Director/a</label>
-        <input type="text" for="directorTeatro">
+        <input type="text" for="directorTeatro" name="directorTeatro">
         <label class="blanco" for="tipoObra">Tipo de obra</label>
-        <input type="text" for="tipoObra">
+        <input type="text" for="tipoObra" name="tipoObra">
         <label class="blanco" for="teatro">Teatro</label>
-        <input type="text" for="teatro">
+        <input type="text" for="teatro" name="teatro">
     `
     cargarTeatro.classList.remove("invisible");
     cargarPelicula.classList.add("invisible");
@@ -78,11 +86,11 @@ botonRecital.addEventListener('click', (event)=>{
 
     cajaElegido.innerHTML = `
         <label class="blanco" for="artista">Nombre del artista/banda</label>
-        <input type="text" for="artista">
+        <input type="text" for="artista" name="artista">
         <label class="blanco" for="generoMusical">Género Musical</label>
-        <input type="text" for="generoMusical">
+        <input type="text" for="generoMusical" name="generoMusical">
         <label class="blanco" for="nombreAlbum">Nombre del álbum/tour</label>
-        <input type="text" for="nombreAlbum">
+        <input type="text" for="nombreAlbum" name="nombreAlbum">
     `
 
     cargarRecital.classList.remove("invisible");

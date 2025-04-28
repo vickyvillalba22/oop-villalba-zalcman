@@ -9,8 +9,9 @@ export class Evento {
     #precio;
     #capacidad;
     #comida;
+    #imagen;
 
-    constructor(nombre, fecha, horario, duracion, precio, capacidad, comida = []){
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, comida = [], imagen){
         this.#nombre = nombre;
         this.#fecha = fecha;
         this.#horario = horario;
@@ -18,6 +19,7 @@ export class Evento {
         this.#precio = precio;
         this.#capacidad = capacidad;
         this.#comida = comida;
+        this.#imagen = imagen;
     }
 
     //set
@@ -48,6 +50,10 @@ export class Evento {
 
     get comida(){
         return this.#comida;
+    }
+
+    get imagen(){
+        return this.#imagen;
     }
 
     //setters: cuando la persona toca el boton descuento
@@ -112,8 +118,8 @@ export class Cine extends Evento {
     #directorCine;
     #dondeCine;
 
-    constructor(nombre, fecha, horario, duracion, precio, capacidad, comida, genero, directorCine, dondeCine){
-        super(nombre, fecha, horario, duracion, precio, capacidad, comida);
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, comida, imagen, genero, directorCine, dondeCine){
+        super(nombre, fecha, horario, duracion, precio, capacidad, comida, imagen);
 
         this.#genero = genero;
         this.#directorCine = directorCine;
@@ -174,6 +180,7 @@ for (let pelicula of peliculasData){
         pelicula.precio,
         pelicula.capacidad,
         pelicula.comida,
+        pelicula.imagen,
         pelicula.genero,
         pelicula.directorCine,
         pelicula.dondeCine,

@@ -22,21 +22,28 @@ export function cartelera (container, datos, colorBoton){
         //le asignamos al boton la posicion para usar despues
         cajita.innerHTML = `
     
-            <div id="card-evento" class="bordeRedondo df centerX centerY">
-                <div id="info-evento" class="h100 w100 bordeRedondo df centerX">
-                    <div class="df columna fEnd h90 w80">
-                        <h2>${datos[i].nombre}</h2>
-                        <span class="mt1">${datos[i].fecha} · ${datos[i].directorCine}</span>
-                        <span class="mt1">Duracion: ${datos[i].duracion} hs</span>
+            <div id="card-evento" class="bordeRedondo df centerX centerY posRel">
+
+                <img src="${datos[i].imagen}" class="w100 h100 bordeRedondo objCover">
+
+                <div class="overlay bordeRedondo"></div>
+
+                    <div class="df columna fEnd h90 w80 posAb">
+                        <h2 class="blanco">${datos[i].nombre}</h2>
+                        <span class="mt1 blanco">${datos[i].fecha} · ${datos[i].directorCine}</span>
+                        <span class="mt1 blanco">Duracion: ${datos[i].duracion} hs</span>
                         <button class="ajuste-boton fitContent sinBorde ${colorBoton} blanco mt1 boton-mostrar" pos="${i}">Mas informacion</button>
                     </div>
-                </div>
+                
+
+                
             </div>
         ` 
         container.appendChild(cajita);
     }
 
 }
+
 
 if (cajaPelis){
     cartelera(cajaPelis, peliculasData, "fondoRojo");
@@ -190,7 +197,7 @@ export function mostrarReservas(container, datos) {
                     <div class="df centerY spaceb">
                         <div class="df w45 spaceb">
 
-                            <img src="assets/imgs/poster-peli-generic.webp" alt="" class="w50 bordeRedondo">
+                            <img src="${datos[i].imagen}" alt="" class="w50 bordeRedondo">
     
                             <div class="df columna spacee w40">
                                 <h3>${datos[i].nombre}</h3>
@@ -217,7 +224,7 @@ export function mostrarReservas(container, datos) {
                         ${datos[i].comida.length > 0 
                             ? datos[i].comida.map((comida, indexComida) =>`
                                 <div class="w100 df spaceb mt1">
-                                    <li>${comida.nombre}</li>
+                                    <li class="w40">${comida.nombre}</li>
                                     <button class="eliminar-comida fondoRojo sinBorde ajuste-boton" data-evento="${i}" data-comida="${indexComida}">
                                         <i class="fi fi-rr-trash blanco"></i>
                                     </button>
@@ -382,6 +389,7 @@ const codigosDescuento = {
 
 
   let avisoDescuento = document.createElement("span");
+  avisoDescuento.classList.add("mt1");
 
   //creo la funcion
   export function aplicarDescuentoPorCodigo(codigo, reservasNuevas) {
@@ -453,12 +461,12 @@ function tres_eventos_random() {
     for (let i=0; i<destacados.length; i++){
 
         let destacado = document.createElement("a");
-        destacado.classList.add("w30");
+        destacado.classList.add("w25", "vh50", "bordeRedondo", "df", "columna", "spacee", "centerY");
 
         destacado.innerHTML = `
 
-                    <img src="assets/imgs/banner-home.png" alt="" class="w100">
-                    <h3 class="blanco">${destacados[i].nombre}</h3>
+                    <img src="${destacados[i].imagen}" alt="" class="w100 vh40 bordeRedondo objCover">
+                    <h3 class="blanco mt1">${destacados[i].nombre}</h3>
                     <span class="blanco">${destacados[i].fecha}</span>
 
         ` 

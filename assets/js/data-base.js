@@ -2,79 +2,86 @@
 export const eventos = [];
 
 export const peliculasData = [
-    {
-        nombre: "Interstellar",
-        fecha: "2025-05-01",
-        horario: "20:00",
-        duracion: 2.49,
-        precio: 1500,
-        capacidad: 100,
-        genero: "Ciencia ficción",
-        directorCine: "Christopher Nolan",
-        dondeCine: "Cine Hoyts Abasto",
-        asiento: "Fila 7, Asiento 12"
-    },
-    {
-        nombre: "Inception",
-        fecha: "2025-05-03",
-        horario: "22:00",
-        duracion: 2.28,
-        precio: 1600,
-        capacidad: 90,
-        genero: "Thriller",
-        directorCine: "Christopher Nolan",
-        dondeCine: "Cinemark Palermo",
-        asiento: "Fila 4, Asiento 5"
-    },
-    {
-        nombre: "La La Land",
-        fecha: "2025-05-05",
-        horario: "19:30",
-        duracion: 2.08,
-        precio: 1400,
-        capacidad: 120,
-        genero: "Musical",
-        directorCine: "Damien Chazelle",
-        dondeCine: "Cine Gaumont",
-        asiento: "Fila 9, Asiento 8"
-    },
-    {
-        nombre: "Parasite",
-        fecha: "2025-05-07",
-        horario: "21:00",
-        duracion: 2.12,
-        precio: 1700,
-        capacidad: 85,
-        genero: "Drama",
-        directorCine: "Bong Joon-ho",
-        dondeCine: "Village Recoleta",
-        asiento: "Fila 2, Asiento 10"
-    },
-    {
-        nombre: "The Grand Budapest Hotel",
-        fecha: "2025-05-09",
-        horario: "20:45",
-        duracion: 1.39,
-        precio: 1500,
-        capacidad: 95,
-        genero: "Comedia",
-        directorCine: "Wes Anderson",
-        dondeCine: "Multiplex Belgrano",
-        asiento: "Fila 6, Asiento 6"
-    },
-    {
-        nombre: "The Social Network",
-        fecha: "2025-05-14",
-        horario: "20:00",
-        duracion: 2.00,
-        precio: 1500,
-        capacidad: 85,
-        genero: "Biografía",
-        directorCine: "David Fincher",
-        dondeCine: "Atlas Nordelta",
-        asiento: "Fila 5, Asiento 3"
-    }
+  {
+      nombre: "Interstellar",
+      fecha: "2025-05-01",
+      horario: "20:00",
+      duracion: 2.49,
+      precio: 1500,
+      capacidad: 100,
+      genero: "Ciencia ficción",
+      directorCine: "Christopher Nolan",
+      dondeCine: "Cine Hoyts Abasto",
+      asiento: "Fila 7, Asiento 12",
+      imagen: "https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg"
+  },
+  {
+      nombre: "Inception",
+      fecha: "2025-05-03",
+      horario: "22:00",
+      duracion: 2.28,
+      precio: 1600,
+      capacidad: 90,
+      genero: "Thriller",
+      directorCine: "Christopher Nolan",
+      dondeCine: "Cinemark Palermo",
+      asiento: "Fila 4, Asiento 5",
+      imagen: "https://i.pinimg.com/474x/5b/80/2a/5b802a212478e2c73571f9395f84efd5.jpg"
+  },
+  {
+      nombre: "La La Land",
+      fecha: "2025-05-05",
+      horario: "19:30",
+      duracion: 2.08,
+      precio: 1400,
+      capacidad: 120,
+      genero: "Musical",
+      directorCine: "Damien Chazelle",
+      dondeCine: "Cine Gaumont",
+      asiento: "Fila 9, Asiento 8",
+      imagen: "https://upload.wikimedia.org/wikipedia/en/a/ab/La_La_Land_%28film%29.png"
+  },
+  {
+      nombre: "Parasite",
+      fecha: "2025-05-07",
+      horario: "21:00",
+      duracion: 2.12,
+      precio: 1700,
+      capacidad: 85,
+      genero: "Drama",
+      directorCine: "Bong Joon-ho",
+      dondeCine: "Village Recoleta",
+      asiento: "Fila 2, Asiento 10",
+      imagen: "https://upload.wikimedia.org/wikipedia/en/5/53/Parasite_%282019_film%29.png"
+  },
+  {
+      nombre: "The Grand Budapest Hotel",
+      fecha: "2025-05-09",
+      horario: "20:45",
+      duracion: 1.39,
+      precio: 1500,
+      capacidad: 95,
+      genero: "Comedia",
+      directorCine: "Wes Anderson",
+      dondeCine: "Multiplex Belgrano",
+      asiento: "Fila 6, Asiento 6",
+      imagen: "https://www.blogartesvisuales.net/wp-content/uploads/2014/05/grand-budapest-hotel-poster.jpg"
+  },
+  {
+      nombre: "The Social Network",
+      fecha: "2025-05-14",
+      horario: "20:00",
+      duracion: 2.00,
+      precio: 1500,
+      capacidad: 85,
+      genero: "Biografía",
+      directorCine: "David Fincher",
+      dondeCine: "Atlas Nordelta",
+      asiento: "Fila 5, Asiento 3",
+      imagen: "https://i.okcdn.ru/i?r=B4CSQJv1RQZIqEhgaodSB18cfAgDsMpdYJZdW9yJ-AZNZpUbSi2-UagPfcgBG5J_CXoWLb3DbpzdljBjs0m2h9x_PP4kcvHfP5u2FBV9FwXvu6JbJos0EdolpdjoOADDR2SvweVIQgtjtFn8hUrnKEYPzWjIlIPVACzoIY3mk1jmuKu-qHirRT0sI8wcI5705y1etwAAACk"
+  }
 ];
+
 
 export const obrasData = [
     {

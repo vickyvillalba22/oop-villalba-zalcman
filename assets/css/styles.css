@@ -256,3 +256,33 @@ footer {
  #codigoDescuento {
     color: black; 
  }
+
+ /*MOBILE*/
+@media screen and (max-width: 767px) {
+    .w100m{
+        width: 100%;
+    }
+
+    .w90m{
+        width: 90%;
+    }
+
+    .dfm{
+        display: flex;
+    }
+
+    .centerXm{
+        justify-content: center;
+    }
+
+    .centerYm{
+        align-items: center;
+    }
+}
+  
+  /*TABLETS*/
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .w45t{
+        width: 45%;
+    }
+  }

@@ -16,7 +16,7 @@ export function cartelera (container, datos, colorBoton){
     for (let i=0; i<datos.length; i++){
 
         let cajita = document.createElement("div");
-        cajita.classList.add("w30", "mb3");
+        cajita.classList.add("w30", "mb3", "w100m", "w45t");
     
         //mostramos la imagen y el titulo
         //le asignamos al boton la posicion para usar despues

@@ -342,7 +342,7 @@ export function mostrarMenu (container, datos){
     for (let i=0; i<datos.length; i++){
 
         let cajita = document.createElement("div");
-        cajita.classList.add("w30", "mb3");
+        cajita.classList.add("w30", "mb3", "w90m");
     
         //mostramos la imagen y el titulo
         //le asignamos al boton la posicion para usar despues
@@ -350,8 +350,9 @@ export function mostrarMenu (container, datos){
     
                 <div id="card" class="w100">
     
-                        <img class="vh30 objCover w100" src="${datos[i].imagen}" alt="">
-                        <h4 class="mt1">${datos[i].nombre}</h3>   
+                        <img class="vh30 w100 imgMenum imgMenut" src="${datos[i].imagen}" alt="">
+                        <h4 class="mt1">${datos[i].nombre}</h4> 
+                        <h5 class="mt1">$${datos[i].precio}</h5>  
                         <button pos="${i}" class="reservar-comida mt1 sinBorde botonCeleste blanco ajuste-boton w100">Agregar a mi reserva</button>
        
                 </div>

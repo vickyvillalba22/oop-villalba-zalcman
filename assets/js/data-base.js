@@ -246,7 +246,7 @@ export const candies = [
     imagen: "https://png.pngtree.com/png-vector/20240613/ourmid/pngtree-a-colorful-jelly-beans-png-image_12735990.png"
   },
   {
-    nombre: "Combo Popcorn + Gaseosa",
+    nombre: "Combo Popcorn + Coca",
     precio: 2500,
     cant_disp: 15,
     tipo: "combo cine",

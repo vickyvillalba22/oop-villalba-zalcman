@@ -267,6 +267,12 @@ footer {
         width: 90%;
     }
 
+    
+    .w40m{
+        width: 40%;
+    }
+
+
     .dfm{
         display: flex;
     }
@@ -278,11 +284,33 @@ footer {
     .centerYm{
         align-items: center;
     }
+
+    #modalInfo{
+        top: 20%;
+        left: 5%;
+    }
+
+    #dialog-comida{
+        top: 50%;
+        left: 70%;
+    }
+
+    .imgMenum{
+        object-fit: contain
+    }
 }
   
   /*TABLETS*/
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     .w45t{
         width: 45%;
+    }
+
+    .w60t{
+        width: 60%;
+    }
+
+    .imgMenut{
+        object-fit: contain
     }
   }

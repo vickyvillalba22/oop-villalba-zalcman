@@ -30,7 +30,7 @@ export function cartelera (container, datos, colorBoton){
 
                     <div class="df columna fEnd h90 w80 posAb">
                         <h2 class="blanco">${datos[i].nombre}</h2>
-                        <span class="mt1 blanco">${datos[i].fecha} · ${datos[i].directorCine}</span>
+                        <span class="mt1 blanco">${datos[i].fecha}</span>
                         <span class="mt1 blanco">Duracion: ${datos[i].duracion} hs</span>
                         <button class="ajuste-boton fitContent sinBorde ${colorBoton} blanco mt1 boton-mostrar" pos="${i}">Mas informacion</button>
                     </div>
@@ -108,6 +108,7 @@ export function botones_mostrar (datos){
         
             //asignamos el metodo a la instancia correspondiente a esa posicion
             let evento = datos[posicion];
+            //console.log(evento);
     
             //se la paso como parametro
             mostrarModal(evento, datos, posicion);
@@ -131,12 +132,14 @@ let botonReservar = document.getElementById("boton-reservar");
 if (botonReservar){
 
     botonReservar.addEventListener('click', ()=>{
-
+        
         eventoSeleccionado.reservarEvento(reservasNuevas);
 
         //console.log("reserva guardada");
         //console.log(reservasNuevas);
 
+        console.log(menuLateral);
+        
         menuLateral.classList.remove("invisible");
         mostrarReservas(cajaReservas, reservasNuevas);
 
@@ -160,8 +163,12 @@ if (cerrarComida){
 
 let menuLateral = document.getElementById("caja-reservas");
 
+
 //agregarle la funcion de cerrar al boton, y asignarle al boton "mis reservas que abra el lateral"
 let abrirLateral = document.querySelector("header button");
+console.log(abrirLateral);
+
+
 let cerrarLateral = document.getElementById("close-lateral");
 
 if (cerrarLateral){
@@ -173,8 +180,6 @@ if (cerrarLateral){
         menuLateral.classList.remove("invisible");
     });
 }
-
-
 
 //traigo el contenedor donde van las reservas nuevas
 let cajaReservas = document.getElementById("cont-reservas");
@@ -311,6 +316,12 @@ export function mostrarReservas(container, datos) {
         eliminador.addEventListener('click', ()=>{
             let posReserva = eliminador.getAttribute("pos");
             reservasNuevas.splice(posReserva, 1);
+
+            if (reservasNuevas.length == 0){
+                sinReservas.classList.remove("invisible");
+                descuentoBox.classList.add("invisible");
+            }
+
             mostrarReservas(cajaReservas, reservasNuevas);
         })
     })
@@ -485,7 +496,7 @@ function tres_eventos_random() {
     for (let i=0; i<destacados.length; i++){
 
         let destacado = document.createElement("a");
-        destacado.classList.add("w25", "vh50", "bordeRedondo", "df", "columna", "spacee", "centerY");
+        destacado.classList.add("w25", "vh60", "bordeRedondo", "df", "columna", "spacee", "centerY");
 
         destacado.innerHTML = `
 

@@ -198,9 +198,9 @@ class Teatro extends Evento {
     #tipoObra;
     #sectorTeatro;
 
-    constructor(nombre, fecha, horario, duracion, precio, capacidad, elenco, directorTeatro, tipoObra, sectorTeatro){
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, comida, imagen, elenco, directorTeatro, tipoObra, sectorTeatro){
 
-        super(nombre, fecha, horario, duracion, precio, capacidad);
+        super(nombre, fecha, horario, duracion, precio, capacidad, comida, imagen);
 
         this.#elenco = elenco;
         this.#directorTeatro = directorTeatro;
@@ -263,6 +263,8 @@ for (let obra of obrasData){
         obra.duracion,
         obra.precio,
         obra.capacidad,
+        obra.comida,
+        obra.imagen,
         obra.elenco,
         obra.directorTeatro,
         obra.tipoObra,
@@ -477,7 +479,7 @@ class Tragos extends Comida {
     #graduacion;
     #tipo_vaso;
 
-    constructor(nombre, precio, cant_disp, tipo, alcoholico, graduacion, tipo_vaso) {
+    constructor(nombre, precio, cant_disp, tipo, imagen, alcoholico, graduacion, tipo_vaso) {
         super(nombre, precio, cant_disp, tipo);
         this.#alcoholico = alcoholico;
         this.#graduacion = graduacion;
@@ -506,6 +508,7 @@ for (let trago of tragos){
         trago.precio,
         trago.cant_disp,
         trago.tipo,
+        trago.imagen,
         trago.alcoholico,
         trago.graduacion,
         trago.tipo_vaso

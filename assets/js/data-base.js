@@ -78,91 +78,98 @@ export const peliculasData = [
       directorCine: "David Fincher",
       dondeCine: "Atlas Nordelta",
       asiento: "Fila 5, Asiento 3",
-      imagen: "https://i.okcdn.ru/i?r=B4CSQJv1RQZIqEhgaodSB18cfAgDsMpdYJZdW9yJ-AZNZpUbSi2-UagPfcgBG5J_CXoWLb3DbpzdljBjs0m2h9x_PP4kcvHfP5u2FBV9FwXvu6JbJos0EdolpdjoOADDR2SvweVIQgtjtFn8hUrnKEYPzWjIlIPVACzoIY3mk1jmuKu-qHirRT0sI8wcI5705y1etwAAACk"
+      imagen: "https://pics.filmaffinity.com/La_Red_Social-547593334-large.jpg"
   }
 ];
 
 
 export const obrasData = [
-    {
-      nombre: "La Casa de Bernarda Alba",
-      fecha: "2025-05-10",
-      horario: "20:30",
-      duracion: 120,
-      precio: 3500,
-      capacidad: 150,
-      elenco: ["Ana López", "María González", "Carla Suárez"],
-      directorTeatro: "Lucía Fernández",
-      tipoObra: "Drama",
-      sectorTeatro: "Sala Principal",
-      butaca: "Platea"
-    },
-    {
-      nombre: "Sueño de una noche de verano",
-      fecha: "2025-05-15",
-      horario: "21:00",
-      duracion: 100,
-      precio: 3000,
-      capacidad: 200,
-      elenco: ["Julián Rivas", "Camila Blanco", "Fernando Torres"],
-      directorTeatro: "Marcelo Gómez",
-      tipoObra: "Comedia",
-      sectorTeatro: "Sala 2",
-      butaca: "General"
-    },
-    {
-      nombre: "Esperando la carroza",
-      fecha: "2025-06-01",
-      horario: "19:00",
-      duracion: 90,
-      precio: 2800,
-      capacidad: 120,
-      elenco: ["Laura Medina", "Carlos Pinto", "Nora Vega"],
-      directorTeatro: "Federico Ledesma",
-      tipoObra: "Comedia negra",
-      sectorTeatro: "Sala Principal",
-      butaca: "Palco"
-    },
-    {
-      nombre: "El zoo de cristal",
-      fecha: "2025-06-10",
-      horario: "20:00",
-      duracion: 110,
-      precio: 3200,
-      capacidad: 100,
-      elenco: ["Luciana Castro", "Pedro Almada", "Juana Rojas"],
-      directorTeatro: "Silvia Barreto",
-      tipoObra: "Drama psicológico",
-      sectorTeatro: "Sala 3",
-      butaca: "Platea"
-    },
-    {
-      nombre: "Hamlet",
-      fecha: "2025-06-20",
-      horario: "21:00",
-      duracion: 150,
-      precio: 4000,
-      capacidad: 250,
-      elenco: ["Iván Herrera", "Claudia Ramos", "Esteban Salinas"],
-      directorTeatro: "Ramiro Escudero",
-      tipoObra: "Tragedia",
-      sectorTeatro: "Auditorio Principal",
-      butaca: "Preferencial"
-    },
-    {
-        nombre: "Toc Toc",
-        fecha: "2025-06-25",
-        horario: "20:30",
-        duracion: 105,
-        precio: 3100,
-        capacidad: 180,
-        elenco: ["Martín Pérez", "Agustina Díaz", "Sofía Herrera", "Diego Romero"],
-        directorTeatro: "Gabriela Sosa",
-        tipoObra: "Comedia",
-        sectorTeatro: "Sala 1",
-        butaca: "General"
-      }
+  {
+    nombre: "La Casa de Bernarda Alba",
+    fecha: "2025-05-10",
+    horario: "20:30",
+    duracion: 2,
+    precio: 3500,
+    capacidad: 150,
+    elenco: ["Ana López", "María González", "Carla Suárez"],
+    directorTeatro: "Lucía Fernández",
+    tipoObra: "Drama",
+    sectorTeatro: "Sala Principal",
+    butaca: "Platea",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kHIrYxj89bomDnKjXYAwIuKNqAvIIoU9yQ&s"
+  },
+  {
+    nombre: "Sueño de una noche de verano",
+    fecha: "2025-05-15",
+    horario: "21:00",
+    duracion: 1.6,
+    precio: 3000,
+    capacidad: 200,
+    elenco: ["Julián Rivas", "Camila Blanco", "Fernando Torres"],
+    directorTeatro: "Marcelo Gómez",
+    tipoObra: "Comedia",
+    sectorTeatro: "Sala 2",
+    butaca: "General",
+    imagen: "https://www.teatronacional.go.cr/repositorio/detail/58-1679_sueo.jpg"
+  },
+  {
+    nombre: "Esperando la carroza",
+    fecha: "2025-06-01",
+    horario: "19:00",
+    duracion: 1.5,
+    precio: 2800,
+    capacidad: 120,
+    elenco: ["Laura Medina", "Carlos Pinto", "Nora Vega"],
+    directorTeatro: "Federico Ledesma",
+    tipoObra: "Comedia negra",
+    sectorTeatro: "Sala Principal",
+    butaca: "Palco",
+    imagen: "https://www.ciudad.com.ar/resizer/v2/esperando-la-carroza-llega-al-teatro-cuando-y-como-comprar-las-entradas-WZ5QNRI3S5ANFO2AIFB4OF2ZJA.jpg?auth=57ddc457f1eae9bf9f1c46e48d83b82d244a18b34c39604c65845489e644aa1c&width=1440"
+  },
+  {
+    nombre: "El zoo de cristal",
+    fecha: "2025-06-10",
+    horario: "20:00",
+    duracion: 1.8,
+    precio: 3200,
+    capacidad: 100,
+    elenco: ["Luciana Castro", "Pedro Almada", "Juana Rojas"],
+    directorTeatro: "Silvia Barreto",
+    tipoObra: "Drama psicológico",
+    sectorTeatro: "Sala 3",
+    butaca: "Platea",
+    imagen: "https://images.cdn3.buscalibre.com/fit-in/360x360/c6/38/c63889a3b2da312f06f3131c2e70f09b.jpg"
+  },
+  {
+    nombre: "Hamlet",
+    fecha: "2025-06-20",
+    horario: "21:00",
+    duracion: 1.9,
+    precio: 4000,
+    capacidad: 250,
+    elenco: ["Iván Herrera", "Claudia Ramos", "Esteban Salinas"],
+    directorTeatro: "Ramiro Escudero",
+    tipoObra: "Tragedia",
+    sectorTeatro: "Auditorio Principal",
+    butaca: "Preferencial",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi7JzUmJj35RXbOCiiTGIS9kJko4UQMTg03A&s"
+  },
+  {
+    nombre: "Toc Toc",
+    fecha: "2025-06-25",
+    horario: "20:30",
+    duracion: 1.5,
+    precio: 3100,
+    capacidad: 180,
+    elenco: ["Martín Pérez", "Agustina Díaz", "Sofía Herrera", "Diego Romero"],
+    directorTeatro: "Gabriela Sosa",
+    tipoObra: "Comedia",
+    sectorTeatro: "Sala 1",
+    butaca: "General",
+    imagen: "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2017/10/toc-toc_4.jpg?tf=2048x"
+  }
 ];
+
 
 export const recitalesData = [
   {
@@ -269,33 +276,37 @@ export const candies = [
 
 export const tragos = [
   {
-      nombre: "Fernet con Coca",
-      precio: 2200,
-      cant_disp: 30,
-      tipo: "bebida alcohólica",
-      alcoholico: true,
-      graduacion: "40%",
-      tipo_vaso: "vaso largo"
+    nombre: "Fernet con Coca",
+    precio: 2200,
+    cant_disp: 30,
+    tipo: "bebida alcohólica",
+    alcoholico: true,
+    graduacion: "40%",
+    tipo_vaso: "vaso largo",
+    imagen: "https://png.pngtree.com/png-clipart/20210309/original/pngtree-a-full-glass-of-cola-and-foam-png-image_5824124.jpg"
   },
   {
-      nombre: "Mojito",
-      precio: 2500,
-      cant_disp: 20,
-      tipo: "cocktail",
-      alcoholico: true,
-      graduacion: "25%",
-      tipo_vaso: "vaso corto"
+    nombre: "Mojito",
+    precio: 2500,
+    cant_disp: 20,
+    tipo: "cocktail",
+    alcoholico: true,
+    graduacion: "25%",
+    tipo_vaso: "vaso corto",
+    imagen: "https://png.pngtree.com/png-clipart/20231020/original/pngtree-mojitos-summer-cocktail-png-image_13377315.png"
   },
   {
-      nombre: "Limonada",
-      precio: 1200,
-      cant_disp: 25,
-      tipo: "sin alcohol",
-      alcoholico: false,
-      graduacion: "0%",
-      tipo_vaso: "vaso largo"
+    nombre: "Limonada",
+    precio: 1200,
+    cant_disp: 25,
+    tipo: "sin alcohol",
+    alcoholico: false,
+    graduacion: "0%",
+    tipo_vaso: "vaso largo",
+    imagen: "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-mexican-cocktail-lemonade-png-image_10255941.png"
   }
 ];
+
 
 export const hamburguesas = [
   {

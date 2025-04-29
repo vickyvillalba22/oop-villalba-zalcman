@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" href="assets/imgs/logo.png" type="image/x-icon">
 
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
 </head>
-<body>
 
     <body class="azulFondo df columna centerY">
 
@@ -21,7 +22,8 @@
             </div>
         </header>
        
-        <main class="w100">
+        <main class="w100 df columna">
+
             <section class="banner-teatro ajusteBanner posRel vh50 w100 df centerX a">
     
                 <div class="w90 fEnd df columna vh40">
@@ -31,10 +33,70 @@
     
             </section>
 
-            <section class="df mt4">
+            <!--VERSION NUEVA-->
+
+            <section class="df mt4 columna centerY centerX">
+    
+                <div id="contObras" class="w80 df spaceb wrap">
+    
+                    <dialog id="modalInfo" class="w40 vh60 sinBorde bordeRedondo w90m w60t">
+    
+                        <button id="boton-reservar" class="ajuste-boton sinBorde fondoCeleste blanco">Reservar</button>
+    
+                        <div id="muestra-info">
+                            
+                        </div>
+                        
+                    </dialog>
+    
+                </div>
+                
+            </section>
+    
+            <section id="caja-reservas" class="df columna fondoBlanco w40 invisible w100m w60t">
+    
+                <div class="df spaceb">
+                    <h2 class="mt1">Mis reservas</h2>
+    
+                    <button id="close-lateral" class="fitContent fondoTransparente sinBorde">
+                        <i class="fi fi-rr-circle-xmark closei"></i>
+                    </button>
+                </div>
+    
+                <p class="mt1" id="sinReservas">Aún no tienes reservas!</p>
+    
+                <div id="cont-reservas" class="df columna"></div>
+    
+                <div id="descuentoBox" class="w100 mt3 df spaceb centerY vh20 columna invisible">
+    
+                    <div class="df centerY spaceb h100 w100">
+                        <label for="codigoDescuento">Código de descuento:</label>
+                        <input type="text" id="codigoDescuento" placeholder="xxxx">
+                        <button id="aplicarDescuento" class="ajuste-boton sinBorde fondoCeleste blanco">Aplicar descuento</button>
+                    </div>
+    
+                    <a href="pantalla-final.html"><button class="ajuste-boton sinBorde fondoVioleta blanco mt1">Pagar</button></a>
+    
+                </div>
+    
+            </section>
+    
+            
+            <dialog id="dialog-comida" categoria="teatro" class="w50 sinBorde bordeRedondo p1 w40m w60t">
+    
+                <button id="cerrar-comida" class="mt4"><i class="fi fi-rr-circle-xmark closei cerrar-comida"></i></button>
+    
+                <div id="contenedorComida" class="df wrap mt4 spaceb"></div>
+    
+            </dialog>
+    
+
+            <!--VERSION ANTERIOR-->
+
+            <!--<section class="df mt4">
             
                 <div class="w20 bgGrisOscuro vh60 lateral">
-                    <!--Aca estaria bueno poner filtros y link de: cartelera / mis reservas (para que deslizar a esa seccion)-->
+                    Aca estaria bueno poner filtros y link de: cartelera / mis reservas (para que deslizar a esa seccion)
                 </div>
     
                 <div id="contObras" class="w80 df spaceb mr2 wrap">
@@ -54,8 +116,8 @@
 
             </section>
 
-            <!--div que estoy usando para mostrar las opciones de comida, esto despues debería se un modal-->
-            <div id="contenedorComida" categoria="teatro" class="df wrap"></div>
+            div que estoy usando para mostrar las opciones de comida, esto despues debería se un modal
+            <div id="contenedorComida" categoria="teatro" class="df wrap"></div>-->
             
         </main>
 

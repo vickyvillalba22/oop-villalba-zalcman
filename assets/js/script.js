@@ -281,9 +281,9 @@ class Recital extends Evento {
     #generoMusical;
     #nombreAlbum;
 
-    constructor(nombre, fecha, horario, duracion, precio, capacidad, artista, generoMusical, nombreAlbum){
+    constructor(nombre, fecha, horario, duracion, precio, capacidad, comida, imagen, artista, generoMusical, nombreAlbum){
 
-        super(nombre, fecha, horario, duracion, precio, capacidad);
+        super(nombre, fecha, horario, duracion, precio, capacidad, comida, imagen,);
 
         this.#artista = artista;
         this.#generoMusical = generoMusical;
@@ -314,6 +314,8 @@ class Recital extends Evento {
             duracion: this.duracion,
             precio: this.precio,
             capacidad: this.capacidad,
+            comida:this.comida,
+            imagen:this.imagen,
             artista: this.artista,
             generoMusical: this.generoMusical,
             nombreAlbum: this.nombreAlbum,
@@ -480,7 +482,7 @@ class Tragos extends Comida {
     #tipo_vaso;
 
     constructor(nombre, precio, cant_disp, tipo, imagen, alcoholico, graduacion, tipo_vaso) {
-        super(nombre, precio, cant_disp, tipo);
+        super(nombre, precio, cant_disp, tipo, imagen);
         this.#alcoholico = alcoholico;
         this.#graduacion = graduacion;
         this.#tipo_vaso = tipo_vaso;
@@ -523,8 +525,8 @@ class Hamburguesas extends Comida {
     #acompanamiento;
     #tamano;
 
-    constructor(nombre, precio, cant_disp, tipo, tipo_carne, acompanamiento, tamano) {
-        super(nombre, precio, cant_disp, tipo);
+    constructor(nombre, precio, cant_disp, tipo, imagen, tipo_carne, acompanamiento, tamano) {
+        super(nombre, precio, cant_disp, tipo, imagen);
         this.#tipo_carne = tipo_carne;
         this.#acompanamiento = acompanamiento;
         this.#tamano = tamano;
@@ -552,6 +554,7 @@ for (let hamburguesa of hamburguesas) {
         hamburguesa.precio,
         hamburguesa.cant_disp,
         hamburguesa.tipo,
+        hamburguesa.imagen,
         hamburguesa.tipo_carne,
         hamburguesa.acompanamiento,
         hamburguesa.tamano

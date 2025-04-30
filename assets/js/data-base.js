@@ -181,7 +181,9 @@ export const recitalesData = [
     capacidad: 5000,
     artista: "Los Infiltrados",
     generoMusical: "Rock",
-    nombreAlbum: "Caos Perfecto"
+    nombreAlbum: "Caos Perfecto",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kHIrYxj89bomDnKjXYAwIuKNqAvIIoU9yQ&s"
+    
   },
   {
     nombre: "Vibraciones Urbanas",
@@ -192,7 +194,8 @@ export const recitalesData = [
     capacidad: 3000,
     artista: "La Rima Salvaje",
     generoMusical: "Hip-Hop",
-    nombreAlbum: "Ritmo Real"
+    nombreAlbum: "Ritmo Real",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kHIrYxj89bomDnKjXYAwIuKNqAvIIoU9yQ&s"
   },
   {
     nombre: "Electro Night",
@@ -203,7 +206,8 @@ export const recitalesData = [
     capacidad: 7000,
     artista: "DJ Nova",
     generoMusical: "Electrónica",
-    nombreAlbum: "Galaxia"
+    nombreAlbum: "Galaxia",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kHIrYxj89bomDnKjXYAwIuKNqAvIIoU9yQ&s"
   },
   {
     nombre: "Cuerdas del Alma",
@@ -214,7 +218,8 @@ export const recitalesData = [
     capacidad: 1500,
     artista: "Lucía Pérez",
     generoMusical: "Folk",
-    nombreAlbum: "Raíz"
+    nombreAlbum: "Raíz",
+    imagen: "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-mexican-cocktail-lemonade-png-image_10255941.png"
   },
   {
     nombre: "Latido Tropical",
@@ -225,7 +230,8 @@ export const recitalesData = [
     capacidad: 3500,
     artista: "Grupo Caribe",
     generoMusical: "Salsa",
-    nombreAlbum: "Sabor y Ritmo"
+    nombreAlbum: "Sabor y Ritmo",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kHIrYxj89bomDnKjXYAwIuKNqAvIIoU9yQ&s"
   },
   {
     nombre: "Metal del Sur",
@@ -236,7 +242,8 @@ export const recitalesData = [
     capacidad: 4000,
     artista: "Hierro Austral",
     generoMusical: "Metal",
-    nombreAlbum: "Aullido"
+    nombreAlbum: "Aullido",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kHIrYxj89bomDnKjXYAwIuKNqAvIIoU9yQ&s"
   }
 ];
   
@@ -316,7 +323,8 @@ export const hamburguesas = [
       tipo: "comida rápida",
       tipo_carne: "vacuna",
       acompanamiento: "papas",
-      tamano: "doble"
+      tamano: "doble",
+      imagen: "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-mexican-cocktail-lemonade-png-image_10255941.png"
   },
   {
       nombre: "Hamburguesa Veggie",
@@ -325,7 +333,8 @@ export const hamburguesas = [
       tipo: "comida vegetariana",
       tipo_carne: "veggie",
       acompanamiento: "nachos",
-      tamano: "simple"
+      tamano: "simple",
+      imagen: "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-mexican-cocktail-lemonade-png-image_10255941.png"
   },
   {
       nombre: "Hamburguesa Crispy",
@@ -334,7 +343,8 @@ export const hamburguesas = [
       tipo: "comida rápida",
       tipo_carne: "pollo",
       acompanamiento: "papas",
-      tamano: "doble"
+      tamano: "doble",
+      imagen: "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-mexican-cocktail-lemonade-png-image_10255941.png"
   }
 ];
 

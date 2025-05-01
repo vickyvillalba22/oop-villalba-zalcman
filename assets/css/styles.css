@@ -186,6 +186,7 @@ footer {
     padding: 2em;
     position: fixed;
     right: 0;
+    top:0;
     z-index: 2;
     overflow-y: auto;
   }
@@ -257,6 +258,11 @@ footer {
     color: black; 
  }
 
+ .icono{
+    font-size: 3em; 
+    color: white;
+  }
+
  /*MOBILE*/
 @media screen and (max-width: 767px) {
     .w100m{
@@ -298,6 +304,15 @@ footer {
     .imgMenum{
         object-fit: contain
     }
+
+    .columnam{
+        flex-direction: column;
+    }
+
+    .mt1m{
+        margin-top: 1em;
+    }
+
 }
   
   /*TABLETS*/
@@ -308,6 +323,14 @@ footer {
 
     .w60t{
         width: 60%;
+    }
+
+    .w100t{
+        width: 100%;
+    }
+
+    .w90t{
+        width: 90%;
     }
 
     .imgMenut{

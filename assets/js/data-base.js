@@ -182,7 +182,7 @@ export const recitalesData = [
     artista: "Los Infiltrados",
     generoMusical: "Rock",
     nombreAlbum: "Caos Perfecto",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kHIrYxj89bomDnKjXYAwIuKNqAvIIoU9yQ&s"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP1Kenbgn1031jpRXGM6X42Qhi_kQ6MaxYQQ&s"
     
   },
   {
@@ -195,7 +195,7 @@ export const recitalesData = [
     artista: "La Rima Salvaje",
     generoMusical: "Hip-Hop",
     nombreAlbum: "Ritmo Real",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kHIrYxj89bomDnKjXYAwIuKNqAvIIoU9yQ&s"
+    imagen: "https://img.freepik.com/foto-gratis/concepto-collage-retrato-arte-pop_23-2149411958.jpg?semt=ais_hybrid&w=740"
   },
   {
     nombre: "Electro Night",
@@ -207,7 +207,7 @@ export const recitalesData = [
     artista: "DJ Nova",
     generoMusical: "Electrónica",
     nombreAlbum: "Galaxia",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kHIrYxj89bomDnKjXYAwIuKNqAvIIoU9yQ&s"
+    imagen: "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/electro-night-poster-template-538a5a18d555fce067a558bde5d3d3f6_screen.jpg?ts=1636968818"
   },
   {
     nombre: "Cuerdas del Alma",
@@ -219,7 +219,7 @@ export const recitalesData = [
     artista: "Lucía Pérez",
     generoMusical: "Folk",
     nombreAlbum: "Raíz",
-    imagen: "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-mexican-cocktail-lemonade-png-image_10255941.png"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf8Ke99_A59zviwzwHtO6B6V4vT0CqvV-RDA&shttps://img.freepik.com/foto-gratis/vista-lateral-hombre-tocando-piano_23-2150060681.jpg?semt=ais_hybrid&w=740"
   },
   {
     nombre: "Latido Tropical",
@@ -231,7 +231,7 @@ export const recitalesData = [
     artista: "Grupo Caribe",
     generoMusical: "Salsa",
     nombreAlbum: "Sabor y Ritmo",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kHIrYxj89bomDnKjXYAwIuKNqAvIIoU9yQ&s"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfogIymi7RZJaBqvtOCMoSC7Ga92M7p1CDcg&s"
   },
   {
     nombre: "Metal del Sur",
@@ -243,7 +243,7 @@ export const recitalesData = [
     artista: "Hierro Austral",
     generoMusical: "Metal",
     nombreAlbum: "Aullido",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7kHIrYxj89bomDnKjXYAwIuKNqAvIIoU9yQ&s"
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4rnAdpSPVK3rLFTHhU0igU9e9T2F6SrdSdBt8YLVY6MNhmw3iJ-fk1Iv5hN48tfhr7qg&usqp=CAU"
   }
 ];
   
@@ -324,7 +324,7 @@ export const hamburguesas = [
       tipo_carne: "vacuna",
       acompanamiento: "papas",
       tamano: "doble",
-      imagen: "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-mexican-cocktail-lemonade-png-image_10255941.png"
+      imagen: "https://static.vecteezy.com/system/resources/previews/022/911/694/non_2x/cute-cartoon-burger-icon-free-png.png"
   },
   {
       nombre: "Hamburguesa Veggie",
@@ -334,7 +334,7 @@ export const hamburguesas = [
       tipo_carne: "veggie",
       acompanamiento: "nachos",
       tamano: "simple",
-      imagen: "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-mexican-cocktail-lemonade-png-image_10255941.png"
+      imagen: "https://i.pinimg.com/736x/97/da/26/97da268ca85129275b94af124e9862ed.jpg"
   },
   {
       nombre: "Hamburguesa Crispy",
@@ -344,7 +344,7 @@ export const hamburguesas = [
       tipo_carne: "pollo",
       acompanamiento: "papas",
       tamano: "doble",
-      imagen: "https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-mexican-cocktail-lemonade-png-image_10255941.png"
+      imagen: "https://png.pngtree.com/png-clipart/20250102/original/pngtree-mouth-watering-fresh-chicken-burger-for-culinary-use-png-image_18842288.png"
   }
 ];
 

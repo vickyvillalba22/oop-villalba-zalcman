@@ -166,7 +166,7 @@ let menuLateral = document.getElementById("caja-reservas");
 
 //agregarle la funcion de cerrar al boton, y asignarle al boton "mis reservas que abra el lateral"
 let abrirLateral = document.querySelector("header button");
-console.log(abrirLateral);
+//console.log(abrirLateral);
 
 
 let cerrarLateral = document.getElementById("close-lateral");
@@ -214,7 +214,7 @@ export function mostrarReservas(container, datos) {
                     <div class="df centerY spaceb">
                         <div class="df w45 spaceb">
 
-                            <img src="${datos[i].imagen}" alt="" class="w50 bordeRedondo">
+                            <img src="${datos[i].imagen}" alt="" class="w50 bordeRedondo objCover">
     
                             <div class="df columna spacee w40">
                                 <h3>${datos[i].nombre}</h3>
@@ -498,14 +498,14 @@ function tres_eventos_random() {
     for (let i=0; i<destacados.length; i++){
 
         let destacado = document.createElement("a");
-        destacado.classList.add("w25", "vh60", "bordeRedondo", "df", "columna", "spacee", "centerY");
+        destacado.classList.add("w25", "vh60", "bordeRedondo", "df", "columna", "spacee", "centerY", "mt1m","w100m");
 
         destacado.innerHTML = `
 
                     <img src="${destacados[i].imagen}" alt="" class="w100 vh40 bordeRedondo objCover">
                     <h3 class="blanco mt1 textCenter w100">${destacados[i].nombre}</h3>
                     <span class="blanco">${destacados[i].fecha}</span>
-                    <a href="${categorias[i]}.html"><button class="ajuste-boton sinBorde fondoCeleste blanco mt1">Ver más</button></a>
+                    <a href="${categorias[i]}.html"><button class="ajuste-boton sinBorde fondoCeleste blanco mt1">Ver más eventos</button></a>
 
         ` 
         contDestacados.appendChild(destacado);

@@ -14,7 +14,7 @@
     
     <header class="vh10 df centerY centerX w100 posAb">
         <div class="w90 df spaceb centerY">
-            <img src="assets/imgs/logo-prueba.svg" alt="">
+            <img src="assets/imgs/logo-blanco.png" id="logo" class="objCover" alt="">
             <button class="sinBorde botonCeleste blanco ajuste-boton">Mis reservas</button>
         </div>
     </header>
@@ -30,26 +30,26 @@
 
         </section>
 
-        <section class="w100 df columna centerY mt4">
+        <section class="w100 df columna centerY mt4 w100m">
 
             <h3 class="blanco">Completá los datos sobre tu evento</h3>
 
-            <form action="" class="w50 vh70 df columna spacea mt1">
+            <form action="" class="w50 vh70 df columna spacea mt1 w90m">
 
                 <!--EVENTO-->
-                <label class="w100 grisClaro" for="nombre">Nombre del evento</label>
-                <input class="w100" type="text" name="nombre" id="nombre">
+                <label class="w100 grisClaro mt1" for="nombre">Nombre del evento</label>
+                <input class="w100 mt1" type="text" name="nombre" id="nombre">
 
                 <div class="df spaceb">
 
                     <div class="df columna w45">
-                        <label class="grisClaro" for="fecha">Fecha</label>
-                        <input type="datetime-local" name="fecha" id="fecha">
+                        <label class="grisClaro mt1" for="fecha">Fecha</label>
+                        <input type="datetime-local" name="fecha" id="fecha" class=" mt1">
                     </div>
 
                     <div class="df columna w45">
-                        <label class="grisClaro" for="duracion">Duración (en minutos)</label>
-                        <input type="number" name="duracion" id="duracion">
+                        <label class="grisClaro mt1" for="duracion">Duración (en minutos)</label>
+                        <input type="number" name="duracion" id="duracion" class=" mt1">
                     </div>
                      
                     
@@ -57,22 +57,22 @@
 
                 
 
-                <label class="grisClaro" for="precio">Precio ($ARS)</label>
-                <input type="number" name="precio" id="precio">
+                <label class="grisClaro mt1" for="precio">Precio ($ARS)</label>
+                <input type="number" name="precio" id="precio" class=" mt1">
 
-                <label class="grisClaro" for="capacidad">Capacidad del lugar</label>
-                <input type="number" name="capacidad" id="capacidad">
+                <label class="grisClaro mt1" for="capacidad">Capacidad del lugar</label>
+                <input type="number" name="capacidad" id="capacidad" class=" mt1">
 
-                <label class="grisClaro" for="imagen">Link de imagen de portada</label>
-                <input type="text" name="imagen" id="imagen">
+                <label class="grisClaro mt1" for="imagen">Link de imagen de portada</label>
+                <input type="text" name="imagen" id="imagen" class=" mt1">
 
                 <div>
 
                     <div class="vh10 df columna spacea">
 
-                        <p class="blanco">Seleccione el tipo de evento</p>
+                        <p class="blanco mt1">Seleccione el tipo de evento</p>
 
-                        <div class="df w40 spaceb">
+                        <div class="df w40 spaceb w90m mt1">
                             <button id="botonPelicula" class="sinBorde fondoRojo blanco ajuste-boton">Película</button>
                             <button id="botonTeatro" class="sinBorde fondoVioleta blanco ajuste-boton">Obra de teatro</button>
                             <button id="botonRecital" class="sinBorde fondoCeleste blanco ajuste-boton">Recital</button>
@@ -92,6 +92,17 @@
                 </div>
 
             </form>
+
+            <dialog id="modalInfo" class="w40 vh60 sinBorde bordeRedondo w90m w60t">
+
+                <button id="boton-reservar" class="ajuste-boton sinBorde fondoCeleste blanco">Reservar</button>
+
+                <div id="muestra-info">
+                    
+                </div>
+                
+            </dialog>
+            
         </section>
 
         <!--section para que aparezcan los eventos que agregamos-->

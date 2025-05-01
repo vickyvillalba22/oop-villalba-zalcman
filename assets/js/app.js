@@ -209,10 +209,10 @@ export function mostrarReservas(container, datos) {
             console.log(datos[i]);
 
             cajita.innerHTML = `
-            <div id="evento-reservado" class="df columna spaceb centerY spaceb mt1">
+            <div id="evento-reservado" class="df columna spaceb centerY spaceb mt1 vh45m">
 
-                    <div class="df centerY spaceb">
-                        <div class="df w45 spaceb">
+                    <div class="df centerY spaceb columnaM spaceaM vh45m">
+                        <div class="df w45 spaceb w100m">
 
                             <img src="${datos[i].imagen}" alt="" class="w50 bordeRedondo objCover">
     
@@ -224,7 +224,7 @@ export function mostrarReservas(container, datos) {
                         </div>
                         
                         
-                        <div class="df columna centerX centerY spacee h100">
+                        <div class="df columna centerX centerY spacee h100 w100m dfm rowM">
     
                             <button class="fondoRojo sinBorde ajuste-boton boton-eliminar" pos="${i}"><i class="fi fi-rr-trash blanco"></i></button>
     
@@ -248,7 +248,7 @@ export function mostrarReservas(container, datos) {
                                     <span>$${comida.precio}</span>
                                 </div>
                                 `).join('') //evita que se vean las comas
-                            : '<li>No hay comidas asignadas.</li>'
+                            : '<li class="grisClaro">No hay comidas asignadas.</li>'
                         }
                     </ul>
 

@@ -87,6 +87,10 @@ li{
     font-size: clamp(16px, 24px, 32px);
     font-weight: 500;
 }
+.tituloPrincipal{
+    font-size: clamp(24px, 40px, 42px);
+    font-weight: 600;
+}
 
 /*categorias*/
 .ajusteCategoria{
@@ -273,30 +277,63 @@ footer {
 
  /*MOBILE*/
 @media screen and (max-width: 767px) {
+
     .w100m{
         width: 100%;
     }
-
     .w90m{
         width: 90%;
     }
-
-    
+    .w80m{
+        width: 80%;
+    }
+    .w70m{
+        width: 70%;
+    }
     .w40m{
         width: 40%;
+    }
+
+    .vh100m{
+        min-height: 100vh;
+    }
+    .vh80m{
+        min-height: 80vh;
+    }
+    .vh70m{
+        min-height: 70vh;
+    }
+    .vh60m{
+        height: 60vh;
+    }
+    .vh45m{
+        min-height: 45vh;
+    }
+    .vh30m{
+        height: 30vh;
     }
 
 
     .dfm{
         display: flex;
     }
-
+    .rowM{
+        flex-direction: row;
+    }
+    .columnaM{
+        flex-direction: column;
+    }
     .centerXm{
         justify-content: center;
     }
-
     .centerYm{
         align-items: center;
+    }
+    .spaceaM{
+        justify-content: space-around;
+    }
+    .spacebM{
+        justify-content: space-between;
     }
 
     #modalInfo{
@@ -321,10 +358,22 @@ footer {
         margin-top: 1em;
     }
 
+    .mostrar-comida{
+        margin-top: 0;
+    }
+
 }
   
   /*TABLETS*/
   @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .visibleT{
+        display: block;
+    }
+    .invisibleT{
+        display: none;
+    }
+
     .w45t{
         width: 45%;
     }

@@ -362,6 +362,12 @@ footer {
         margin-top: 0;
     }
 
+    #descuentoElements{
+        flex-direction: column;
+        gap: 1em;
+        margin: 1em 0;
+    }
+
 }
   
   /*TABLETS*/

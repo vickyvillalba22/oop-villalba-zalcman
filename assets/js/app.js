@@ -184,6 +184,7 @@ if (cerrarLateral){
 //traigo el contenedor donde van las reservas nuevas
 let cajaReservas = document.getElementById("cont-reservas");
 let descuentoBox = document.getElementById("descuentoBox");
+let descuentoElements = document.getElementById("descuentoElements");
 let sinReservas = document.getElementById("sinReservas");
 
 //esta funcion será la que muestra el menu lateral con las reservas
@@ -411,8 +412,8 @@ const codigosDescuento = {
     '5678': 30,
   };
 
-
   let avisoDescuento = document.createElement("span");
+  avisoDescuento.setAttribute("id", "avisoDescuento");
   avisoDescuento.classList.add("mt1");
   let descuento = false
 
@@ -421,7 +422,7 @@ const codigosDescuento = {
   
     if(descuento === true){
         avisoDescuento.innerHTML = "Ya se aplicó un descuento";
-        descuentoBox.appendChild(avisoDescuento);
+        descuentoElements.appendChild(avisoDescuento);
         return; //salgo de la funcion
     }
 
@@ -450,7 +451,7 @@ const codigosDescuento = {
         console.log(`Precio con descuento: $${totalConDescuento}`);
 
       avisoDescuento.innerHTML = `Se aplicó un ${porcentaje}% de descuento`;
-      descuentoBox.appendChild(avisoDescuento);
+      descuentoElements.appendChild(avisoDescuento);
 
       descuento = true
       
@@ -458,7 +459,7 @@ const codigosDescuento = {
     } else {
 
       avisoDescuento.innerHTML = "Código inválido. No se aplicó ningún descuento.";
-      descuentoBox.appendChild(avisoDescuento);
+      descuentoElements.appendChild(avisoDescuento);
       
     }
   }

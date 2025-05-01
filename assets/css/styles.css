@@ -280,6 +280,12 @@ footer {
     color: #cdced5;
   }
 
+#avisoDescuento{
+    text-align: right;
+    color: #3f4045;
+    width: 20%;
+}
+
  /*MOBILE*/
 @media screen and (max-width: 767px) {
 
@@ -385,6 +391,12 @@ footer {
 
     .icono{
         display: none;
+    }
+
+    #avisoDescuento{
+        text-align: center;
+        color: #3f4045;
+        width: 90%;
     }
 
 }

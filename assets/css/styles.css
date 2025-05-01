@@ -275,6 +275,10 @@ footer {
     gap: 2em;
   }
 
+  input::placeholder{
+    color: #cdced5;
+  }
+
  /*MOBILE*/
 @media screen and (max-width: 767px) {
 
@@ -340,6 +344,9 @@ footer {
         top: 20%;
         left: 5%;
     }
+    #boton-reservar{
+        margin-top: 2em;
+    }
 
     #dialog-comida{
         top: 50%;
@@ -366,6 +373,17 @@ footer {
         flex-direction: column;
         gap: 1em;
         margin: 1em 0;
+    }
+
+    .ajusteCategoria{
+        height: 10vh;
+    }
+    .filters{
+        gap: 1em;
+    }
+
+    .icono{
+        display: none;
     }
 
 }

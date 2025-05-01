@@ -176,20 +176,20 @@ export const recitalesData = [
     nombre: "Noches de Rock",
     fecha: "2025-06-15",
     horario: "21:00",
-    duracion: 120,
+    duracion: 2,
     precio: 9500,
     capacidad: 5000,
     artista: "Los Infiltrados",
     generoMusical: "Rock",
     nombreAlbum: "Caos Perfecto",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP1Kenbgn1031jpRXGM6X42Qhi_kQ6MaxYQQ&s"
+    imagen: "https://u7.uidownload.com/vector/237/581/vector-rock-festival-flyer-blau-vector-eps-thumbnail.jpg"
     
   },
   {
     nombre: "Vibraciones Urbanas",
     fecha: "2025-05-22",
     horario: "20:30",
-    duracion: 90,
+    duracion: 1.5,
     precio: 8200,
     capacidad: 3000,
     artista: "La Rima Salvaje",
@@ -201,7 +201,7 @@ export const recitalesData = [
     nombre: "Electro Night",
     fecha: "2025-07-08",
     horario: "23:00",
-    duracion: 180,
+    duracion: 3,
     precio: 12000,
     capacidad: 7000,
     artista: "DJ Nova",
@@ -213,37 +213,37 @@ export const recitalesData = [
     nombre: "Cuerdas del Alma",
     fecha: "2025-04-28",
     horario: "19:00",
-    duracion: 75,
+    duracion: 0.5,
     precio: 6000,
     capacidad: 1500,
     artista: "Lucía Pérez",
     generoMusical: "Folk",
     nombreAlbum: "Raíz",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf8Ke99_A59zviwzwHtO6B6V4vT0CqvV-RDA&shttps://img.freepik.com/foto-gratis/vista-lateral-hombre-tocando-piano_23-2150060681.jpg?semt=ais_hybrid&w=740"
+    imagen: "https://media.istockphoto.com/id/1091858140/es/foto/instrumento-de-cuerdas-violonchelo-de-estilo-cl%C3%A1sico.jpg?s=612x612&w=0&k=20&c=v8HdfAF1XPkkbUViVQUaVXzt7Z5vtMPu5f2m3bXCyVQ="
   },
   {
     nombre: "Latido Tropical",
     fecha: "2025-08-12",
     horario: "22:00",
-    duracion: 100,
+    duracion: 1.2,
     precio: 7800,
     capacidad: 3500,
     artista: "Grupo Caribe",
     generoMusical: "Salsa",
     nombreAlbum: "Sabor y Ritmo",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfogIymi7RZJaBqvtOCMoSC7Ga92M7p1CDcg&s"
+    imagen: "https://marketplace.canva.com/EAGPpNdGkYU/2/0/1131w/canva-flyer-fiesta-tropical-textura-amarillo-y-morado-nXIC8USDQNM.jpg"
   },
   {
     nombre: "Metal del Sur",
     fecha: "2025-09-03",
     horario: "20:00",
-    duracion: 110,
+    duracion: 1.3,
     precio: 9900,
     capacidad: 4000,
     artista: "Hierro Austral",
     generoMusical: "Metal",
     nombreAlbum: "Aullido",
-    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4rnAdpSPVK3rLFTHhU0igU9e9T2F6SrdSdBt8YLVY6MNhmw3iJ-fk1Iv5hN48tfhr7qg&usqp=CAU"
+    imagen: "https://img.freepik.com/premium-photo/vertical-screen-rock-band-performing-nightclub-stage-with-dynamic-lights-animated-led-screen_1313853-72855.jpg"
   }
 ];
   

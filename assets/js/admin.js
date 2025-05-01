@@ -1,5 +1,5 @@
 import { obrasData, peliculasData, recitalesData } from "./data-base.js";
-import { cartelera, botones_mostrar, mostrarModal } from "./app.js";
+import { cartelera } from "./app.js";
 
 //la lógica está, solo quedaria mostrarlo con el dom. 
 
@@ -29,11 +29,17 @@ function cargarEvento (arrayData){
     eventosNuevos.push(objetoNuevo);
     contNuevos.innerHTML = "";
     cartelera(contNuevos, eventosNuevos, "fondoVioleta");
+
+    //SOLUCION
+    //agarro todos los botones mostrar
+    let botonesMostrar = document.querySelectorAll(".boton-mostrar");
+    //los oculto
+    botonesMostrar.forEach((boton)=>{
+        boton.classList.add("invisible");
+    })
+
     //log del array despues, tiene 7
     console.log(eventosNuevos);
-
-    botones_mostrar(eventosNuevos);
-    mostrarModal(objetoNuevo, arrayData, arrayData[objetoNuevo])
 }
 
 //este es el container del form específico con los botones que muestran sus respectivos forms

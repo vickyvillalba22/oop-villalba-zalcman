@@ -83,6 +83,10 @@ li{
 .closei{
     font-size: 24px;
 }
+.titulo{
+    font-size: clamp(16px, 24px, 32px);
+    font-weight: 500;
+}
 
 /*categorias*/
 .ajusteCategoria{
@@ -261,6 +265,10 @@ footer {
  .icono{
     font-size: 3em; 
     color: white;
+  }
+
+  #eventos-agregados{
+    gap: 2em;
   }
 
  /*MOBILE*/

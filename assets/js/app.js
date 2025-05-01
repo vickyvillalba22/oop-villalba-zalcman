@@ -206,6 +206,8 @@ export function mostrarReservas(container, datos) {
 
             sinReservas.classList.add("invisible");
 
+            console.log(datos[i]);
+
             cajita.innerHTML = `
             <div id="evento-reservado" class="df columna spaceb centerY spaceb mt1">
 
@@ -238,7 +240,7 @@ export function mostrarReservas(container, datos) {
                     <ul class="mt1 w100">
                         ${datos[i].comida.length > 0 
                             ? datos[i].comida.map((comida, indexComida) =>`
-                                <div class="w100 df spaceb mt1">
+                                <div class="w100 df spaceb mt1 centerY">
                                     <li class="w40">${comida.nombre}</li>
                                     <button class="eliminar-comida fondoRojo sinBorde ajuste-boton" data-evento="${i}" data-comida="${indexComida}">
                                         <i class="fi fi-rr-trash blanco"></i>

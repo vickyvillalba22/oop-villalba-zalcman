@@ -283,7 +283,7 @@ class Recital extends Evento {
 
     constructor(nombre, fecha, horario, duracion, precio, capacidad, comida, imagen, artista, generoMusical, nombreAlbum){
 
-        super(nombre, fecha, horario, duracion, precio, capacidad, comida, imagen,);
+        super(nombre, fecha, horario, duracion, precio, capacidad, comida, imagen);
 
         this.#artista = artista;
         this.#generoMusical = generoMusical;
@@ -346,6 +346,8 @@ for (let recital of recitalesData){
         recital.duracion,
         recital.precio,
         recital.capacidad,
+        recital.comida,
+        recital.imagen,
         recital.artista,
         recital.generoMusical,
         recital.nombreAlbum
